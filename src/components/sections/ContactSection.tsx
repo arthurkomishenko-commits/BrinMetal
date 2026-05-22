@@ -28,13 +28,13 @@ export function ContactSection() {
 
   return (
     <AssembleSection id="contact" className="section-padding relative bg-[var(--gunmetal)]">
-      <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+      <div className="absolute top-1/3 end-1/4 w-[450px] h-[450px] rounded-full bg-[var(--copper)] opacity-[0.02] blur-[110px] animate-[glow-breathe_9s_ease-in-out_infinite_1s] pointer-events-none" />
       <div className="container-wide">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           <div className="lg:col-span-5">
             <span data-assemble="up" data-assemble-delay="0" className="inline-block text-[11px] uppercase tracking-[0.2em] text-[var(--copper)] font-medium">{t("subtitle")}</span>
             <h2 data-assemble="up" data-assemble-delay="1" className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] text-[var(--off-white)]">{t("title")}</h2>
-            <div data-assemble="line" data-assemble-delay="2" className="mt-5 sm:mt-6 w-12 sm:w-16 h-[2px] bg-[var(--copper)] origin-start" />
+            <div data-assemble="line" data-assemble-delay="2" className="mt-5 sm:mt-6 w-12 sm:w-16 h-[2px] bg-[var(--copper)] origin-start accent-line-shimmer" />
 
             <div data-assemble="up" data-assemble-delay="3" className="mt-8 sm:mt-10 flex flex-col gap-4 sm:gap-5">
               <a href={`tel:${siteConfig.contact.phone}`} className="group flex items-center gap-3 sm:gap-4 text-[var(--titanium)] active:text-[var(--off-white)] md:hover:text-[var(--off-white)] transition-colors min-h-[44px]">

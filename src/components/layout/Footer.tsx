@@ -31,8 +31,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="relative bg-[var(--graphite)] border-t border-white/[0.06]">
-      <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--copper)]/30 to-transparent" />
+    <footer className="relative bg-[var(--graphite)] footer-shimmer">
 
       <div className="container-wide pt-12 pb-6 sm:pt-16 sm:pb-8 md:pt-20 md:pb-10">
         <RevealOnScroll>

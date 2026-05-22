@@ -127,3 +127,171 @@
   background-clip: text;
   color: transparent;
 }
+
+/* ===== Premium ambient animations ===== */
+
+/* Golden shimmer traveling along section dividers */
+@keyframes shimmer-line {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+/* Soft ambient glow breathing */
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.03; }
+  50% { opacity: 0.07; }
+}
+
+/* Subtle metallic gleam on text */
+@keyframes metal-gleam {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Soft border pulse */
+@keyframes border-pulse {
+  0%, 100% { opacity: 0.04; }
+  50% { opacity: 0.1; }
+}
+
+@layer components {
+  /* Section divider with traveling golden shimmer */
+  .divider-shimmer {
+    position: relative;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.04), transparent);
+    overflow: hidden;
+  }
+  .divider-shimmer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 40%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--copper),
+      transparent
+    );
+    opacity: 0.25;
+    animation: shimmer-line 6s ease-in-out infinite;
+  }
+
+  /* Ambient copper glow for section backgrounds */
+  .ambient-glow {
+    position: relative;
+  }
+  .ambient-glow::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 40%;
+    height: 50%;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, var(--copper) 0%, transparent 70%);
+    opacity: 0.03;
+    animation: glow-breathe 8s ease-in-out infinite;
+    pointer-events: none;
+    filter: blur(80px);
+  }
+
+  /* Metallic text gleam effect */
+  .text-gleam {
+    background-image: linear-gradient(
+      110deg,
+      var(--off-white) 0%,
+      var(--off-white) 40%,
+      var(--copper) 50%,
+      var(--off-white) 60%,
+      var(--off-white) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: metal-gleam 8s ease-in-out infinite;
+  }
+
+  /* Card border with subtle pulse glow */
+  .border-glow {
+    position: relative;
+  }
+  .border-glow::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border: 1px solid var(--copper);
+    opacity: 0.04;
+    pointer-events: none;
+    animation: border-pulse 5s ease-in-out infinite;
+  }
+
+  /* Accent line with traveling shimmer */
+  .accent-line-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .accent-line-shimmer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    animation: shimmer-line 4s ease-in-out infinite;
+  }
+
+  /* Footer top border shimmer */
+  .footer-shimmer {
+    position: relative;
+  }
+  .footer-shimmer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.04), transparent);
+    overflow: hidden;
+  }
+  .footer-shimmer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--copper),
+      transparent
+    );
+    opacity: 0.2;
+    animation: shimmer-line 8s ease-in-out infinite;
+  }
+}
+
+/* Reduced motion: disable all ambient animations */
+@media (prefers-reduced-motion: reduce) {
+  .divider-shimmer::after,
+  .accent-line-shimmer::after,
+  .footer-shimmer::after,
+  .border-glow::after {
+    animation: none !important;
+  }
+  .text-gleam {
+    animation: none !important;
+    color: var(--off-white) !important;
+    background: none !important;
+    -webkit-text-fill-color: var(--off-white) !important;
+  }
+}

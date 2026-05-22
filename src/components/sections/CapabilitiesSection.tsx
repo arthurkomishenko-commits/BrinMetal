@@ -42,12 +42,13 @@ export function CapabilitiesSection() {
   const tSection = useTranslations("services");
 
   return (
-    <AssembleSection id="services" className="section-padding">
+    <AssembleSection id="services" className="section-padding relative">
+      <div className="absolute bottom-1/4 start-1/5 w-[400px] h-[300px] rounded-full bg-[var(--copper)] opacity-[0.015] blur-[100px] animate-[glow-breathe_11s_ease-in-out_infinite_4s] pointer-events-none" />
       <div className="container-wide">
         <div className="mb-10 sm:mb-14 md:mb-20">
           <span data-assemble="up" data-assemble-delay="0" className="inline-block text-[11px] uppercase tracking-[0.2em] text-[var(--copper)] font-medium">{tSection("subtitle")}</span>
           <h2 data-assemble="up" data-assemble-delay="1" className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] text-[var(--off-white)]">{tSection("title")}</h2>
-          <div data-assemble="line" data-assemble-delay="2" className="mt-5 sm:mt-6 w-12 sm:w-16 h-[2px] bg-[var(--copper)] origin-start" />
+          <div data-assemble="line" data-assemble-delay="2" className="mt-5 sm:mt-6 w-12 sm:w-16 h-[2px] bg-[var(--copper)] origin-start accent-line-shimmer" />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           {services.map((service, i) => {
