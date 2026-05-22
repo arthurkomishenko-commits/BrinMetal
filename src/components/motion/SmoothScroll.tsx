@@ -1,13 +1,7 @@
 "use client";
 
 import { createContext, useEffect, useState } from "react";
-import Lenis from "lenis";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { lenisConfig } from "@/lib/motion/lenis-config";
-
-// Ensure registration
-gsap.registerPlugin(ScrollTrigger);
+import type Lenis from "lenis";
 
 export const LenisContext = createContext<Lenis | null>(null);
 
@@ -25,29 +19,56 @@ export function SmoothScroll({ children }: SmoothScrollProps) {
       window.matchMedia("(pointer: coarse)").matches;
 
     if (isTouch) {
-      // Mobile: no Lenis, native scroll only
-      // Just refresh ScrollTrigger after DOM is ready
-      requestAnimationFrame(() => {
+      // Mobile: native scroll, just ensure ScrollTrigger is ready
+      Promise.all([
+        import("gsap"),
+        import("gsap/ScrollTrigger"),
+      ]).then(([gsapModule, stModule]) => {
+        const gsap = gsapModule.default;
+        const { ScrollTrigger } = stModule;
+        gsap.registerPlugin(ScrollTrigger);
         ScrollTrigger.refresh();
       });
       return;
     }
 
     // Desktop: Lenis smooth scroll
-    const lenisInstance = new Lenis(lenisConfig);
-    setLenis(lenisInstance);
+    Promise.all([
+      import("gsap"),
+      import("gsap/ScrollTrigger"),
+      import("lenis"),
+      import("@/lib/motion/lenis-config"),
+    ]).then(([gsapModule, stModule, lenisModule, configModule]) => {
+      const gsap = gsapModule.default;
+      const { ScrollTrigger } = stModule;
+      const LenisClass = lenisModule.default;
+      gsap.registerPlugin(ScrollTrigger);
 
-    lenisInstance.on("scroll", ScrollTrigger.update);
+      const lenisInstance = new LenisClass(configModule.lenisConfig);
+      setLenis(lenisInstance);
 
-    const rafCallback = (time: number) => {
-      lenisInstance.raf(time * 1000);
-    };
-    gsap.ticker.add(rafCallback);
-    gsap.ticker.lagSmoothing(0);
+      lenisInstance.on("scroll", ScrollTrigger.update);
+
+      const rafCallback = (time: number) => {
+        lenisInstance.raf(time * 1000);
+      };
+      gsap.ticker.add(rafCallback);
+      gsap.ticker.lagSmoothing(0);
+
+      // Store cleanup data
+      (window as unknown as Record<string, unknown>).__lenisCleanup = { gsap, rafCallback, lenisInstance };
+    });
 
     return () => {
-      gsap.ticker.remove(rafCallback);
-      lenisInstance.destroy();
+      const cleanup = (window as unknown as Record<string, unknown>).__lenisCleanup as {
+        gsap: typeof import("gsap").gsap;
+        rafCallback: (time: number) => void;
+        lenisInstance: Lenis;
+      } | undefined;
+      if (cleanup) {
+        cleanup.gsap.ticker.remove(cleanup.rafCallback);
+        cleanup.lenisInstance.destroy();
+      }
       setLenis(null);
     };
   }, []);

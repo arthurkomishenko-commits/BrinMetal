@@ -2,13 +2,9 @@
 
 import { useRef, useEffect, useCallback } from "react";
 import { useTranslations } from "next-intl";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLenis } from "@/hooks/useLenis";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { MagneticElement } from "@/components/motion/MagneticElement";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export function HeroSection() {
   const t = useTranslations("hero");
@@ -19,8 +15,9 @@ export function HeroSection() {
   const isDesktop = useMediaQuery("lg");
 
   const handleMouseMove = useCallback(
-    (e: React.MouseEvent) => {
+    async (e: React.MouseEvent) => {
       if (!isDesktop || !containerRef.current) return;
+      const { default: gsap } = await import("gsap");
       const rect = containerRef.current.getBoundingClientRect();
       const mx = e.clientX - rect.left - rect.width / 2;
       const my = e.clientY - rect.top - rect.height / 2;
@@ -38,9 +35,19 @@ export function HeroSection() {
     const container = containerRef.current;
     if (!container) return;
 
-    const mobile = window.innerWidth < 768;
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ delay: mobile ? 0.15 : 0.5 });
+    let ctx: ReturnType<typeof import("gsap").gsap.context> | null = null;
+
+    Promise.all([
+      import("gsap"),
+      import("gsap/ScrollTrigger"),
+    ]).then(([gsapModule, stModule]) => {
+      const gsap = gsapModule.default;
+      const { ScrollTrigger } = stModule;
+      gsap.registerPlugin(ScrollTrigger);
+
+      const mobile = window.innerWidth < 768;
+      ctx = gsap.context(() => {
+        const tl = gsap.timeline({ delay: mobile ? 0.15 : 0.5 });
 
       tl.from("[data-hero-line]", {
         scaleX: 0,
@@ -96,10 +103,11 @@ export function HeroSection() {
           ease: "none",
           scrollTrigger: { trigger: container, start: "60% top", end: "bottom top", scrub: 1 },
         });
-      }
-    }, container);
+        }
+      }, container);
+    });
 
-    return () => ctx.revert();
+    return () => { ctx?.revert(); };
   }, []);
 
   function handleCTAClick() {

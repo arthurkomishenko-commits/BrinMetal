@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import { useGSAP } from "@gsap/react";
-import { gsap } from "@/lib/motion/gsap-config";
+import gsap from "gsap";
 import { cn } from "@/lib/utils";
 import { useLenis } from "@/hooks/useLenis";
 import type { Locale } from "@/types";

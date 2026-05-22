@@ -2,17 +2,16 @@
 
 import { useRef, useCallback } from "react";
 import { useGSAP } from "@gsap/react";
-import { gsap, ScrollTrigger } from "@/lib/motion/gsap-config";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface UseGsapOptions {
   scope?: React.RefObject<HTMLElement | null>;
   dependencies?: unknown[];
 }
 
-/**
- * Consistent GSAP hook wrapper for components.
- * Automatically scopes animations and handles cleanup.
- */
 export function useGsapAnimation(
   callback: (context: { gsap: typeof gsap; ScrollTrigger: typeof ScrollTrigger }) => void,
   options: UseGsapOptions = {}
@@ -34,9 +33,6 @@ export function useGsapAnimation(
   return { containerRef: scopeRef };
 }
 
-/**
- * Creates a reusable timeline factory scoped to a container.
- */
 export function useGsapTimeline(options: UseGsapOptions = {}) {
   const { scope, dependencies = [] } = options;
   const containerRef = useRef<HTMLDivElement>(null);

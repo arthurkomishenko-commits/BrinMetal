@@ -1,11 +1,3 @@
-"use client";
-
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-// Register ScrollTrigger globally -- must happen before any animation code
-gsap.registerPlugin(ScrollTrigger);
-
 export const easings = {
   industrial: "power3.out",
   heavy: "power4.inOut",
@@ -24,5 +16,3 @@ export function isMobile(): boolean {
   if (typeof window === "undefined") return false;
   return window.innerWidth < 768;
 }
-
-export { gsap, ScrollTrigger };

@@ -1,11 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
-
-gsap.registerPlugin(ScrollTrigger);
 
 interface RevealOnScrollProps {
   children: React.ReactNode;
@@ -26,39 +22,48 @@ export function RevealOnScroll({
     const el = ref.current;
     if (!el) return;
 
-    const mobile = window.innerWidth < 768;
-    const dist = mobile ? 30 : direction === "up" ? 50 : 70;
-    const dur = mobile ? 0.5 : 0.7;
-    const d = mobile ? Math.min(delay, 0.05) : delay;
+    let tween: { kill: () => void; scrollTrigger?: { kill: () => void } } | null = null;
 
-    // Set initial state
-    const fromVars: gsap.TweenVars = { opacity: 0 };
-    if (direction === "up") fromVars.y = dist;
-    else if (direction === "left") fromVars.x = -dist;
-    else if (direction === "right") fromVars.x = dist;
+    Promise.all([
+      import("gsap"),
+      import("gsap/ScrollTrigger"),
+    ]).then(([gsapModule, stModule]) => {
+      const gsap = gsapModule.default;
+      const { ScrollTrigger } = stModule;
+      gsap.registerPlugin(ScrollTrigger);
 
-    gsap.set(el, fromVars);
+      const mobile = window.innerWidth < 768;
+      const dist = mobile ? 30 : direction === "up" ? 50 : 70;
+      const dur = mobile ? 0.5 : 0.7;
+      const d = mobile ? Math.min(delay, 0.05) : delay;
 
-    // Animate with ScrollTrigger
-    const toVars: gsap.TweenVars = {
-      opacity: 1,
-      x: 0,
-      y: 0,
-      duration: dur,
-      delay: d,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: el,
-        start: mobile ? "top 98%" : "top 88%",
-        toggleActions: "play none none reverse",
-      },
-    };
+      const fromVars: Record<string, number> = { opacity: 0 };
+      if (direction === "up") fromVars.y = dist;
+      else if (direction === "left") fromVars.x = -dist;
+      else if (direction === "right") fromVars.x = dist;
 
-    const tween = gsap.to(el, toVars);
+      gsap.set(el, fromVars);
+
+      tween = gsap.to(el, {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        duration: dur,
+        delay: d,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: el,
+          start: mobile ? "top 98%" : "top 88%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    });
 
     return () => {
-      tween.kill();
-      if (tween.scrollTrigger) tween.scrollTrigger.kill();
+      if (tween) {
+        tween.kill();
+        if (tween.scrollTrigger) tween.scrollTrigger.kill();
+      }
     };
   }, [direction, delay]);
 
