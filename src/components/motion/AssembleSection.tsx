@@ -31,41 +31,71 @@ export function AssembleSection({
     if (!elements.length) return;
 
     // ==========================================
-    // MOBILE: CSS transitions + IntersectionObserver
+    // MOBILE: Inline styles + IntersectionObserver
+    // Zero CSS dependency. Bulletproof.
     // ==========================================
     if (isTouch) {
-      // Force-reveal elements that are already visible on load
+      const easing = "cubic-bezier(0.22, 1, 0.36, 1)";
+
+      // Set initial hidden state via INLINE STYLES
       elements.forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-          el.classList.add("revealed");
+        const htmlEl = el as HTMLElement;
+        const dir = el.getAttribute("data-assemble") || "up";
+        const delayIdx = parseInt(el.getAttribute("data-assemble-delay") || "0", 10);
+        const delay = Math.min(delayIdx * 0.06, 0.4);
+
+        htmlEl.style.transition = `opacity 0.6s ${easing} ${delay}s, transform 0.6s ${easing} ${delay}s`;
+
+        switch (dir) {
+          case "up":
+            htmlEl.style.opacity = "0";
+            htmlEl.style.transform = "translateY(30px)";
+            break;
+          case "left":
+            htmlEl.style.opacity = "0";
+            htmlEl.style.transform = "translateX(-30px)";
+            break;
+          case "right":
+            htmlEl.style.opacity = "0";
+            htmlEl.style.transform = "translateX(30px)";
+            break;
+          case "scale":
+            htmlEl.style.opacity = "0";
+            htmlEl.style.transform = "scale(0.93)";
+            break;
+          case "line":
+            htmlEl.style.transform = "scaleX(0)";
+            break;
         }
       });
 
+      // Reveal via IntersectionObserver
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
+            const htmlEl = entry.target as HTMLElement;
             if (entry.isIntersecting) {
-              entry.target.classList.add("revealed");
+              htmlEl.style.opacity = "1";
+              htmlEl.style.transform = "none";
             } else {
-              entry.target.classList.remove("revealed");
+              // Re-hide when leaving viewport
+              const dir = htmlEl.getAttribute("data-assemble") || "up";
+              switch (dir) {
+                case "up":    htmlEl.style.opacity = "0"; htmlEl.style.transform = "translateY(30px)"; break;
+                case "left":  htmlEl.style.opacity = "0"; htmlEl.style.transform = "translateX(-30px)"; break;
+                case "right": htmlEl.style.opacity = "0"; htmlEl.style.transform = "translateX(30px)"; break;
+                case "scale": htmlEl.style.opacity = "0"; htmlEl.style.transform = "scale(0.93)"; break;
+                case "line":  htmlEl.style.transform = "scaleX(0)"; break;
+              }
             }
           });
         },
-        { threshold: 0, rootMargin: "50px" }
+        { threshold: 0.05, rootMargin: "20px" }
       );
 
       elements.forEach((el) => observer.observe(el));
 
-      // Safety net: if after 3s elements are still hidden, force show
-      const safety = setTimeout(() => {
-        elements.forEach((el) => el.classList.add("revealed"));
-      }, 3000);
-
-      return () => {
-        observer.disconnect();
-        clearTimeout(safety);
-      };
+      return () => observer.disconnect();
     }
 
     // ==========================================
@@ -81,19 +111,17 @@ export function AssembleSection({
       const { ScrollTrigger } = stModule;
       gsap.registerPlugin(ScrollTrigger);
 
-      // Mark as GSAP-controlled
       elements.forEach((el) => {
         el.setAttribute("data-gsap", "true");
         (el as HTMLElement).style.transition = "none";
       });
 
       const dist = 45;
-
       const groups = new Map<number, Element[]>();
       elements.forEach((el) => {
-        const delay = parseInt(el.getAttribute("data-assemble-delay") || "0", 10);
-        if (!groups.has(delay)) groups.set(delay, []);
-        groups.get(delay)!.push(el);
+        const d = parseInt(el.getAttribute("data-assemble-delay") || "0", 10);
+        if (!groups.has(d)) groups.set(d, []);
+        groups.get(d)!.push(el);
       });
       const sortedKeys = Array.from(groups.keys()).sort((a, b) => a - b);
 
@@ -107,41 +135,35 @@ export function AssembleSection({
           },
         });
 
-        // ASSEMBLE (0% → 40%)
-        sortedKeys.forEach((key, groupIndex) => {
+        sortedKeys.forEach((key, gi) => {
           groups.get(key)!.forEach((el) => {
             const dir = el.getAttribute("data-assemble") || "up";
-            const enterFrom: gsap.TweenVars = { opacity: 0 };
-            const enterTo: gsap.TweenVars = { opacity: 1, duration: 0.4 };
-
+            const from: gsap.TweenVars = { opacity: 0 };
+            const to: gsap.TweenVars = { opacity: 1, duration: 0.4 };
             switch (dir) {
-              case "left":  enterFrom.x = -dist; enterTo.x = 0; break;
-              case "right": enterFrom.x = dist;  enterTo.x = 0; break;
-              case "scale": enterFrom.scale = 0.92; enterTo.scale = 1; break;
-              case "line":  enterFrom.scaleX = 0; enterTo.scaleX = 1; break;
-              default:      enterFrom.y = dist;   enterTo.y = 0; break;
+              case "left":  from.x = -dist; to.x = 0; break;
+              case "right": from.x = dist;  to.x = 0; break;
+              case "scale": from.scale = 0.92; to.scale = 1; break;
+              case "line":  from.scaleX = 0; to.scaleX = 1; break;
+              default:      from.y = dist;   to.y = 0; break;
             }
-
-            gsap.set(el, enterFrom);
-            tl.to(el, enterTo, groupIndex * 0.03);
+            gsap.set(el, from);
+            tl.to(el, to, gi * 0.03);
           });
         });
 
-        // DISASSEMBLE (60% → 100%)
-        [...sortedKeys].reverse().forEach((key, groupIndex) => {
+        [...sortedKeys].reverse().forEach((key, gi) => {
           groups.get(key)!.forEach((el) => {
             const dir = el.getAttribute("data-assemble") || "up";
-            const exitTo: gsap.TweenVars = { opacity: 0, duration: 0.4 };
-
+            const exit: gsap.TweenVars = { opacity: 0, duration: 0.4 };
             switch (dir) {
-              case "left":  exitTo.x = dist;    break;
-              case "right": exitTo.x = -dist;   break;
-              case "scale": exitTo.scale = 0.92; break;
-              case "line":  exitTo.scaleX = 0;   break;
-              default:      exitTo.y = -dist;    break;
+              case "left":  exit.x = dist;    break;
+              case "right": exit.x = -dist;   break;
+              case "scale": exit.scale = 0.92; break;
+              case "line":  exit.scaleX = 0;   break;
+              default:      exit.y = -dist;    break;
             }
-
-            tl.to(el, exitTo, 0.6 + groupIndex * 0.03);
+            tl.to(el, exit, 0.6 + gi * 0.03);
           });
         });
       }, section);
