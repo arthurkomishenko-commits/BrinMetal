@@ -1,9 +1,10 @@
-import { gsap } from "gsap";
+"use client";
+
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
+// Register ScrollTrigger globally -- must happen before any animation code
+gsap.registerPlugin(ScrollTrigger);
 
 export const easings = {
   industrial: "power3.out",
@@ -19,10 +20,9 @@ export const durations = {
   cinematic: 1.8,
 } as const;
 
-export const defaultScrollTriggerConfig: ScrollTrigger.Vars = {
-  start: "top 85%",
-  end: "bottom 15%",
-  toggleActions: "play none none none",
-};
+export function isMobile(): boolean {
+  if (typeof window === "undefined") return false;
+  return window.innerWidth < 768;
+}
 
 export { gsap, ScrollTrigger };

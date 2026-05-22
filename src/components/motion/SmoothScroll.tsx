@@ -2,8 +2,12 @@
 
 import { createContext, useEffect, useState } from "react";
 import Lenis from "lenis";
-import { gsap, ScrollTrigger } from "@/lib/motion/gsap-config";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { lenisConfig } from "@/lib/motion/lenis-config";
+
+// Ensure registration
+gsap.registerPlugin(ScrollTrigger);
 
 export const LenisContext = createContext<Lenis | null>(null);
 
@@ -11,37 +15,30 @@ interface SmoothScrollProps {
   children: React.ReactNode;
 }
 
-function isTouchDevice() {
-  if (typeof window === "undefined") return false;
-  return (
-    "ontouchstart" in window ||
-    navigator.maxTouchPoints > 0 ||
-    window.matchMedia("(pointer: coarse)").matches
-  );
-}
-
 export function SmoothScroll({ children }: SmoothScrollProps) {
   const [lenis, setLenis] = useState<Lenis | null>(null);
 
   useEffect(() => {
-    // On touch/mobile devices: skip Lenis entirely, use native scroll
-    if (isTouchDevice()) {
-      // Just make sure ScrollTrigger uses native scroll
-      ScrollTrigger.defaults({
-        scroller: window,
+    const isTouch =
+      "ontouchstart" in window ||
+      navigator.maxTouchPoints > 0 ||
+      window.matchMedia("(pointer: coarse)").matches;
+
+    if (isTouch) {
+      // Mobile: no Lenis, native scroll only
+      // Just refresh ScrollTrigger after DOM is ready
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
       });
-      ScrollTrigger.refresh();
       return;
     }
 
-    // Desktop: use Lenis smooth scroll
+    // Desktop: Lenis smooth scroll
     const lenisInstance = new Lenis(lenisConfig);
     setLenis(lenisInstance);
 
-    // Connect Lenis to ScrollTrigger
     lenisInstance.on("scroll", ScrollTrigger.update);
 
-    // Sync with GSAP ticker
     const rafCallback = (time: number) => {
       lenisInstance.raf(time * 1000);
     };
@@ -56,8 +53,6 @@ export function SmoothScroll({ children }: SmoothScrollProps) {
   }, []);
 
   return (
-    <LenisContext.Provider value={lenis}>
-      {children}
-    </LenisContext.Provider>
+    <LenisContext.Provider value={lenis}>{children}</LenisContext.Provider>
   );
 }

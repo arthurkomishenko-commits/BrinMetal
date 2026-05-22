@@ -1,67 +1,70 @@
 "use client";
 
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import { gsap, ScrollTrigger, easings, durations } from "@/lib/motion/gsap-config";
+import { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface RevealOnScrollProps {
   children: React.ReactNode;
   direction?: "up" | "left" | "right";
   delay?: number;
-  duration?: number;
   className?: string;
-  as?: React.ElementType;
 }
 
 export function RevealOnScroll({
   children,
   direction = "up",
   delay = 0,
-  duration,
   className,
-  as: Component = "div",
 }: RevealOnScrollProps) {
   const ref = useRef<HTMLDivElement>(null);
 
-  useGSAP(
-    () => {
-      if (!ref.current) return;
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
 
-      const isMobile = window.innerWidth < 768;
-      const dur = duration ?? (isMobile ? 0.5 : durations.standard);
-      const distance = isMobile ? 30 : direction === "up" ? 60 : 80;
+    const mobile = window.innerWidth < 768;
+    const dist = mobile ? 30 : direction === "up" ? 50 : 70;
+    const dur = mobile ? 0.5 : 0.7;
+    const d = mobile ? Math.min(delay, 0.05) : delay;
 
-      const fromVars: gsap.TweenVars = {
-        opacity: 0,
-        duration: dur,
-        delay: isMobile ? Math.min(delay, 0.1) : delay,
-        ease: easings.industrial,
-      };
+    // Set initial state
+    const fromVars: gsap.TweenVars = { opacity: 0 };
+    if (direction === "up") fromVars.y = dist;
+    else if (direction === "left") fromVars.x = -dist;
+    else if (direction === "right") fromVars.x = dist;
 
-      if (direction === "up") {
-        fromVars.y = distance;
-      } else if (direction === "left") {
-        fromVars.x = -distance;
-      } else if (direction === "right") {
-        fromVars.x = distance;
-      }
+    gsap.set(el, fromVars);
 
-      gsap.from(ref.current, {
-        ...fromVars,
-        scrollTrigger: {
-          trigger: ref.current,
-          start: isMobile ? "top 92%" : "top 85%",
-          toggleActions: "play none none none",
-        },
-      });
-    },
-    { scope: ref }
-  );
+    // Animate with ScrollTrigger
+    const toVars: gsap.TweenVars = {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      duration: dur,
+      delay: d,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: el,
+        start: mobile ? "top 98%" : "top 88%",
+        toggleActions: "play none none none",
+      },
+    };
+
+    const tween = gsap.to(el, toVars);
+
+    return () => {
+      tween.kill();
+      if (tween.scrollTrigger) tween.scrollTrigger.kill();
+    };
+  }, [direction, delay]);
 
   return (
-    <Component ref={ref} className={cn(className)}>
+    <div ref={ref} className={cn(className)}>
       {children}
-    </Component>
+    </div>
   );
 }
