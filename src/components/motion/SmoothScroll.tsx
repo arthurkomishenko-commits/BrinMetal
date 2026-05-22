@@ -2,7 +2,7 @@
 
 import { createContext, useEffect, useRef, useState } from "react";
 import Lenis from "lenis";
-import { gsap } from "gsap";
+import { gsap, ScrollTrigger } from "@/lib/motion/gsap-config";
 import { lenisConfig } from "@/lib/motion/lenis-config";
 
 export const LenisContext = createContext<Lenis | null>(null);
@@ -13,13 +13,15 @@ interface SmoothScrollProps {
 
 export function SmoothScroll({ children }: SmoothScrollProps) {
   const [lenis, setLenis] = useState<Lenis | null>(null);
-  const reqIdRef = useRef<number | null>(null);
 
   useEffect(() => {
     const lenisInstance = new Lenis(lenisConfig);
     setLenis(lenisInstance);
 
-    // Sync Lenis with GSAP ticker for smooth integration
+    // Connect Lenis scroll to ScrollTrigger -- critical for GSAP animations
+    lenisInstance.on("scroll", ScrollTrigger.update);
+
+    // Sync Lenis with GSAP ticker
     gsap.ticker.add((time) => {
       lenisInstance.raf(time * 1000);
     });
@@ -27,6 +29,7 @@ export function SmoothScroll({ children }: SmoothScrollProps) {
 
     return () => {
       lenisInstance.destroy();
+      gsap.ticker.remove(lenisInstance.raf);
       setLenis(null);
     };
   }, []);
