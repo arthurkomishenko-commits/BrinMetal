@@ -11,6 +11,7 @@ import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { CustomCursor } from "@/components/motion/CustomCursor";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { MobileScrollReveal } from "@/components/motion/MobileScrollReveal";
 import "@/styles/globals.css";
 
 const inter = Inter({
@@ -71,6 +72,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <Footer />
           </SmoothScroll>
           <WhatsAppButton />
+          <MobileScrollReveal />
         </NextIntlClientProvider>
       </body>
     </html>

@@ -102,6 +102,76 @@
   }
 }
 
+/* ===== Mobile CSS animation fallback ===== */
+/* If GSAP doesn't load on mobile, these CSS animations provide fallback */
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-left {
+  from { opacity: 0; transform: translateX(-25px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fade-right {
+  from { opacity: 0; transform: translateX(25px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fade-scale {
+  from { opacity: 0; transform: scale(0.94); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes draw-line {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* Apply CSS animations on touch devices as GSAP fallback */
+@media (pointer: coarse) {
+  [data-assemble] {
+    animation-fill-mode: both;
+    animation-duration: 0.6s;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  [data-assemble="up"] { animation-name: fade-up; }
+  [data-assemble="left"] { animation-name: fade-left; }
+  [data-assemble="right"] { animation-name: fade-right; }
+  [data-assemble="scale"] { animation-name: fade-scale; }
+  [data-assemble="line"] { animation-name: draw-line; }
+
+  /* Stagger delays */
+  [data-assemble-delay="0"] { animation-delay: 0.05s; }
+  [data-assemble-delay="1"] { animation-delay: 0.1s; }
+  [data-assemble-delay="2"] { animation-delay: 0.15s; }
+  [data-assemble-delay="3"] { animation-delay: 0.2s; }
+  [data-assemble-delay="4"] { animation-delay: 0.3s; }
+  [data-assemble-delay="5"] { animation-delay: 0.35s; }
+  [data-assemble-delay="6"] { animation-delay: 0.4s; }
+  [data-assemble-delay="7"] { animation-delay: 0.45s; }
+  [data-assemble-delay="8"] { animation-delay: 0.5s; }
+  [data-assemble-delay="9"] { animation-delay: 0.55s; }
+  [data-assemble-delay="10"] { animation-delay: 0.6s; }
+
+  /* Hero title animation */
+  [data-hero-title] > span > span {
+    animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+  }
+  [data-hero-subtitle] {
+    animation: fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+  }
+  [data-hero-cta] {
+    animation: fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+  }
+  [data-hero-line] {
+    animation: draw-line 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+    transform-origin: right; /* RTL */
+  }
+  [dir="ltr"] [data-hero-line] {
+    transform-origin: left;
+  }
+}
+
 @utility container-wide {
   margin-inline: auto;
   width: 100%;
