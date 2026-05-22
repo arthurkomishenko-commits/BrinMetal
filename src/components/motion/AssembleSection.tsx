@@ -37,36 +37,38 @@ export function AssembleSection({
     if (isTouch) {
       const easing = "cubic-bezier(0.22, 1, 0.36, 1)";
 
-      // Set initial hidden state via INLINE STYLES
+      // DEBUG: red dot in corner to confirm JS runs on mobile
+      const dbg = document.createElement("div");
+      dbg.style.cssText = "position:fixed;top:4px;left:4px;width:8px;height:8px;background:red;border-radius:50%;z-index:99999;pointer-events:none";
+      document.body.appendChild(dbg);
+      setTimeout(() => dbg.remove(), 5000);
+
+      // Step 1: Set hidden state WITHOUT transition (instant, no animation)
       elements.forEach((el) => {
         const htmlEl = el as HTMLElement;
         const dir = el.getAttribute("data-assemble") || "up";
-        const delayIdx = parseInt(el.getAttribute("data-assemble-delay") || "0", 10);
-        const delay = Math.min(delayIdx * 0.06, 0.4);
-
-        htmlEl.style.transition = `opacity 0.6s ${easing} ${delay}s, transform 0.6s ${easing} ${delay}s`;
-
+        htmlEl.style.transition = "none";
         switch (dir) {
-          case "up":
-            htmlEl.style.opacity = "0";
-            htmlEl.style.transform = "translateY(30px)";
-            break;
-          case "left":
-            htmlEl.style.opacity = "0";
-            htmlEl.style.transform = "translateX(-30px)";
-            break;
-          case "right":
-            htmlEl.style.opacity = "0";
-            htmlEl.style.transform = "translateX(30px)";
-            break;
-          case "scale":
-            htmlEl.style.opacity = "0";
-            htmlEl.style.transform = "scale(0.93)";
-            break;
-          case "line":
-            htmlEl.style.transform = "scaleX(0)";
-            break;
+          case "up":    htmlEl.style.opacity = "0"; htmlEl.style.transform = "translateY(30px)"; break;
+          case "left":  htmlEl.style.opacity = "0"; htmlEl.style.transform = "translateX(-30px)"; break;
+          case "right": htmlEl.style.opacity = "0"; htmlEl.style.transform = "translateX(30px)"; break;
+          case "scale": htmlEl.style.opacity = "0"; htmlEl.style.transform = "scale(0.93)"; break;
+          case "line":  htmlEl.style.transform = "scaleX(0)"; break;
         }
+      });
+
+      // Step 2: Force browser to apply hidden state before adding transitions
+      // Without this reflow, browser batches the style changes and skips the animation
+      void section.offsetHeight;
+
+      // Step 3: NOW add transitions (after hidden state is painted)
+      requestAnimationFrame(() => {
+        elements.forEach((el) => {
+          const htmlEl = el as HTMLElement;
+          const delayIdx = parseInt(el.getAttribute("data-assemble-delay") || "0", 10);
+          const delay = Math.min(delayIdx * 0.06, 0.4);
+          htmlEl.style.transition = `opacity 0.6s ${easing} ${delay}s, transform 0.6s ${easing} ${delay}s`;
+        });
       });
 
       // Reveal via IntersectionObserver
