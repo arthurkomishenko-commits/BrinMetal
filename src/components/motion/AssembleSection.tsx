@@ -22,9 +22,16 @@ export function AssembleSection({
     const section = ref.current;
     if (!section) return;
 
+    // On touch devices, CSS + IntersectionObserver handles animations
+    const isTouch =
+      "ontouchstart" in window ||
+      navigator.maxTouchPoints > 0 ||
+      window.matchMedia("(pointer: coarse)").matches;
+
+    if (isTouch) return;
+
     let ctx: ReturnType<typeof import("gsap").gsap.context> | null = null;
 
-    // Dynamic import to guarantee client-side only execution
     Promise.all([
       import("gsap"),
       import("gsap/ScrollTrigger"),
