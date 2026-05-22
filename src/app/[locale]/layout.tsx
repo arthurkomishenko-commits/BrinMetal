@@ -11,7 +11,6 @@ import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { CustomCursor } from "@/components/motion/CustomCursor";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
-import Script from "next/script";
 import "@/styles/globals.css";
 
 const inter = Inter({
@@ -73,76 +72,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           </SmoothScroll>
           <WhatsAppButton />
         </NextIntlClientProvider>
-        <Script id="scroll-reveal" strategy="afterInteractive">{`
-(function(){
-  var ease = "cubic-bezier(0.22, 1, 0.36, 1)";
-
-  function initReveal() {
-    var els = document.querySelectorAll("[data-assemble]");
-    if (!els.length) return;
-
-    // Set hidden state instantly
-    for (var i = 0; i < els.length; i++) {
-      var el = els[i];
-      var dir = el.getAttribute("data-assemble") || "up";
-      var d = parseInt(el.getAttribute("data-assemble-delay") || "0", 10);
-      var delay = Math.min(d * 0.06, 0.4);
-
-      el.style.transition = "none";
-      el.style.opacity = dir === "line" ? "1" : "0";
-
-      if (dir === "up") el.style.transform = "translateY(30px)";
-      else if (dir === "left") el.style.transform = "translateX(-30px)";
-      else if (dir === "right") el.style.transform = "translateX(30px)";
-      else if (dir === "scale") el.style.transform = "scale(0.93)";
-      else if (dir === "line") el.style.transform = "scaleX(0)";
-
-      el._delay = delay;
-      el._dir = dir;
-    }
-
-    // Force reflow
-    document.body.offsetHeight;
-
-    // Add transitions
-    for (var j = 0; j < els.length; j++) {
-      var e = els[j];
-      e.style.transition = "opacity 0.7s " + ease + " " + e._delay + "s, transform 0.7s " + ease + " " + e._delay + "s";
-    }
-
-    // IntersectionObserver
-    var observer = new IntersectionObserver(function(entries) {
-      for (var k = 0; k < entries.length; k++) {
-        var entry = entries[k];
-        var t = entry.target;
-        if (entry.isIntersecting) {
-          t.style.opacity = "1";
-          t.style.transform = t._dir === "line" ? "scaleX(1)" : "none";
-        } else {
-          var dd = t._dir;
-          t.style.opacity = dd === "line" ? "1" : "0";
-          if (dd === "up") t.style.transform = "translateY(30px)";
-          else if (dd === "left") t.style.transform = "translateX(-30px)";
-          else if (dd === "right") t.style.transform = "translateX(30px)";
-          else if (dd === "scale") t.style.transform = "scale(0.93)";
-          else if (dd === "line") t.style.transform = "scaleX(0)";
-        }
-      }
-    }, { threshold: 0.05, rootMargin: "20px" });
-
-    for (var m = 0; m < els.length; m++) {
-      observer.observe(els[m]);
-    }
-  }
-
-  // Run after DOM is ready
-  if (document.readyState === "complete") {
-    setTimeout(initReveal, 100);
-  } else {
-    window.addEventListener("load", function() { setTimeout(initReveal, 100); });
-  }
-})();
-        `}</Script>
+        <script src="/scroll-reveal.js" defer />
       </body>
     </html>
   );
