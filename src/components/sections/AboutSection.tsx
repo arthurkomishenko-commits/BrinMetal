@@ -18,13 +18,15 @@ export function AboutSection() {
 
   useGSAP(
     () => {
+      const isMobile = window.innerWidth < 768;
+
       gsap.from("[data-about-accent]", {
         scaleX: 0,
-        duration: durations.dramatic,
+        duration: isMobile ? 0.6 : durations.dramatic,
         ease: easings.industrial,
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 75%",
+          start: isMobile ? "top 95%" : "top 75%",
         },
       });
     },

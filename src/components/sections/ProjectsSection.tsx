@@ -23,15 +23,17 @@ export function ProjectsSection() {
       const items = gridRef.current?.querySelectorAll("[data-project-item]");
       if (!items?.length) return;
 
+      const isMobile = window.innerWidth < 768;
+
       gsap.from(items, {
-        scale: 1.05,
+        scale: isMobile ? 1.02 : 1.05,
         opacity: 0,
-        duration: durations.dramatic,
+        duration: isMobile ? 0.5 : durations.dramatic,
         ease: easings.industrial,
-        stagger: 0.15,
+        stagger: isMobile ? 0.1 : 0.15,
         scrollTrigger: {
           trigger: gridRef.current,
-          start: "top 85%",
+          start: isMobile ? "top 95%" : "top 85%",
         },
       });
     },

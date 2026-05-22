@@ -22,28 +22,32 @@ export function WorkshopSection() {
       const steps = stepsRef.current?.querySelectorAll("[data-step]");
       if (!steps?.length) return;
 
+      const isMobile = window.innerWidth < 768;
+
       gsap.from(steps, {
-        x: -30,
+        x: isMobile ? -15 : -30,
         opacity: 0,
-        duration: durations.standard,
+        duration: isMobile ? 0.4 : durations.standard,
         ease: easings.industrial,
-        stagger: 0.15,
+        stagger: isMobile ? 0.1 : 0.15,
         scrollTrigger: {
           trigger: stepsRef.current,
-          start: "top 80%",
+          start: isMobile ? "top 95%" : "top 80%",
         },
       });
 
-      gsap.from("[data-step-line]", {
-        scaleY: 0,
-        duration: durations.cinematic,
-        ease: easings.heavy,
-        transformOrigin: "top",
-        scrollTrigger: {
-          trigger: stepsRef.current,
-          start: "top 80%",
-        },
-      });
+      if (!isMobile) {
+        gsap.from("[data-step-line]", {
+          scaleY: 0,
+          duration: durations.cinematic,
+          ease: easings.heavy,
+          transformOrigin: "top",
+          scrollTrigger: {
+            trigger: stepsRef.current,
+            start: "top 80%",
+          },
+        });
+      }
     },
     { scope: stepsRef }
   );

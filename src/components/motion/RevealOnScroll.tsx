@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import { gsap, ScrollTrigger, defaultScrollTriggerConfig, easings, durations } from "@/lib/motion/gsap-config";
+import { gsap, ScrollTrigger, easings, durations } from "@/lib/motion/gsap-config";
 import { cn } from "@/lib/utils";
 
 interface RevealOnScrollProps {
@@ -18,7 +18,7 @@ export function RevealOnScroll({
   children,
   direction = "up",
   delay = 0,
-  duration = durations.standard,
+  duration,
   className,
   as: Component = "div",
 }: RevealOnScrollProps) {
@@ -28,26 +28,31 @@ export function RevealOnScroll({
     () => {
       if (!ref.current) return;
 
+      const isMobile = window.innerWidth < 768;
+      const dur = duration ?? (isMobile ? 0.5 : durations.standard);
+      const distance = isMobile ? 30 : direction === "up" ? 60 : 80;
+
       const fromVars: gsap.TweenVars = {
         opacity: 0,
-        duration,
-        delay,
+        duration: dur,
+        delay: isMobile ? Math.min(delay, 0.1) : delay,
         ease: easings.industrial,
       };
 
       if (direction === "up") {
-        fromVars.y = 60;
+        fromVars.y = distance;
       } else if (direction === "left") {
-        fromVars.x = -80;
+        fromVars.x = -distance;
       } else if (direction === "right") {
-        fromVars.x = 80;
+        fromVars.x = distance;
       }
 
       gsap.from(ref.current, {
         ...fromVars,
         scrollTrigger: {
           trigger: ref.current,
-          ...defaultScrollTriggerConfig,
+          start: isMobile ? "top 92%" : "top 85%",
+          toggleActions: "play none none none",
         },
       });
     },

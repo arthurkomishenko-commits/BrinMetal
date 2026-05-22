@@ -121,19 +121,21 @@ export function CapabilitiesSection() {
       const cards = gridRef.current?.querySelectorAll("[data-service-card]");
       if (!cards?.length) return;
 
+      const isMobile = window.innerWidth < 768;
+
       gsap.from(cards, {
-        y: 50,
+        y: isMobile ? 25 : 50,
         opacity: 0,
-        duration: durations.standard,
+        duration: isMobile ? 0.4 : durations.standard,
         ease: easings.industrial,
         stagger: {
-          amount: 0.5,
+          amount: isMobile ? 0.3 : 0.5,
           grid: "auto",
           from: "start",
         },
         scrollTrigger: {
           trigger: gridRef.current,
-          start: "top 80%",
+          start: isMobile ? "top 95%" : "top 80%",
         },
       });
     },

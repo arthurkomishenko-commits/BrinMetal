@@ -49,57 +49,60 @@ export function HeroSection() {
 
   useGSAP(
     () => {
-      const tl = gsap.timeline({ delay: 0.5 });
+      const isMobile = window.innerWidth < 768;
+      const tl = gsap.timeline({ delay: isMobile ? 0.2 : 0.5 });
 
       tl.from("[data-hero-line]", {
         scaleX: 0,
-        duration: 0.8,
+        duration: isMobile ? 0.5 : 0.8,
         ease: "power3.inOut",
       });
 
       tl.from(
         "[data-hero-title] > span",
         {
-          y: 60,
+          y: isMobile ? 30 : 60,
           opacity: 0,
-          duration: 0.9,
+          duration: isMobile ? 0.6 : 0.9,
           ease: "power4.out",
-          stagger: 0.1,
+          stagger: isMobile ? 0.06 : 0.1,
         },
-        "-=0.3"
+        "-=0.2"
       );
 
       tl.from(
         "[data-hero-subtitle]",
         {
-          y: 25,
+          y: isMobile ? 15 : 25,
           opacity: 0,
-          duration: 0.7,
-          ease: "power3.out",
-        },
-        "-=0.3"
-      );
-
-      tl.from(
-        "[data-hero-cta]",
-        {
-          y: 15,
-          opacity: 0,
-          duration: 0.5,
+          duration: isMobile ? 0.5 : 0.7,
           ease: "power3.out",
         },
         "-=0.2"
       );
 
       tl.from(
-        "[data-hero-scroll]",
+        "[data-hero-cta]",
         {
+          y: 10,
           opacity: 0,
-          duration: 0.6,
-          ease: "power2.out",
+          duration: isMobile ? 0.4 : 0.5,
+          ease: "power3.out",
         },
-        "-=0.1"
+        "-=0.15"
       );
+
+      if (!isMobile) {
+        tl.from(
+          "[data-hero-scroll]",
+          {
+            opacity: 0,
+            duration: 0.6,
+            ease: "power2.out",
+          },
+          "-=0.1"
+        );
+      }
 
       // Desktop-only scroll effects
       if (window.innerWidth >= 1024) {

@@ -22,15 +22,17 @@ export function PrecisionSection() {
       const items = metricsRef.current?.querySelectorAll("[data-metric]");
       if (!items?.length) return;
 
+      const isMobile = window.innerWidth < 768;
+
       gsap.from(items, {
-        y: 30,
+        y: isMobile ? 20 : 30,
         opacity: 0,
-        duration: 0.6,
+        duration: isMobile ? 0.4 : 0.6,
         ease: easings.industrial,
-        stagger: 0.12,
+        stagger: isMobile ? 0.08 : 0.12,
         scrollTrigger: {
           trigger: metricsRef.current,
-          start: "top 85%",
+          start: isMobile ? "top 95%" : "top 85%",
         },
       });
     },
