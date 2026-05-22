@@ -42,7 +42,7 @@ export function CapabilitiesSection() {
   const tSection = useTranslations("services");
 
   return (
-    <AssembleSection id="services" className="section-padding relative scratches weld-seam">
+    <AssembleSection id="services" className="section-padding relative scratches weld-seam section-edges">
       <div className="absolute bottom-1/4 start-1/5 w-[400px] h-[300px] rounded-full bg-[var(--copper)] opacity-[0.015] blur-[100px] animate-[glow-breathe_11s_ease-in-out_infinite_4s] pointer-events-none" />
       <div className="container-wide">
         <div className="mb-10 sm:mb-14 md:mb-20">
@@ -54,7 +54,7 @@ export function CapabilitiesSection() {
           {services.map((service, i) => {
             const IconComponent = ICON_MAP[service.icon];
             return (
-              <TiltCard key={service.id} className={cn("group relative p-6 md:p-7 overflow-hidden", "bg-[var(--gunmetal)]/50 steel-border metal-surface bolt-corners", "hover:border-[var(--copper)]/20 hover:bg-[var(--gunmetal)]", "transition-all duration-500 cursor-default")}>
+              <TiltCard key={service.id} className={cn("group relative p-6 md:p-7 overflow-hidden", "bg-[var(--gunmetal)]/50 steel-border metal-surface bolt-corners edge-gleam frame-glow", "hover:border-[var(--copper)]/20 hover:bg-[var(--gunmetal)]", "transition-all duration-500 cursor-default")}>
                 <div data-assemble="scale" data-assemble-delay={`${3 + i}`}>
                   {IconComponent && <IconComponent size={28} className="text-[var(--copper)] mb-5 transition-transform duration-500 group-hover:scale-110" />}
                   <h3 className="text-base font-semibold text-[var(--off-white)] mb-2 tracking-tight">{t(service.titleKey)}</h3>

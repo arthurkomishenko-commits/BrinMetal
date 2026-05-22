@@ -26,7 +26,7 @@ export function TrustSection() {
           {TRUST_ITEMS.map((item, i) => {
             const Icon = item.icon;
             return (
-              <div key={item.key} data-assemble="up" data-assemble-delay={`${3 + i}`} className={cn("group text-center p-6 sm:p-8 md:p-10", "bg-[var(--gunmetal)]/30 steel-border metal-surface", "md:hover:border-[var(--copper)]/15 transition-all duration-500")}>
+              <div key={item.key} data-assemble="up" data-assemble-delay={`${3 + i}`} className={cn("group text-center p-6 sm:p-8 md:p-10", "bg-[var(--gunmetal)]/30 steel-border metal-surface frame-glow edge-gleam", "md:hover:border-[var(--copper)]/15 transition-all duration-500")}>
                 <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 border border-[var(--copper)]/20 mb-4 sm:mb-6 md:group-hover:border-[var(--copper)]/40 transition-colors duration-500">
                   <Icon size={20} className="text-[var(--copper)] sm:[&]:w-6 sm:[&]:h-6" />
                 </div>

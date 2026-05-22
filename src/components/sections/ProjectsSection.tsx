@@ -40,7 +40,7 @@ export function ProjectsSection() {
   const t = useTranslations("projects");
 
   return (
-    <AssembleSection id="projects" className="section-padding relative bg-[var(--gunmetal)] brushed-steel">
+    <AssembleSection id="projects" className="section-padding relative bg-[var(--gunmetal)] brushed-steel section-edges">
       <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
       <div className="container-wide">
         <div className="mb-10 sm:mb-14 md:mb-20">
@@ -61,7 +61,7 @@ export function ProjectsSection() {
               data-assemble-delay={`${3 + i}`}
               className={cn(
                 project.aspect,
-                "group relative overflow-hidden border border-white/[0.04]",
+                "group relative overflow-hidden border border-white/[0.04] frame-glow",
                 "active:border-[var(--copper)]/20 md:hover:border-[var(--copper)]/20 transition-all duration-500"
               )}
             >

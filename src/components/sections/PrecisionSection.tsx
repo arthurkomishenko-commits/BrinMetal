@@ -14,7 +14,7 @@ export function PrecisionSection() {
   const t = useTranslations("precision");
 
   return (
-    <AssembleSection id="precision" className="section-padding relative bg-[var(--gunmetal)] brushed-steel scratches milled-edge">
+    <AssembleSection id="precision" className="section-padding relative bg-[var(--gunmetal)] brushed-steel scratches milled-edge section-edges">
       <div className="absolute top-1/4 start-1/3 w-[500px] h-[400px] rounded-full bg-[var(--copper)] opacity-[0.02] blur-[120px] animate-[glow-breathe_12s_ease-in-out_infinite_3s] pointer-events-none" />
       <div className="container-wide">
         <div className="text-center mb-10 sm:mb-14 md:mb-20">
@@ -25,7 +25,7 @@ export function PrecisionSection() {
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5">
           {METRICS.map((metric, i) => (
-            <div key={metric.key} data-assemble="scale" data-assemble-delay={`${4 + i}`} className="text-center p-5 sm:p-6 md:p-8 lg:p-10 bg-[var(--graphite)]/50 steel-border metal-surface border-glow relative rivet">
+            <div key={metric.key} data-assemble="scale" data-assemble-delay={`${4 + i}`} className="text-center p-5 sm:p-6 md:p-8 lg:p-10 bg-[var(--graphite)]/50 steel-border metal-surface frame-glow relative rivet corner-sparks">
               <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--copper)] tracking-tight">{metric.value}</span>
               <span className="block mt-2 sm:mt-3 text-[10px] sm:text-xs uppercase tracking-[0.1em] sm:tracking-[0.15em] text-[var(--titanium)]">{t(`metric_${metric.key}` as "metric_years")}</span>
             </div>

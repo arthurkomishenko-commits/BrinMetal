@@ -13,7 +13,7 @@ export function AboutSection() {
   const t = useTranslations("about");
 
   return (
-    <AssembleSection id="about" className="section-padding relative bg-[var(--gunmetal)] ambient-glow brushed-steel scratches milled-edge">
+    <AssembleSection id="about" className="section-padding relative bg-[var(--gunmetal)] ambient-glow brushed-steel scratches milled-edge section-edges">
       {/* Ambient glow -- secondary */}
       <div className="absolute bottom-10 end-10 w-[400px] h-[400px] rounded-full bg-[var(--copper)] opacity-[0.015] blur-[100px] animate-[glow-breathe_10s_ease-in-out_infinite_2s] pointer-events-none" />
       <div className="container-wide">
@@ -33,7 +33,7 @@ export function AboutSection() {
           <div className="lg:col-span-5 flex flex-col justify-center">
             <div className="grid grid-cols-1 gap-4 sm:gap-5 lg:gap-6">
               {STATS.map((stat, i) => (
-                <div key={stat.key} data-assemble="right" data-assemble-delay={`${i + 2}`} className="flex items-center gap-4 sm:gap-6 p-4 sm:p-5 lg:p-6 bg-[var(--graphite)]/50 steel-border metal-surface border-glow">
+                <div key={stat.key} data-assemble="right" data-assemble-delay={`${i + 2}`} className="flex items-center gap-4 sm:gap-6 p-4 sm:p-5 lg:p-6 bg-[var(--graphite)]/50 steel-border metal-surface frame-glow edge-gleam">
                   <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--copper)] tracking-tight min-w-[60px] sm:min-w-[80px]">{stat.value}</span>
                   <span className="text-xs sm:text-sm text-[var(--titanium)] uppercase tracking-[0.05em]">{t(stat.key)}</span>
                 </div>

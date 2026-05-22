@@ -27,7 +27,7 @@ export function ContactSection() {
   const SubmitWrapper = isDesktop ? MagneticElement : "div";
 
   return (
-    <AssembleSection id="contact" className="section-padding relative bg-[var(--gunmetal)] brushed-steel scratches milled-edge">
+    <AssembleSection id="contact" className="section-padding relative bg-[var(--gunmetal)] brushed-steel scratches milled-edge section-edges">
       <div className="absolute top-1/3 end-1/4 w-[450px] h-[450px] rounded-full bg-[var(--copper)] opacity-[0.02] blur-[110px] animate-[glow-breathe_9s_ease-in-out_infinite_1s] pointer-events-none" />
       <div className="container-wide">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
@@ -53,7 +53,7 @@ export function ContactSection() {
           </div>
 
           <div className="lg:col-span-7" data-assemble="right" data-assemble-delay="4">
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 p-5 sm:p-6 md:p-8 bg-[var(--graphite)]/50 steel-border metal-surface">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 p-5 sm:p-6 md:p-8 bg-[var(--graphite)]/50 steel-border metal-surface frame-glow edge-gleam">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <div>
                   <label htmlFor="name" className="block text-[10px] sm:text-xs uppercase tracking-[0.1em] text-[var(--titanium)] mb-1.5 sm:mb-2">{t("name")} *</label>

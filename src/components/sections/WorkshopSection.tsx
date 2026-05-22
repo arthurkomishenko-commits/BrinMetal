@@ -14,7 +14,7 @@ export function WorkshopSection() {
   const t = useTranslations("workshop");
 
   return (
-    <AssembleSection id="workshop" className="section-padding relative rust-patch weld-seam">
+    <AssembleSection id="workshop" className="section-padding relative rust-patch weld-seam section-edges">
       <div className="container-wide">
         <div className="mb-10 sm:mb-14 md:mb-20">
           <span data-assemble="up" data-assemble-delay="0" className="inline-block text-[11px] uppercase tracking-[0.2em] text-[var(--copper)] font-medium">{t("subtitle")}</span>
@@ -27,7 +27,7 @@ export function WorkshopSection() {
           <div className="flex flex-col gap-6 sm:gap-8 md:gap-10">
             {STEPS.map((step, i) => (
               <div key={step.num} data-assemble="left" data-assemble-delay={`${4 + i}`} className="group flex items-start gap-4 sm:gap-6 md:gap-8">
-                <div className="relative shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 flex items-center justify-center border border-[var(--copper)]/30 bg-[var(--graphite)] z-10 group-hover:border-[var(--copper)] transition-colors duration-500">
+                <div className="relative shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 flex items-center justify-center border border-[var(--copper)]/30 bg-[var(--graphite)] z-10 group-hover:border-[var(--copper)] transition-colors duration-500 corner-sparks frame-glow">
                   <span className="text-xs sm:text-sm md:text-base font-bold text-[var(--copper)]">{step.num}</span>
                 </div>
                 <div className="pt-1 sm:pt-2 md:pt-3 min-w-0">
