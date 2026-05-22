@@ -139,7 +139,6 @@ export function HeroSection() {
       </div>
 
       <div ref={contentRef} data-hero-content className="container-wide relative z-10 pt-20 sm:pt-24 md:pt-32 pb-20 sm:pb-24 will-change-transform">
-        {/* v6 marker -- remove later */}
         <div data-hero-line className="w-10 sm:w-16 h-[2px] bg-[var(--copper)] accent-line-shimmer mb-5 sm:mb-8 origin-start" />
 
         <h1 data-hero-title className="text-[clamp(1.75rem,7vw,5.5rem)] font-extrabold leading-[1.08] tracking-[-0.03em] text-[var(--off-white)] text-stamped max-w-4xl">
@@ -167,9 +166,6 @@ export function HeroSection() {
           )}
         </div>
       </div>
-
-      {/* Version marker -- visible on all devices to confirm cache cleared */}
-      <div className="fixed top-0 left-0 bg-[var(--copper)] text-[var(--graphite)] text-[10px] px-2 py-0.5 z-[99999] font-mono">v6</div>
 
       <div data-hero-scroll className="absolute bottom-6 sm:bottom-8 start-1/2 -translate-x-1/2 flex-col items-center gap-2 hidden sm:flex">
         <div className="w-[1px] h-10 sm:h-12 bg-gradient-to-b from-[var(--copper)] to-transparent animate-pulse" />
