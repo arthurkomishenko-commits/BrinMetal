@@ -3,8 +3,6 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 import { cn } from "@/lib/utils";
 import { useLenis } from "@/hooks/useLenis";
 import type { Locale } from "@/types";
@@ -46,44 +44,22 @@ export function Header() {
     };
   }, [mobileOpen]);
 
-  useGSAP(() => {
-    gsap.from("[data-header]", {
-      y: -100,
-      opacity: 0,
-      duration: 0.8,
-      ease: "power3.out",
-      delay: 0.2,
+  useEffect(() => {
+    if (!mobileOpen) return;
+    import("gsap").then(({ default: gsap }) => {
+      const tl = gsap.timeline();
+      tl.fromTo(
+        "[data-mobile-menu]",
+        { clipPath: "inset(0 0 100% 0)" },
+        { clipPath: "inset(0 0 0% 0)", duration: 0.6, ease: "power4.inOut" }
+      );
+      tl.from(
+        "[data-mobile-link]",
+        { y: 40, opacity: 0, duration: 0.4, ease: "power3.out", stagger: 0.08 },
+        "-=0.2"
+      );
     });
-  });
-
-  useGSAP(
-    () => {
-      if (mobileOpen) {
-        const tl = gsap.timeline();
-        tl.fromTo(
-          "[data-mobile-menu]",
-          { clipPath: "inset(0 0 100% 0)" },
-          {
-            clipPath: "inset(0 0 0% 0)",
-            duration: 0.6,
-            ease: "power4.inOut",
-          }
-        );
-        tl.from(
-          "[data-mobile-link]",
-          {
-            y: 40,
-            opacity: 0,
-            duration: 0.4,
-            ease: "power3.out",
-            stagger: 0.08,
-          },
-          "-=0.2"
-        );
-      }
-    },
-    { dependencies: [mobileOpen] }
-  );
+  }, [mobileOpen]);
 
   const handleNavClick = useCallback(
     (href: string) => {
@@ -103,11 +79,13 @@ export function Header() {
 
   const closeMobile = useCallback(() => {
     if (mobileOpen) {
-      gsap.to("[data-mobile-menu]", {
-        clipPath: "inset(0 0 100% 0)",
-        duration: 0.4,
-        ease: "power3.inOut",
-        onComplete: () => setMobileOpen(false),
+      import("gsap").then(({ default: gsap }) => {
+        gsap.to("[data-mobile-menu]", {
+          clipPath: "inset(0 0 100% 0)",
+          duration: 0.4,
+          ease: "power3.inOut",
+          onComplete: () => setMobileOpen(false),
+        });
       });
     }
   }, [mobileOpen]);
