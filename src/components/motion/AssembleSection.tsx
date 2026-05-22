@@ -20,7 +20,20 @@ export function AssembleSection({
 
   useEffect(() => {
     const section = ref.current;
-    if (!section) return;
+
+    // DEBUG: runs FIRST, before any checks
+    let dbg = document.getElementById("dbg-panel");
+    if (!dbg) {
+      dbg = document.createElement("div");
+      dbg.id = "dbg-panel";
+      dbg.style.cssText = "position:fixed;bottom:0;left:0;right:0;background:rgba(0,0,0,0.95);color:#0f0;font:11px/1.4 monospace;padding:8px 12px;z-index:99999;max-height:40vh;overflow:auto";
+      document.body.appendChild(dbg);
+    }
+
+    if (!section) {
+      dbg.innerHTML += "section ref: NULL<br>";
+      return;
+    }
 
     const isTouch =
       "ontouchstart" in window ||
@@ -28,6 +41,9 @@ export function AssembleSection({
       window.matchMedia("(pointer: coarse)").matches;
 
     const elements = section.querySelectorAll("[data-assemble]");
+
+    dbg.innerHTML += `[${section.id || "?"}] ref:OK touch:${isTouch} els:${elements.length}<br>`;
+
     if (!elements.length) return;
 
     // ==========================================
