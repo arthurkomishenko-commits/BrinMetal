@@ -14,7 +14,7 @@ export function PrecisionSection() {
   const t = useTranslations("precision");
 
   return (
-    <AssembleSection id="precision" className="section-padding relative bg-[var(--gunmetal)] brushed-steel">
+    <AssembleSection id="precision" className="section-padding relative bg-[var(--gunmetal)] brushed-steel scratches milled-edge">
       <div className="absolute top-1/4 start-1/3 w-[500px] h-[400px] rounded-full bg-[var(--copper)] opacity-[0.02] blur-[120px] animate-[glow-breathe_12s_ease-in-out_infinite_3s] pointer-events-none" />
       <div className="container-wide">
         <div className="text-center mb-10 sm:mb-14 md:mb-20">

@@ -14,7 +14,7 @@ export function WorkshopSection() {
   const t = useTranslations("workshop");
 
   return (
-    <AssembleSection id="workshop" className="section-padding relative">
+    <AssembleSection id="workshop" className="section-padding relative rust-patch weld-seam">
       <div className="container-wide">
         <div className="mb-10 sm:mb-14 md:mb-20">
           <span data-assemble="up" data-assemble-delay="0" className="inline-block text-[11px] uppercase tracking-[0.2em] text-[var(--copper)] font-medium">{t("subtitle")}</span>

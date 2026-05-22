@@ -102,74 +102,69 @@
   }
 }
 
-/* ===== Mobile CSS animation fallback ===== */
-/* If GSAP doesn't load on mobile, these CSS animations provide fallback */
+/* ===== Mobile scroll reveal (CSS transitions + .revealed class) ===== */
 
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(25px); }
+/* Default: elements hidden */
+[data-assemble] {
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-assemble="up"]:not([data-gsap])    { opacity: 0; transform: translateY(30px); }
+[data-assemble="left"]:not([data-gsap])  { opacity: 0; transform: translateX(-30px); }
+[data-assemble="right"]:not([data-gsap]) { opacity: 0; transform: translateX(30px); }
+[data-assemble="scale"]:not([data-gsap]) { opacity: 0; transform: scale(0.93); }
+[data-assemble="line"]:not([data-gsap])  { transform: scaleX(0); }
+
+/* Stagger via transition-delay */
+[data-assemble-delay="1"] { transition-delay: 0.06s; }
+[data-assemble-delay="2"] { transition-delay: 0.12s; }
+[data-assemble-delay="3"] { transition-delay: 0.18s; }
+[data-assemble-delay="4"] { transition-delay: 0.24s; }
+[data-assemble-delay="5"] { transition-delay: 0.30s; }
+[data-assemble-delay="6"] { transition-delay: 0.36s; }
+[data-assemble-delay="7"] { transition-delay: 0.42s; }
+[data-assemble-delay="8"] { transition-delay: 0.48s; }
+[data-assemble-delay="9"] { transition-delay: 0.54s; }
+[data-assemble-delay="10"] { transition-delay: 0.60s; }
+
+/* When revealed -- elements become visible */
+[data-assemble].revealed,
+[data-assemble="up"].revealed,
+[data-assemble="left"].revealed,
+[data-assemble="right"].revealed,
+[data-assemble="scale"].revealed {
+  opacity: 1;
+  transform: none;
+}
+[data-assemble="line"].revealed {
+  transform: scaleX(1);
+}
+
+/* Hero: always animate on load (no scroll trigger needed) */
+[data-hero-title] > span > span,
+[data-hero-subtitle],
+[data-hero-cta],
+[data-hero-line] {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: hero-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+[data-hero-line] {
+  transform: scaleX(0);
+  animation: hero-line-draw 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
+  transform-origin: right;
+}
+[dir="ltr"] [data-hero-line] { transform-origin: left; }
+[data-hero-title] > span > span { animation-delay: 0.2s; }
+[data-hero-subtitle]            { animation-delay: 0.4s; }
+[data-hero-cta]                 { animation-delay: 0.55s; }
+
+@keyframes hero-enter {
   to { opacity: 1; transform: translateY(0); }
 }
-@keyframes fade-left {
-  from { opacity: 0; transform: translateX(-25px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-@keyframes fade-right {
-  from { opacity: 0; transform: translateX(25px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-@keyframes fade-scale {
-  from { opacity: 0; transform: scale(0.94); }
-  to { opacity: 1; transform: scale(1); }
-}
-@keyframes draw-line {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
-
-/* Apply CSS animations on touch devices as GSAP fallback */
-@media (pointer: coarse) {
-  [data-assemble] {
-    animation-fill-mode: both;
-    animation-duration: 0.6s;
-    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  [data-assemble="up"] { animation-name: fade-up; }
-  [data-assemble="left"] { animation-name: fade-left; }
-  [data-assemble="right"] { animation-name: fade-right; }
-  [data-assemble="scale"] { animation-name: fade-scale; }
-  [data-assemble="line"] { animation-name: draw-line; }
-
-  /* Stagger delays */
-  [data-assemble-delay="0"] { animation-delay: 0.05s; }
-  [data-assemble-delay="1"] { animation-delay: 0.1s; }
-  [data-assemble-delay="2"] { animation-delay: 0.15s; }
-  [data-assemble-delay="3"] { animation-delay: 0.2s; }
-  [data-assemble-delay="4"] { animation-delay: 0.3s; }
-  [data-assemble-delay="5"] { animation-delay: 0.35s; }
-  [data-assemble-delay="6"] { animation-delay: 0.4s; }
-  [data-assemble-delay="7"] { animation-delay: 0.45s; }
-  [data-assemble-delay="8"] { animation-delay: 0.5s; }
-  [data-assemble-delay="9"] { animation-delay: 0.55s; }
-  [data-assemble-delay="10"] { animation-delay: 0.6s; }
-
-  /* Hero title animation */
-  [data-hero-title] > span > span {
-    animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
-  }
-  [data-hero-subtitle] {
-    animation: fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
-  }
-  [data-hero-cta] {
-    animation: fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
-  }
-  [data-hero-line] {
-    animation: draw-line 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
-    transform-origin: right; /* RTL */
-  }
-  [dir="ltr"] [data-hero-line] {
-    transform-origin: left;
-  }
+@keyframes hero-line-draw {
+  to { opacity: 1; transform: scaleX(1); }
 }
 
 @utility container-wide {
@@ -415,6 +410,113 @@
     opacity: 0.2;
     animation: shimmer-line 8s ease-in-out infinite;
   }
+}
+
+/* ===== Heavy Metal Textures ===== */
+
+/* Rust patch -- subtle warm oxide accent */
+@utility rust-patch {
+  position: relative;
+}
+.rust-patch::before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 80px;
+  border-radius: 40% 60% 50% 40%;
+  background: radial-gradient(
+    ellipse at 40% 50%,
+    rgba(139, 90, 43, 0.08) 0%,
+    rgba(120, 70, 30, 0.04) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  filter: blur(8px);
+}
+
+/* Scratch marks -- diagonal hairline scratches */
+@utility scratches {
+  position: relative;
+}
+.scratches::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image:
+    linear-gradient(125deg, transparent 40%, rgba(255,255,255,0.15) 40.5%, transparent 41%),
+    linear-gradient(118deg, transparent 55%, rgba(255,255,255,0.1) 55.3%, transparent 55.6%),
+    linear-gradient(132deg, transparent 30%, rgba(255,255,255,0.08) 30.2%, transparent 30.4%),
+    linear-gradient(122deg, transparent 70%, rgba(255,255,255,0.12) 70.3%, transparent 70.6%),
+    linear-gradient(128deg, transparent 15%, rgba(255,255,255,0.06) 15.2%, transparent 15.4%);
+}
+
+/* Weld seam -- horizontal accent line that looks like a weld */
+@utility weld-seam {
+  position: relative;
+}
+.weld-seam::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(196, 149, 106, 0.15) 10%,
+    rgba(196, 149, 106, 0.25) 20%,
+    rgba(196, 149, 106, 0.1) 40%,
+    rgba(196, 149, 106, 0.2) 60%,
+    rgba(196, 149, 106, 0.15) 80%,
+    transparent
+  );
+  filter: blur(0.5px);
+}
+
+/* Heavy bolt head accents */
+@utility bolt-corners {
+  position: relative;
+}
+.bolt-corners::before,
+.bolt-corners::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 35% 35%,
+    rgba(176, 169, 153, 0.25),
+    rgba(42, 45, 53, 0.8) 60%,
+    rgba(26, 26, 26, 0.9)
+  );
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,0.08),
+    0 1px 3px rgba(0,0,0,0.5);
+}
+.bolt-corners::before { bottom: 10px; left: 10px; }
+.bolt-corners::after  { bottom: 10px; right: 10px; }
+
+/* Milled edge -- top edge looks like machined metal */
+@utility milled-edge {
+  border-top: none;
+}
+.milled-edge::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.5),
+    rgba(255,255,255,0.03) 50%,
+    rgba(0,0,0,0.3)
+  );
 }
 
 /* Reduced motion: disable all ambient animations */

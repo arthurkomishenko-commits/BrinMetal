@@ -13,7 +13,7 @@ export function AboutSection() {
   const t = useTranslations("about");
 
   return (
-    <AssembleSection id="about" className="section-padding relative bg-[var(--gunmetal)] ambient-glow brushed-steel">
+    <AssembleSection id="about" className="section-padding relative bg-[var(--gunmetal)] ambient-glow brushed-steel scratches milled-edge">
       {/* Ambient glow -- secondary */}
       <div className="absolute bottom-10 end-10 w-[400px] h-[400px] rounded-full bg-[var(--copper)] opacity-[0.015] blur-[100px] animate-[glow-breathe_10s_ease-in-out_infinite_2s] pointer-events-none" />
       <div className="container-wide">

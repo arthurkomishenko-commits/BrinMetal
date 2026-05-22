@@ -119,7 +119,7 @@ export function HeroSection() {
     <section
       ref={containerRef}
       id="hero"
-      className="relative min-h-[100svh] flex items-center overflow-hidden"
+      className="relative min-h-[100svh] flex items-center overflow-hidden scratches"
       onMouseMove={handleMouseMove}
     >
       <div className="absolute inset-0">

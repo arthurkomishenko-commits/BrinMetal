@@ -36,6 +36,12 @@ export function AssembleSection({
       const elements = section.querySelectorAll("[data-assemble]");
       if (!elements.length) return;
 
+      // Mark as GSAP-controlled so CSS transitions don't interfere
+      elements.forEach((el) => {
+        el.setAttribute("data-gsap", "true");
+        (el as HTMLElement).style.transition = "none";
+      });
+
       const mobile = window.innerWidth < 768;
       const dist = mobile ? 25 : 45;
 

@@ -27,7 +27,7 @@ export function ContactSection() {
   const SubmitWrapper = isDesktop ? MagneticElement : "div";
 
   return (
-    <AssembleSection id="contact" className="section-padding relative bg-[var(--gunmetal)] brushed-steel">
+    <AssembleSection id="contact" className="section-padding relative bg-[var(--gunmetal)] brushed-steel scratches milled-edge">
       <div className="absolute top-1/3 end-1/4 w-[450px] h-[450px] rounded-full bg-[var(--copper)] opacity-[0.02] blur-[110px] animate-[glow-breathe_9s_ease-in-out_infinite_1s] pointer-events-none" />
       <div className="container-wide">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
