@@ -20,13 +20,6 @@ export function CustomCursor() {
     import("gsap").then((mod) => {
       gsap = mod.default;
 
-      // Only hide native cursor AFTER gsap loaded and custom cursor is working
-      document.documentElement.style.cursor = "none";
-      const style = document.createElement("style");
-      style.id = "custom-cursor-style";
-      style.textContent = "a,button,input,textarea,[data-cursor-interact],[data-cursor-accent]{cursor:none!important}";
-      document.head.appendChild(style);
-
       function moveCursor() {
         gsap.to(cursor, { x: mouseX, y: mouseY, duration: 0.5, ease: "power3.out" });
         gsap.to(dot, { x: mouseX, y: mouseY, duration: 0.15, ease: "power2.out" });
@@ -87,8 +80,6 @@ export function CustomCursor() {
     return () => {
       const cleanup = (cursor as unknown as Record<string, unknown>).__cleanup as (() => void) | undefined;
       cleanup?.();
-      document.documentElement.style.cursor = "";
-      document.getElementById("custom-cursor-style")?.remove();
     };
   }, [isDesktop]);
 
