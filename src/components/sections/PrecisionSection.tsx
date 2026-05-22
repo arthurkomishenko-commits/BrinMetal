@@ -30,7 +30,7 @@ export function PrecisionSection() {
         stagger: 0.12,
         scrollTrigger: {
           trigger: metricsRef.current,
-          start: "top 80%",
+          start: "top 85%",
         },
       });
     },
@@ -46,35 +46,34 @@ export function PrecisionSection() {
 
       <div className="container-wide">
         <RevealOnScroll>
-          <div className="text-center mb-14 md:mb-20">
+          <div className="text-center mb-10 sm:mb-14 md:mb-20">
             <span className="text-[11px] uppercase tracking-[0.2em] text-[var(--copper)] font-medium">
               {t("subtitle")}
             </span>
-            <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] text-[var(--off-white)]">
+            <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] text-[var(--off-white)]">
               {t("title")}
             </h2>
-            <div className="mt-6 mx-auto w-16 h-[2px] bg-[var(--copper)]" />
-            <p className="mt-8 text-base md:text-lg text-[var(--titanium)] leading-[1.7] max-w-2xl mx-auto">
+            <div className="mt-5 sm:mt-6 mx-auto w-12 sm:w-16 h-[2px] bg-[var(--copper)]" />
+            <p className="mt-6 sm:mt-8 text-sm sm:text-base md:text-lg text-[var(--titanium)] leading-[1.7] max-w-2xl mx-auto">
               {t("description")}
             </p>
           </div>
         </RevealOnScroll>
 
-        {/* Metrics Grid */}
         <div
           ref={metricsRef}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5"
         >
           {METRICS.map((metric) => (
             <div
               key={metric.key}
               data-metric
-              className="text-center p-8 md:p-10 border border-white/[0.04] bg-[var(--graphite)]/50"
+              className="text-center p-5 sm:p-6 md:p-8 lg:p-10 border border-white/[0.04] bg-[var(--graphite)]/50"
             >
-              <span className="block text-4xl md:text-5xl font-bold text-[var(--copper)] tracking-tight">
+              <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--copper)] tracking-tight">
                 {metric.value}
               </span>
-              <span className="block mt-3 text-xs uppercase tracking-[0.15em] text-[var(--titanium)]">
+              <span className="block mt-2 sm:mt-3 text-[10px] sm:text-xs uppercase tracking-[0.1em] sm:tracking-[0.15em] text-[var(--titanium)]">
                 {t(`metric_${metric.key}` as "metric_years")}
               </span>
             </div>
