@@ -8,6 +8,7 @@ import { generateMetadata as genMeta } from "@/lib/seo/metadata";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
+import { CustomCursor } from "@/components/motion/CustomCursor";
 import "@/styles/globals.css";
 
 const inter = Inter({
@@ -48,6 +49,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     <html lang={locale} dir={dir} className={inter.variable}>
       <body className="bg-[var(--graphite)] text-[var(--off-white)] font-sans antialiased">
         <NextIntlClientProvider messages={messages}>
+          <CustomCursor />
           <SmoothScroll>
             <Header />
             <main>{children}</main>

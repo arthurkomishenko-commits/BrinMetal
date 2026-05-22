@@ -1,0 +1,181 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import { gsap } from "@/lib/motion/gsap-config";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
+
+export function CustomCursor() {
+  const cursorRef = useRef<HTMLDivElement>(null);
+  const cursorDotRef = useRef<HTMLDivElement>(null);
+  const isDesktop = useMediaQuery("lg");
+
+  useEffect(() => {
+    if (!isDesktop || !cursorRef.current || !cursorDotRef.current) return;
+
+    const cursor = cursorRef.current;
+    const dot = cursorDotRef.current;
+    let mouseX = 0;
+    let mouseY = 0;
+
+    // Smooth follow with GSAP
+    function moveCursor() {
+      gsap.to(cursor, {
+        x: mouseX,
+        y: mouseY,
+        duration: 0.5,
+        ease: "power3.out",
+      });
+      gsap.to(dot, {
+        x: mouseX,
+        y: mouseY,
+        duration: 0.15,
+        ease: "power2.out",
+      });
+    }
+
+    function onMouseMove(e: MouseEvent) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      moveCursor();
+    }
+
+    // Scale up on interactive elements
+    function onMouseEnterInteractive() {
+      gsap.to(cursor, {
+        scale: 2.5,
+        opacity: 0.15,
+        duration: 0.4,
+        ease: "power3.out",
+      });
+      gsap.to(dot, {
+        scale: 0.5,
+        duration: 0.3,
+        ease: "power3.out",
+      });
+    }
+
+    // Scale up more on CTA / accent elements
+    function onMouseEnterAccent() {
+      gsap.to(cursor, {
+        scale: 3,
+        opacity: 0.1,
+        borderColor: "var(--copper)",
+        duration: 0.4,
+        ease: "power3.out",
+      });
+      gsap.to(dot, {
+        scale: 0,
+        duration: 0.3,
+        ease: "power3.out",
+      });
+    }
+
+    function onMouseLeaveInteractive() {
+      gsap.to(cursor, {
+        scale: 1,
+        opacity: 0.4,
+        borderColor: "var(--off-white)",
+        duration: 0.4,
+        ease: "power3.out",
+      });
+      gsap.to(dot, {
+        scale: 1,
+        duration: 0.3,
+        ease: "power3.out",
+      });
+    }
+
+    // Hide on mouse leave window
+    function onMouseLeave() {
+      gsap.to([cursor, dot], {
+        opacity: 0,
+        duration: 0.3,
+      });
+    }
+
+    function onMouseEnter() {
+      gsap.to(cursor, { opacity: 0.4, duration: 0.3 });
+      gsap.to(dot, { opacity: 1, duration: 0.3 });
+    }
+
+    window.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseleave", onMouseLeave);
+    document.addEventListener("mouseenter", onMouseEnter);
+
+    // Bind to interactive elements
+    const interactives = document.querySelectorAll(
+      "a, button, input, textarea, [data-cursor-interact]"
+    );
+    const accents = document.querySelectorAll(
+      "[data-cursor-accent]"
+    );
+
+    interactives.forEach((el) => {
+      el.addEventListener("mouseenter", onMouseEnterInteractive);
+      el.addEventListener("mouseleave", onMouseLeaveInteractive);
+    });
+
+    accents.forEach((el) => {
+      el.addEventListener("mouseenter", onMouseEnterAccent);
+      el.addEventListener("mouseleave", onMouseLeaveInteractive);
+    });
+
+    // MutationObserver to catch dynamically added elements
+    const observer = new MutationObserver(() => {
+      const newInteractives = document.querySelectorAll(
+        "a, button, input, textarea, [data-cursor-interact]"
+      );
+      const newAccents = document.querySelectorAll("[data-cursor-accent]");
+
+      newInteractives.forEach((el) => {
+        el.removeEventListener("mouseenter", onMouseEnterInteractive);
+        el.removeEventListener("mouseleave", onMouseLeaveInteractive);
+        el.addEventListener("mouseenter", onMouseEnterInteractive);
+        el.addEventListener("mouseleave", onMouseLeaveInteractive);
+      });
+
+      newAccents.forEach((el) => {
+        el.removeEventListener("mouseenter", onMouseEnterAccent);
+        el.removeEventListener("mouseleave", onMouseLeaveInteractive);
+        el.addEventListener("mouseenter", onMouseEnterAccent);
+        el.addEventListener("mouseleave", onMouseLeaveInteractive);
+      });
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      window.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseleave", onMouseLeave);
+      document.removeEventListener("mouseenter", onMouseEnter);
+      interactives.forEach((el) => {
+        el.removeEventListener("mouseenter", onMouseEnterInteractive);
+        el.removeEventListener("mouseleave", onMouseLeaveInteractive);
+      });
+      accents.forEach((el) => {
+        el.removeEventListener("mouseenter", onMouseEnterAccent);
+        el.removeEventListener("mouseleave", onMouseLeaveInteractive);
+      });
+      observer.disconnect();
+    };
+  }, [isDesktop]);
+
+  if (!isDesktop) return null;
+
+  return (
+    <>
+      {/* Outer ring -- follows with delay, creates weight feeling */}
+      <div
+        ref={cursorRef}
+        className="pointer-events-none fixed top-0 start-0 z-[9999] -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-[var(--off-white)] opacity-40 mix-blend-difference will-change-transform"
+        style={{ left: 0, top: 0 }}
+      />
+      {/* Inner dot -- follows precisely */}
+      <div
+        ref={cursorDotRef}
+        className="pointer-events-none fixed top-0 start-0 z-[9999] -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-[var(--copper)] will-change-transform"
+        style={{ left: 0, top: 0 }}
+      />
+    </>
+  );
+}

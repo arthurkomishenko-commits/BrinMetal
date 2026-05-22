@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
+import { MagneticElement } from "@/components/motion/MagneticElement";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import type { Locale } from "@/types";
@@ -173,8 +174,10 @@ export function ContactSection() {
                 </div>
 
                 {/* Submit */}
+                <MagneticElement strength={0.15}>
                 <button
                   type="submit"
+                  data-cursor-accent
                   disabled={formState === "sending" || formState === "success"}
                   className={cn(
                     "w-full py-3.5 text-[13px] uppercase tracking-[0.1em] font-semibold transition-all duration-300",
@@ -190,6 +193,7 @@ export function ContactSection() {
                       ? t("success")
                       : t("send")}
                 </button>
+                </MagneticElement>
 
                 {formState === "error" && (
                   <p className="text-sm text-red-400 text-center">
