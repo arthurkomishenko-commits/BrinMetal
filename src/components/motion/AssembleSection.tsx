@@ -22,14 +22,38 @@ export function AssembleSection({
     const section = ref.current;
     if (!section) return;
 
-    // On touch devices, CSS + IntersectionObserver handles animations
     const isTouch =
       "ontouchstart" in window ||
       navigator.maxTouchPoints > 0 ||
       window.matchMedia("(pointer: coarse)").matches;
 
-    if (isTouch) return;
+    const elements = section.querySelectorAll("[data-assemble]");
+    if (!elements.length) return;
 
+    // ==========================================
+    // MOBILE: CSS transitions + IntersectionObserver
+    // ==========================================
+    if (isTouch) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("revealed");
+            } else {
+              entry.target.classList.remove("revealed");
+            }
+          });
+        },
+        { threshold: 0.05, rootMargin: "0px 0px -5% 0px" }
+      );
+
+      elements.forEach((el) => observer.observe(el));
+      return () => observer.disconnect();
+    }
+
+    // ==========================================
+    // DESKTOP: GSAP scrub-based assemble/disassemble
+    // ==========================================
     let ctx: ReturnType<typeof import("gsap").gsap.context> | null = null;
 
     Promise.all([
@@ -40,19 +64,14 @@ export function AssembleSection({
       const { ScrollTrigger } = stModule;
       gsap.registerPlugin(ScrollTrigger);
 
-      const elements = section.querySelectorAll("[data-assemble]");
-      if (!elements.length) return;
-
-      // Mark as GSAP-controlled so CSS transitions don't interfere
+      // Mark as GSAP-controlled
       elements.forEach((el) => {
         el.setAttribute("data-gsap", "true");
         (el as HTMLElement).style.transition = "none";
       });
 
-      const mobile = window.innerWidth < 768;
-      const dist = mobile ? 25 : 45;
+      const dist = 45;
 
-      // Group elements by delay
       const groups = new Map<number, Element[]>();
       elements.forEach((el) => {
         const delay = parseInt(el.getAttribute("data-assemble-delay") || "0", 10);
@@ -65,85 +84,53 @@ export function AssembleSection({
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: section,
-            start: mobile ? "top 85%" : "top 80%",
-            end: mobile ? "bottom 15%" : "bottom 20%",
-            scrub: mobile ? 0.6 : 1.2,
+            start: "top 80%",
+            end: "bottom 20%",
+            scrub: 1.2,
           },
         });
 
-        // Phase 1: ASSEMBLE (0% → 40%)
+        // ASSEMBLE (0% → 40%)
         sortedKeys.forEach((key, groupIndex) => {
-          const groupEls = groups.get(key)!;
-          groupEls.forEach((el) => {
+          groups.get(key)!.forEach((el) => {
             const dir = el.getAttribute("data-assemble") || "up";
             const enterFrom: gsap.TweenVars = { opacity: 0 };
             const enterTo: gsap.TweenVars = { opacity: 1, duration: 0.4 };
 
             switch (dir) {
-              case "left":
-                enterFrom.x = -dist;
-                enterTo.x = 0;
-                break;
-              case "right":
-                enterFrom.x = dist;
-                enterTo.x = 0;
-                break;
-              case "scale":
-                enterFrom.scale = 0.92;
-                enterTo.scale = 1;
-                break;
-              case "line":
-                enterFrom.scaleX = 0;
-                enterTo.scaleX = 1;
-                break;
-              default:
-                enterFrom.y = dist;
-                enterTo.y = 0;
-                break;
+              case "left":  enterFrom.x = -dist; enterTo.x = 0; break;
+              case "right": enterFrom.x = dist;  enterTo.x = 0; break;
+              case "scale": enterFrom.scale = 0.92; enterTo.scale = 1; break;
+              case "line":  enterFrom.scaleX = 0; enterTo.scaleX = 1; break;
+              default:      enterFrom.y = dist;   enterTo.y = 0; break;
             }
 
             gsap.set(el, enterFrom);
-            const offset = groupIndex * 0.03;
-            tl.to(el, enterTo, offset);
+            tl.to(el, enterTo, groupIndex * 0.03);
           });
         });
 
-        // Phase 3: DISASSEMBLE (60% → 100%)
-        const reverseKeys = [...sortedKeys].reverse();
-        reverseKeys.forEach((key, groupIndex) => {
-          const groupEls = groups.get(key)!;
-          groupEls.forEach((el) => {
+        // DISASSEMBLE (60% → 100%)
+        [...sortedKeys].reverse().forEach((key, groupIndex) => {
+          groups.get(key)!.forEach((el) => {
             const dir = el.getAttribute("data-assemble") || "up";
             const exitTo: gsap.TweenVars = { opacity: 0, duration: 0.4 };
 
             switch (dir) {
-              case "left":
-                exitTo.x = dist;
-                break;
-              case "right":
-                exitTo.x = -dist;
-                break;
-              case "scale":
-                exitTo.scale = 0.92;
-                break;
-              case "line":
-                exitTo.scaleX = 0;
-                break;
-              default:
-                exitTo.y = -dist;
-                break;
+              case "left":  exitTo.x = dist;    break;
+              case "right": exitTo.x = -dist;   break;
+              case "scale": exitTo.scale = 0.92; break;
+              case "line":  exitTo.scaleX = 0;   break;
+              default:      exitTo.y = -dist;    break;
             }
 
-            const offset = 0.6 + groupIndex * 0.03;
-            tl.to(el, exitTo, offset);
+            tl.to(el, exitTo, 0.6 + groupIndex * 0.03);
           });
         });
       }, section);
     });
 
-    return () => {
-      ctx?.revert();
-    };
+    return () => { ctx?.revert(); };
   }, []);
 
   return (
