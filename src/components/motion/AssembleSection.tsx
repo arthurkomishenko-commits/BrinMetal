@@ -37,11 +37,16 @@ export function AssembleSection({
     if (isTouch) {
       const easing = "cubic-bezier(0.22, 1, 0.36, 1)";
 
-      // DEBUG: red dot in corner to confirm JS runs on mobile
-      const dbg = document.createElement("div");
-      dbg.style.cssText = "position:fixed;top:4px;left:4px;width:8px;height:8px;background:red;border-radius:50%;z-index:99999;pointer-events:none";
-      document.body.appendChild(dbg);
-      setTimeout(() => dbg.remove(), 5000);
+      // DEBUG panel
+      let dbg = document.getElementById("dbg-panel");
+      if (!dbg) {
+        dbg = document.createElement("div");
+        dbg.id = "dbg-panel";
+        dbg.style.cssText = "position:fixed;bottom:0;left:0;right:0;background:rgba(0,0,0,0.9);color:#0f0;font:11px/1.4 monospace;padding:8px 12px;z-index:99999;max-height:30vh;overflow:auto";
+        document.body.appendChild(dbg);
+      }
+      const sectionId = section.id || "unknown";
+      dbg.innerHTML += `[${sectionId}] touch:YES els:${elements.length}<br>`;
 
       // Step 1: Set hidden state WITHOUT transition (instant, no animation)
       elements.forEach((el) => {
@@ -76,6 +81,10 @@ export function AssembleSection({
         (entries) => {
           entries.forEach((entry) => {
             const htmlEl = entry.target as HTMLElement;
+            // DEBUG
+            const dp = document.getElementById("dbg-panel");
+            if (dp) dp.innerHTML += `IO: ${entry.isIntersecting ? "IN" : "OUT"} ${htmlEl.getAttribute("data-assemble")}<br>`;
+
             if (entry.isIntersecting) {
               htmlEl.style.opacity = "1";
               htmlEl.style.transform = "none";
