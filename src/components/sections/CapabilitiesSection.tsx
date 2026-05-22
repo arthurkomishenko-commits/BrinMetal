@@ -47,14 +47,14 @@ export function CapabilitiesSection() {
       <div className="container-wide">
         <div className="mb-10 sm:mb-14 md:mb-20">
           <span data-assemble="up" data-assemble-delay="0" className="inline-block text-[11px] uppercase tracking-[0.2em] text-[var(--copper)] font-medium">{tSection("subtitle")}</span>
-          <h2 data-assemble="up" data-assemble-delay="1" className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] text-[var(--off-white)]">{tSection("title")}</h2>
+          <h2 data-assemble="up" data-assemble-delay="1" className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] text-[var(--off-white)] text-stamped">{tSection("title")}</h2>
           <div data-assemble="line" data-assemble-delay="2" className="mt-5 sm:mt-6 w-12 sm:w-16 h-[2px] bg-[var(--copper)] origin-start accent-line-shimmer" />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           {services.map((service, i) => {
             const IconComponent = ICON_MAP[service.icon];
             return (
-              <TiltCard key={service.id} className={cn("group relative p-6 md:p-7 overflow-hidden", "bg-[var(--gunmetal)]/50 border border-white/[0.04]", "hover:border-[var(--copper)]/20 hover:bg-[var(--gunmetal)]", "transition-all duration-500 cursor-default")}>
+              <TiltCard key={service.id} className={cn("group relative p-6 md:p-7 overflow-hidden", "bg-[var(--gunmetal)]/50 steel-border metal-surface", "hover:border-[var(--copper)]/20 hover:bg-[var(--gunmetal)]", "transition-all duration-500 cursor-default")}>
                 <div data-assemble="scale" data-assemble-delay={`${3 + i}`}>
                   {IconComponent && <IconComponent size={28} className="text-[var(--copper)] mb-5 transition-transform duration-500 group-hover:scale-110" />}
                   <h3 className="text-base font-semibold text-[var(--off-white)] mb-2 tracking-tight">{t(service.titleKey)}</h3>

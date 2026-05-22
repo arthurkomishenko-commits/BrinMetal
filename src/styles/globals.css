@@ -34,19 +34,25 @@
     color: var(--off-white);
     overflow-x: hidden;
     position: relative;
+    font-family: var(--font-inter), system-ui, sans-serif;
   }
 
-  /* Subtle grain texture overlay */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading), var(--font-inter), system-ui, sans-serif;
+  }
+
+  /* Industrial grain texture -- heavier, metallic */
   body::after {
     content: "";
     position: fixed;
     inset: 0;
     pointer-events: none;
     z-index: 9999;
-    opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
     background-repeat: repeat;
-    background-size: 256px 256px;
+    background-size: 200px 200px;
+    mix-blend-mode: overlay;
   }
 
   /* Selection styling */
@@ -201,16 +207,81 @@
     background-image: linear-gradient(
       110deg,
       var(--off-white) 0%,
-      var(--off-white) 40%,
+      var(--off-white) 35%,
+      var(--warm-steel) 45%,
       var(--copper) 50%,
-      var(--off-white) 60%,
+      var(--warm-steel) 55%,
+      var(--off-white) 65%,
       var(--off-white) 100%
     );
-    background-size: 200% 100%;
+    background-size: 250% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: metal-gleam 8s ease-in-out infinite;
+    animation: metal-gleam 6s ease-in-out infinite;
+  }
+
+  /* Heavy brushed metal surface for cards/sections */
+  .metal-surface {
+    background-image:
+      linear-gradient(135deg, rgba(255,255,255,0.02) 25%, transparent 25%),
+      linear-gradient(225deg, rgba(255,255,255,0.02) 25%, transparent 25%),
+      linear-gradient(315deg, rgba(255,255,255,0.02) 25%, transparent 25%),
+      linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%);
+    background-size: 4px 4px;
+  }
+
+  /* Stamped/embossed text effect for headings */
+  .text-stamped {
+    text-shadow:
+      0 1px 0 rgba(0,0,0,0.4),
+      0 2px 4px rgba(0,0,0,0.2);
+  }
+
+  /* Heavy steel plate border */
+  .steel-border {
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.04),
+      inset 0 -1px 0 rgba(0,0,0,0.2),
+      0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  /* Riveted corner accent */
+  .rivet::before,
+  .rivet::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, var(--titanium), var(--gunmetal));
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.1), 0 1px 2px rgba(0,0,0,0.4);
+  }
+  .rivet::before { top: 8px; left: 8px; }
+  .rivet::after { top: 8px; right: 8px; }
+
+  /* Brushed steel horizontal lines texture for dark sections */
+  .brushed-steel {
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.008) 2px,
+      rgba(255, 255, 255, 0.008) 3px
+    );
+  }
+
+  /* Heavy industrial divider -- thicker, with shadow */
+  .divider-heavy {
+    position: relative;
+    height: 3px;
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.4),
+      rgba(255,255,255,0.03),
+      rgba(0,0,0,0.2)
+    );
   }
 
   /* Card border with subtle pulse glow */
