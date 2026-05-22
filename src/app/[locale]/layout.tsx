@@ -1,0 +1,60 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { Inter } from "next/font/google";
+import { routing } from "@/i18n/routing";
+import { generateMetadata as genMeta } from "@/lib/seo/metadata";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { SmoothScroll } from "@/components/motion/SmoothScroll";
+import "@/styles/globals.css";
+
+const inter = Inter({
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+type Props = {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+};
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return genMeta({ locale: locale as "he" | "ru" });
+}
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export default async function LocaleLayout({ children, params }: Props) {
+  const { locale } = await params;
+
+  if (!routing.locales.includes(locale as "he" | "ru")) {
+    notFound();
+  }
+
+  const messages = await getMessages();
+  const dir = locale === "he" ? "rtl" : "ltr";
+
+  return (
+    <html lang={locale} dir={dir} className={inter.variable}>
+      <body className="bg-[var(--graphite)] text-[var(--off-white)] font-sans antialiased">
+        <NextIntlClientProvider messages={messages}>
+          <SmoothScroll>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </SmoothScroll>
+        </NextIntlClientProvider>
+      </body>
+    </html>
+  );
+}
