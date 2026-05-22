@@ -102,63 +102,56 @@
   }
 }
 
-/* ===== Mobile scroll reveal (CSS transitions + .revealed class) ===== */
+/* ===== Scroll reveal animations ===== */
+@layer base {
+  [data-assemble]:not([data-gsap]) {
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  [data-assemble="left"]:not([data-gsap])  { transform: translateX(-30px); }
+  [data-assemble="right"]:not([data-gsap]) { transform: translateX(30px); }
+  [data-assemble="scale"]:not([data-gsap]) { transform: scale(0.93); }
+  [data-assemble="line"]:not([data-gsap])  { opacity: 1; transform: scaleX(0); }
 
-/* Default: elements hidden */
-[data-assemble] {
-  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
+  [data-assemble-delay="1"]:not([data-gsap]) { transition-delay: 0.06s; }
+  [data-assemble-delay="2"]:not([data-gsap]) { transition-delay: 0.12s; }
+  [data-assemble-delay="3"]:not([data-gsap]) { transition-delay: 0.18s; }
+  [data-assemble-delay="4"]:not([data-gsap]) { transition-delay: 0.24s; }
+  [data-assemble-delay="5"]:not([data-gsap]) { transition-delay: 0.30s; }
+  [data-assemble-delay="6"]:not([data-gsap]) { transition-delay: 0.36s; }
+  [data-assemble-delay="7"]:not([data-gsap]) { transition-delay: 0.42s; }
+  [data-assemble-delay="8"]:not([data-gsap]) { transition-delay: 0.48s; }
+  [data-assemble-delay="9"]:not([data-gsap]) { transition-delay: 0.54s; }
+  [data-assemble-delay="10"]:not([data-gsap]) { transition-delay: 0.60s; }
 
-[data-assemble="up"]:not([data-gsap])    { opacity: 0; transform: translateY(30px); }
-[data-assemble="left"]:not([data-gsap])  { opacity: 0; transform: translateX(-30px); }
-[data-assemble="right"]:not([data-gsap]) { opacity: 0; transform: translateX(30px); }
-[data-assemble="scale"]:not([data-gsap]) { opacity: 0; transform: scale(0.93); }
-[data-assemble="line"]:not([data-gsap])  { transform: scaleX(0); }
+  [data-assemble].revealed {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  [data-assemble="line"].revealed {
+    transform: scaleX(1) !important;
+  }
 
-/* Stagger via transition-delay */
-[data-assemble-delay="1"] { transition-delay: 0.06s; }
-[data-assemble-delay="2"] { transition-delay: 0.12s; }
-[data-assemble-delay="3"] { transition-delay: 0.18s; }
-[data-assemble-delay="4"] { transition-delay: 0.24s; }
-[data-assemble-delay="5"] { transition-delay: 0.30s; }
-[data-assemble-delay="6"] { transition-delay: 0.36s; }
-[data-assemble-delay="7"] { transition-delay: 0.42s; }
-[data-assemble-delay="8"] { transition-delay: 0.48s; }
-[data-assemble-delay="9"] { transition-delay: 0.54s; }
-[data-assemble-delay="10"] { transition-delay: 0.60s; }
-
-/* When revealed -- elements become visible */
-[data-assemble].revealed,
-[data-assemble="up"].revealed,
-[data-assemble="left"].revealed,
-[data-assemble="right"].revealed,
-[data-assemble="scale"].revealed {
-  opacity: 1;
-  transform: none;
+  /* Hero always animates on load */
+  [data-hero-title] > span > span,
+  [data-hero-subtitle],
+  [data-hero-cta] {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: hero-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  [data-hero-line] {
+    transform: scaleX(0);
+    animation: hero-line-draw 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
+    transform-origin: right;
+  }
+  [dir="ltr"] [data-hero-line] { transform-origin: left; }
+  [data-hero-title] > span > span { animation-delay: 0.2s; }
+  [data-hero-subtitle]            { animation-delay: 0.4s; }
+  [data-hero-cta]                 { animation-delay: 0.55s; }
 }
-[data-assemble="line"].revealed {
-  transform: scaleX(1);
-}
-
-/* Hero: always animate on load (no scroll trigger needed) */
-[data-hero-title] > span > span,
-[data-hero-subtitle],
-[data-hero-cta],
-[data-hero-line] {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: hero-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-[data-hero-line] {
-  transform: scaleX(0);
-  animation: hero-line-draw 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
-  transform-origin: right;
-}
-[dir="ltr"] [data-hero-line] { transform-origin: left; }
-[data-hero-title] > span > span { animation-delay: 0.2s; }
-[data-hero-subtitle]            { animation-delay: 0.4s; }
-[data-hero-cta]                 { animation-delay: 0.55s; }
 
 @keyframes hero-enter {
   to { opacity: 1; transform: translateY(0); }

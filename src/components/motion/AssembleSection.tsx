@@ -34,6 +34,14 @@ export function AssembleSection({
     // MOBILE: CSS transitions + IntersectionObserver
     // ==========================================
     if (isTouch) {
+      // Force-reveal elements that are already visible on load
+      elements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add("revealed");
+        }
+      });
+
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -44,11 +52,20 @@ export function AssembleSection({
             }
           });
         },
-        { threshold: 0.05, rootMargin: "0px 0px -5% 0px" }
+        { threshold: 0, rootMargin: "50px" }
       );
 
       elements.forEach((el) => observer.observe(el));
-      return () => observer.disconnect();
+
+      // Safety net: if after 3s elements are still hidden, force show
+      const safety = setTimeout(() => {
+        elements.forEach((el) => el.classList.add("revealed"));
+      }, 3000);
+
+      return () => {
+        observer.disconnect();
+        clearTimeout(safety);
+      };
     }
 
     // ==========================================
