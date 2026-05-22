@@ -1,12 +1,7 @@
 "use client";
 
-import { useRef, useEffect } from "react";
 import { useTranslations } from "next-intl";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
-
-gsap.registerPlugin(ScrollTrigger);
+import { AssembleSection } from "@/components/motion/AssembleSection";
 
 const STEPS = [
   { num: "01", key: "step1" },
@@ -17,63 +12,21 @@ const STEPS = [
 
 export function WorkshopSection() {
   const t = useTranslations("workshop");
-  const stepsRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!stepsRef.current) return;
-    const steps = stepsRef.current.querySelectorAll("[data-step]");
-    if (!steps.length) return;
-
-    const mobile = window.innerWidth < 768;
-
-    gsap.set(steps, { x: mobile ? -15 : -30, opacity: 0 });
-
-    const ctx = gsap.context(() => {
-      gsap.to(steps, {
-        x: 0,
-        opacity: 1,
-        duration: mobile ? 0.4 : 0.6,
-        ease: "power3.out",
-        stagger: mobile ? 0.1 : 0.15,
-        scrollTrigger: {
-          trigger: stepsRef.current,
-          start: mobile ? "top 95%" : "top 80%",
-          toggleActions: "play none none reverse",
-        },
-      });
-
-      if (!mobile) {
-        gsap.from("[data-step-line]", {
-          scaleY: 0,
-          duration: 1.5,
-          ease: "power4.inOut",
-          transformOrigin: "top",
-          scrollTrigger: { trigger: stepsRef.current, start: "top 80%", toggleActions: "play none none reverse" },
-        });
-      }
-    }, stepsRef.current);
-
-    return () => ctx.revert();
-  }, []);
 
   return (
-    <section id="workshop" className="section-padding relative">
+    <AssembleSection id="workshop" className="section-padding relative">
       <div className="container-wide">
-        <RevealOnScroll>
-          <div className="mb-10 sm:mb-14 md:mb-20">
-            <span className="text-[11px] uppercase tracking-[0.2em] text-[var(--copper)] font-medium">{t("subtitle")}</span>
-            <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] text-[var(--off-white)]">{t("title")}</h2>
-            <div className="mt-5 sm:mt-6 w-12 sm:w-16 h-[2px] bg-[var(--copper)]" />
-          </div>
-        </RevealOnScroll>
-        <RevealOnScroll delay={0.1}>
-          <p className="text-sm sm:text-base md:text-lg text-[var(--titanium)] leading-[1.7] max-w-2xl mb-10 sm:mb-14">{t("description")}</p>
-        </RevealOnScroll>
-        <div ref={stepsRef} className="relative">
-          <div data-step-line className="absolute start-5 sm:start-6 md:start-8 top-0 bottom-0 w-[1px] bg-white/[0.06] hidden sm:block" />
+        <div className="mb-10 sm:mb-14 md:mb-20">
+          <span data-assemble="up" data-assemble-delay="0" className="inline-block text-[11px] uppercase tracking-[0.2em] text-[var(--copper)] font-medium">{t("subtitle")}</span>
+          <h2 data-assemble="up" data-assemble-delay="1" className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] text-[var(--off-white)]">{t("title")}</h2>
+          <div data-assemble="line" data-assemble-delay="2" className="mt-5 sm:mt-6 w-12 sm:w-16 h-[2px] bg-[var(--copper)] origin-start" />
+        </div>
+        <p data-assemble="up" data-assemble-delay="3" className="text-sm sm:text-base md:text-lg text-[var(--titanium)] leading-[1.7] max-w-2xl mb-10 sm:mb-14">{t("description")}</p>
+        <div className="relative">
+          <div className="absolute start-5 sm:start-6 md:start-8 top-0 bottom-0 w-[1px] bg-white/[0.06] hidden sm:block" />
           <div className="flex flex-col gap-6 sm:gap-8 md:gap-10">
-            {STEPS.map((step) => (
-              <div key={step.num} data-step className="group flex items-start gap-4 sm:gap-6 md:gap-8">
+            {STEPS.map((step, i) => (
+              <div key={step.num} data-assemble="left" data-assemble-delay={`${4 + i}`} className="group flex items-start gap-4 sm:gap-6 md:gap-8">
                 <div className="relative shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 flex items-center justify-center border border-[var(--copper)]/30 bg-[var(--graphite)] z-10 group-hover:border-[var(--copper)] transition-colors duration-500">
                   <span className="text-xs sm:text-sm md:text-base font-bold text-[var(--copper)]">{step.num}</span>
                 </div>
@@ -86,6 +39,6 @@ export function WorkshopSection() {
           </div>
         </div>
       </div>
-    </section>
+    </AssembleSection>
   );
 }
