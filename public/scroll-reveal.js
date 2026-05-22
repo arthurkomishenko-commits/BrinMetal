@@ -9,6 +9,26 @@ document.addEventListener("DOMContentLoaded", function () {
     "position:fixed;top:0;right:0;background:#c4956a;color:#1a1a1a;font:bold 10px/1 monospace;padding:3px 6px;z-index:99999";
   document.body.appendChild(marker);
 
+  // TEST: Big visible animation to prove transitions work on this device
+  var testBox = document.createElement("div");
+  testBox.textContent = "ANIMATION TEST";
+  testBox.style.cssText =
+    "position:fixed;bottom:60px;left:50%;transform:translateX(-50%) translateY(100px);opacity:0;" +
+    "background:#c4956a;color:#1a1a1a;font:bold 14px/1 system-ui;padding:12px 24px;z-index:99998;" +
+    "border-radius:2px;-webkit-transition:opacity 1s ease, -webkit-transform 1s ease;transition:opacity 1s ease, transform 1s ease";
+  document.body.appendChild(testBox);
+  setTimeout(function() {
+    testBox.style.opacity = "1";
+    testBox.style.webkitTransform = "translateX(-50%) translateY(0)";
+    testBox.style.transform = "translateX(-50%) translateY(0)";
+  }, 500);
+  setTimeout(function() {
+    testBox.style.opacity = "0";
+    testBox.style.webkitTransform = "translateX(-50%) translateY(100px)";
+    testBox.style.transform = "translateX(-50%) translateY(100px)";
+  }, 4000);
+  setTimeout(function() { testBox.remove(); }, 5000);
+
   var ease = "cubic-bezier(0.22, 1, 0.36, 1)";
   var els = document.querySelectorAll("[data-assemble]");
 
