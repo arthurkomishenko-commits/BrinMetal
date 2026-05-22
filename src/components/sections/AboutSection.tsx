@@ -13,13 +13,15 @@ export function AboutSection() {
   const t = useTranslations("about");
 
   return (
-    <AssembleSection id="about" className="section-padding relative bg-[var(--gunmetal)] ambient-glow brushed-steel scratches milled-edge section-edges">
-      {/* Ambient glow -- secondary */}
+    <AssembleSection id="about" className="section-padding relative steel-gradient brushed-steel scratches milled-edge section-edges">
+      {/* Ambient glow */}
       <div className="absolute bottom-10 end-10 w-[400px] h-[400px] rounded-full bg-[var(--copper)] opacity-[0.015] blur-[100px] animate-[glow-breathe_10s_ease-in-out_infinite_2s] pointer-events-none" />
+
       <div className="container-wide">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+          {/* Text */}
           <div className="lg:col-span-7">
-            <span data-assemble="up" data-assemble-delay="0" className="inline-block text-[11px] uppercase tracking-[0.2em] text-[var(--copper)] font-medium">
+            <span data-assemble="up" data-assemble-delay="0" className="inline-block eng-label text-[var(--copper)]">
               {t("subtitle")}
             </span>
             <h2 data-assemble="up" data-assemble-delay="1" className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] text-[var(--off-white)] text-stamped leading-tight">
@@ -30,11 +32,19 @@ export function AboutSection() {
               {t("description")}
             </p>
           </div>
+
+          {/* Stats -- steel panel cards */}
           <div className="lg:col-span-5 flex flex-col justify-center">
             <div className="grid grid-cols-1 gap-4 sm:gap-5 lg:gap-6">
               {STATS.map((stat, i) => (
-                <div key={stat.key} data-assemble="right" data-assemble-delay={`${i + 2}`} className="flex items-center gap-4 sm:gap-6 p-4 sm:p-5 lg:p-6 bg-[var(--graphite)]/50 steel-border metal-surface frame-glow edge-gleam">
+                <div
+                  key={stat.key}
+                  data-assemble="right"
+                  data-assemble-delay={`${i + 2}`}
+                  className="flex items-center gap-4 sm:gap-6 p-4 sm:p-5 lg:p-6 steel-panel metal-surface pressure-hover frame-glow"
+                >
                   <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--copper)] tracking-tight min-w-[60px] sm:min-w-[80px]">{stat.value}</span>
+                  <div className="w-[1px] h-8 bg-white/[0.06] shrink-0" />
                   <span className="text-xs sm:text-sm text-[var(--titanium)] uppercase tracking-[0.05em]">{t(stat.key)}</span>
                 </div>
               ))}

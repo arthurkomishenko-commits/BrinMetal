@@ -15,10 +15,10 @@ export function TrustSection() {
   const t = useTranslations("trust");
 
   return (
-    <AssembleSection id="trust" className="section-padding relative">
+    <AssembleSection id="trust" className="section-padding relative base-layer scratches section-edges">
       <div className="container-wide">
         <div className="text-center mb-10 sm:mb-14 md:mb-20">
-          <span data-assemble="up" data-assemble-delay="0" className="inline-block text-[11px] uppercase tracking-[0.2em] text-[var(--copper)] font-medium">{t("subtitle")}</span>
+          <span data-assemble="up" data-assemble-delay="0" className="inline-block eng-label text-[var(--copper)]">{t("subtitle")}</span>
           <h2 data-assemble="up" data-assemble-delay="1" className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] text-[var(--off-white)] text-stamped">{t("title")}</h2>
           <div data-assemble="line" data-assemble-delay="2" className="mt-5 sm:mt-6 mx-auto w-12 sm:w-16 h-[2px] bg-[var(--copper)] accent-line-shimmer" />
         </div>
@@ -26,9 +26,9 @@ export function TrustSection() {
           {TRUST_ITEMS.map((item, i) => {
             const Icon = item.icon;
             return (
-              <div key={item.key} data-assemble="up" data-assemble-delay={`${3 + i}`} className={cn("group text-center p-6 sm:p-8 md:p-10", "bg-[var(--gunmetal)]/30 steel-border metal-surface frame-glow edge-gleam", "md:hover:border-[var(--copper)]/15 transition-all duration-500")}>
-                <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 border border-[var(--copper)]/20 mb-4 sm:mb-6 md:group-hover:border-[var(--copper)]/40 transition-colors duration-500">
-                  <Icon size={20} className="text-[var(--copper)] sm:[&]:w-6 sm:[&]:h-6" />
+              <div key={item.key} data-assemble="up" data-assemble-delay={`${3 + i}`} className={cn("group text-center p-6 sm:p-8 md:p-10", "steel-panel metal-surface pressure-hover machined-corners")}>
+                <div className="inline-flex items-center justify-center w-14 h-14 inset-chamber mb-5">
+                  <Icon size={22} className="text-[var(--copper)]" />
                 </div>
                 <p className="text-sm sm:text-base text-[var(--titanium)] leading-relaxed">{t(item.key)}</p>
               </div>

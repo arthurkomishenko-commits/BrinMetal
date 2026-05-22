@@ -27,6 +27,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
   }
 
   body {
@@ -34,6 +35,7 @@
     color: var(--off-white);
     overflow-x: hidden;
     position: relative;
+    max-width: 100vw;
     font-family: var(--font-inter), system-ui, sans-serif;
   }
 
@@ -590,6 +592,174 @@
     rgba(255,255,255,0.03) 50%,
     rgba(0,0,0,0.3)
   );
+}
+
+/* ===== STRUCTURAL PHYSICALITY SYSTEM ===== */
+/* Every panel feels fabricated, assembled, pressure-fitted */
+
+@layer components {
+  /* Steel panel -- elevated surface with directional light logic
+     Light comes from top-left. Top edge = cold highlight. Bottom = compressed shadow. */
+  .steel-panel {
+    position: relative;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255,255,255,0.02) 0%,
+        transparent 15%,
+        transparent 85%,
+        rgba(0,0,0,0.15) 100%
+      ),
+      var(--gunmetal);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-top-color: rgba(255,255,255,0.09);
+    border-bottom-color: rgba(0,0,0,0.25);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.03) inset,
+      0 -1px 0 rgba(0,0,0,0.2) inset,
+      0 4px 16px rgba(0,0,0,0.4),
+      0 1px 3px rgba(0,0,0,0.3);
+  }
+
+  /* Inset chamber -- content recessed INTO the panel, creates depth */
+  .inset-chamber {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0,0,0,0.12) 0%,
+        transparent 20%,
+        transparent 80%,
+        rgba(255,255,255,0.015) 100%
+      ),
+      rgba(26, 26, 26, 0.7);
+    border: 1px solid rgba(0,0,0,0.3);
+    border-top-color: rgba(0,0,0,0.4);
+    border-bottom-color: rgba(255,255,255,0.04);
+    box-shadow:
+      0 2px 8px rgba(0,0,0,0.4) inset,
+      0 1px 0 rgba(255,255,255,0.02);
+  }
+
+  /* Chamfered edge -- 45deg cut corners via clip-path */
+  .chamfer-sm {
+    clip-path: polygon(
+      6px 0, calc(100% - 6px) 0,
+      100% 6px, 100% calc(100% - 6px),
+      calc(100% - 6px) 100%, 6px 100%,
+      0 calc(100% - 6px), 0 6px
+    );
+  }
+  .chamfer-md {
+    clip-path: polygon(
+      12px 0, calc(100% - 12px) 0,
+      100% 12px, 100% calc(100% - 12px),
+      calc(100% - 12px) 100%, 12px 100%,
+      0 calc(100% - 12px), 0 12px
+    );
+  }
+
+  /* Pressure hover -- element depresses inward on interaction */
+  .pressure-hover {
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .pressure-hover:hover {
+    transform: scale(0.985) translateY(1px);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.03) inset,
+      0 -1px 0 rgba(0,0,0,0.2) inset,
+      0 2px 6px rgba(0,0,0,0.5);
+  }
+  .pressure-hover:active {
+    transform: scale(0.975) translateY(2px);
+  }
+
+  /* Tension line -- structural stress indicator between elements */
+  .tension-line {
+    position: relative;
+  }
+  .tension-line::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 8%;
+    right: 8%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.04) 15%,
+      rgba(255,255,255,0.06) 50%,
+      rgba(255,255,255,0.04) 85%,
+      transparent
+    );
+  }
+
+  /* Shadow gap -- deep separation line between structural panels */
+  .shadow-gap-top {
+    box-shadow: 0 -4px 8px -2px rgba(0,0,0,0.5) inset;
+  }
+  .shadow-gap-bottom {
+    box-shadow: 0 4px 8px -2px rgba(0,0,0,0.5) inset;
+  }
+
+  /* Machined corner marks -- precise alignment ticks */
+  .machined-corners {
+    position: relative;
+  }
+  .machined-corners::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 14px;
+    height: 14px;
+    border-top: 1px solid rgba(196, 149, 106, 0.15);
+    border-left: 1px solid rgba(196, 149, 106, 0.15);
+    pointer-events: none;
+  }
+  .machined-corners::after {
+    content: "";
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    width: 14px;
+    height: 14px;
+    border-bottom: 1px solid rgba(196, 149, 106, 0.15);
+    border-right: 1px solid rgba(196, 149, 106, 0.15);
+    pointer-events: none;
+  }
+
+  /* Engineering label -- small technical marker text */
+  .eng-label {
+    font-family: var(--font-inter), monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(138, 141, 147, 0.3);
+    user-select: none;
+  }
+
+  /* Directional steel gradient -- vertical cold-to-warm */
+  .steel-gradient {
+    background: linear-gradient(
+      180deg,
+      #2d3038 0%,
+      #2a2d35 30%,
+      #282b32 70%,
+      #252830 100%
+    );
+  }
+
+  /* Deep structural base layer -- darkest, heaviest */
+  .base-layer {
+    background: linear-gradient(
+      180deg,
+      #171717 0%,
+      #1a1a1a 40%,
+      #1c1c1e 100%
+    );
+  }
 }
 
 /* Reduced motion: disable all ambient animations */
