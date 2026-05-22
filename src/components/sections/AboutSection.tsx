@@ -30,6 +30,7 @@ export function AboutSection() {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: mobile ? "top 95%" : "top 75%",
+          toggleActions: "play none none reverse",
         },
       });
     }, sectionRef.current);

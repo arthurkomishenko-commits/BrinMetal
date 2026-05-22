@@ -38,6 +38,7 @@ export function WorkshopSection() {
         scrollTrigger: {
           trigger: stepsRef.current,
           start: mobile ? "top 95%" : "top 80%",
+          toggleActions: "play none none reverse",
         },
       });
 
@@ -47,7 +48,7 @@ export function WorkshopSection() {
           duration: 1.5,
           ease: "power4.inOut",
           transformOrigin: "top",
-          scrollTrigger: { trigger: stepsRef.current, start: "top 80%" },
+          scrollTrigger: { trigger: stepsRef.current, start: "top 80%", toggleActions: "play none none reverse" },
         });
       }
     }, stepsRef.current);

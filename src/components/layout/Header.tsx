@@ -123,7 +123,7 @@ export function Header() {
             : "bg-transparent border-b border-transparent"
         )}
       >
-        <div className="container-wide flex items-center justify-between h-14 sm:h-16 md:h-18 lg:h-22">
+        <div className="container-wide flex items-center justify-between h-14 sm:h-16 md:h-[72px] lg:h-20">
           {/* Logo */}
           <Link
             href={`/${locale}`}

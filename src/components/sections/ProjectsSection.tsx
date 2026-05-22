@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,10 +11,34 @@ import { cn } from "@/lib/utils";
 gsap.registerPlugin(ScrollTrigger);
 
 const PROJECTS = [
-  { id: 1, category: "structures", aspect: "sm:col-span-2 sm:row-span-2" },
-  { id: 2, category: "gates", aspect: "" },
-  { id: 3, category: "staircases", aspect: "" },
-  { id: 4, category: "fences", aspect: "sm:col-span-2" },
+  {
+    id: 1,
+    category: "structures",
+    aspect: "sm:col-span-2 sm:row-span-2",
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
+    alt: "Heavy metal structure fabrication",
+  },
+  {
+    id: 2,
+    category: "gates",
+    aspect: "",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80",
+    alt: "Custom metal gate",
+  },
+  {
+    id: 3,
+    category: "staircases",
+    aspect: "",
+    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80",
+    alt: "Metal staircase fabrication",
+  },
+  {
+    id: 4,
+    category: "fences",
+    aspect: "sm:col-span-2",
+    image: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&q=80",
+    alt: "Architectural metal fence",
+  },
 ] as const;
 
 export function ProjectsSection() {
@@ -39,6 +64,7 @@ export function ProjectsSection() {
         scrollTrigger: {
           trigger: gridRef.current,
           start: mobile ? "top 95%" : "top 85%",
+          toggleActions: "play none none reverse",
         },
       });
     }, gridRef.current);
@@ -57,12 +83,19 @@ export function ProjectsSection() {
             <div className="mt-5 sm:mt-6 w-12 sm:w-16 h-[2px] bg-[var(--copper)]" />
           </div>
         </RevealOnScroll>
-        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-5 auto-rows-[180px] sm:auto-rows-[200px] md:auto-rows-[250px]">
+        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-5 auto-rows-[200px] sm:auto-rows-[220px] md:auto-rows-[260px]">
           {PROJECTS.map((project) => (
-            <div key={project.id} data-project-item className={cn(project.aspect, "group relative overflow-hidden bg-[var(--graphite)] border border-white/[0.04]", "active:border-[var(--copper)]/20 md:hover:border-[var(--copper)]/20 transition-all duration-500")}>
-              <div className="absolute inset-0 bg-gradient-to-br from-[var(--gunmetal)] to-[var(--graphite)]" />
-              <div className="absolute inset-0 bg-[var(--copper)]/0 md:group-hover:bg-[var(--copper)]/[0.08] transition-colors duration-500" />
-              <div className="absolute bottom-0 inset-x-0 p-3 sm:p-4 md:p-5 bg-gradient-to-t from-black/50 to-transparent md:translate-y-2 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-500">
+            <div key={project.id} data-project-item className={cn(project.aspect, "group relative overflow-hidden border border-white/[0.04]", "active:border-[var(--copper)]/20 md:hover:border-[var(--copper)]/20 transition-all duration-500")}>
+              <Image
+                src={project.image}
+                alt={project.alt}
+                fill
+                className="object-cover transition-transform duration-700 md:group-hover:scale-105 brightness-[0.6] md:group-hover:brightness-[0.75]"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5">
                 <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.15em] text-[var(--copper)] font-medium">{project.category}</span>
               </div>
             </div>

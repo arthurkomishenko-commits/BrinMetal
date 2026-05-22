@@ -38,6 +38,7 @@ export function PrecisionSection() {
         scrollTrigger: {
           trigger: metricsRef.current,
           start: mobile ? "top 95%" : "top 85%",
+          toggleActions: "play none none reverse",
         },
       });
     }, metricsRef.current);

@@ -50,7 +50,7 @@ export function RevealOnScroll({
       scrollTrigger: {
         trigger: el,
         start: mobile ? "top 98%" : "top 88%",
-        toggleActions: "play none none none",
+        toggleActions: "play none none reverse",
       },
     };
 
