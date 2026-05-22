@@ -90,17 +90,15 @@
     scrollbar-color: var(--gunmetal) var(--graphite);
   }
 
-  /* Custom cursor -- hide default on desktop */
-  @media (min-width: 1024px) and (pointer: fine) {
-    *, a, button, input, textarea {
-      cursor: none !important;
-    }
-  }
-
   /* Focus visible for keyboard nav */
   :focus-visible {
     outline: 2px solid var(--copper);
     outline-offset: 2px;
+  }
+
+  /* AssembleSection: elements start hidden, GSAP reveals them */
+  [data-assemble] {
+    will-change: transform, opacity;
   }
 }
 
@@ -241,10 +239,8 @@
   /* Heavy steel plate border */
   .steel-border {
     border: 1px solid rgba(255,255,255,0.06);
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,0.04),
-      inset 0 -1px 0 rgba(0,0,0,0.2),
-      0 2px 8px rgba(0,0,0,0.3);
+    border-top-color: rgba(255,255,255,0.08);
+    border-bottom-color: rgba(0,0,0,0.15);
   }
 
   /* Riveted corner accent */
