@@ -7,9 +7,11 @@ import { cn } from "@/lib/utils";
 
 const PROJECTS = [
   { id: 1, category: "gates", titleKey: "gate_title", aspect: "sm:col-span-2 sm:row-span-2", image: "/images/projects/gate-wood-metal.jpg", alt: "Architectural gate with wood and metal" },
-  { id: 2, category: "gates", titleKey: "gate_title", aspect: "", image: "/images/projects/gate-black.jpg", alt: "Black steel entrance gate" },
+  { id: 2, category: "railings", titleKey: "railing_title", aspect: "", image: "/images/projects/railing-installed.jpg", alt: "Ornamental wrought iron balcony railing" },
   { id: 3, category: "staircases", titleKey: "staircase_title", aspect: "", image: "/images/projects/metal-staircase.jpg", alt: "Metal staircase with safety mesh" },
-  { id: 4, category: "art", titleKey: "structure_title", aspect: "sm:col-span-2", image: "/images/projects/forged-rose.jpg", alt: "Forged iron rose -- artistic metalwork" },
+  { id: 4, category: "railings", titleKey: "railing_title", aspect: "", image: "/images/projects/railing-workshop.jpg", alt: "Decorative railing in workshop" },
+  { id: 5, category: "gates", titleKey: "gate_title", aspect: "", image: "/images/projects/gate-black.jpg", alt: "Black steel entrance gate" },
+  { id: 6, category: "art", titleKey: "structure_title", aspect: "sm:col-span-2", image: "/images/projects/forged-rose.jpg", alt: "Forged iron rose -- artistic metalwork" },
 ] as const;
 
 export function ProjectsSection() {
