@@ -135,6 +135,7 @@
   width: 100%;
   max-width: 1400px;
   padding-inline: 1.5rem;
+  flex-shrink: 0;
   @media (min-width: 768px) {
     padding-inline: 2rem;
   }
@@ -144,12 +145,17 @@
 }
 
 @utility section-padding {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding-block: 5rem;
   @media (min-width: 768px) {
-    padding-block: 7rem;
+    padding-block: 6rem;
   }
   @media (min-width: 1024px) {
-    padding-block: 9rem;
+    padding-block: 7rem;
   }
 }
 
