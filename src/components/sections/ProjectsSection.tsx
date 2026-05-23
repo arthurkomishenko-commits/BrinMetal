@@ -16,7 +16,7 @@ export function ProjectsSection() {
   const t = useTranslations("projects");
 
   return (
-    <AssembleSection id="projects" className="section-padding relative steel-gradient brushed-steel section-edges">
+    <AssembleSection id="projects" className="section-padding relative steel-gradient cold-rolled oxide-patina section-edges">
       <div className="container-wide">
         <div className="mb-10 sm:mb-14 md:mb-20">
           <span data-assemble="up" data-assemble-delay="0" className="inline-block eng-label text-[var(--copper)]">{t("subtitle")}</span>
@@ -32,7 +32,7 @@ export function ProjectsSection() {
               data-assemble-delay={`${3 + i}`}
               className={cn(
                 project.aspect,
-                "group relative overflow-hidden steel-panel pressure-hover machined-corners"
+                "group relative overflow-hidden steel-panel pressure-hover machined-corners plasma-cut"
               )}
             >
               <Image src={project.image} alt={project.alt} fill className="object-cover transition-transform duration-700 md:group-hover:scale-105 brightness-[0.5] md:group-hover:brightness-[0.65]" sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw" unoptimized />

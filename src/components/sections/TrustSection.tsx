@@ -15,7 +15,7 @@ export function TrustSection() {
   const t = useTranslations("trust");
 
   return (
-    <AssembleSection id="trust" className="section-padding relative base-layer scratches section-edges">
+    <AssembleSection id="trust" className="section-padding relative base-layer mill-scale stressed-metal section-edges">
       <div className="container-wide">
         <div className="text-center mb-10 sm:mb-14 md:mb-20">
           <span data-assemble="up" data-assemble-delay="0" className="inline-block eng-label text-[var(--copper)]">{t("subtitle")}</span>
@@ -26,7 +26,7 @@ export function TrustSection() {
           {TRUST_ITEMS.map((item, i) => {
             const Icon = item.icon;
             return (
-              <div key={item.key} data-assemble="up" data-assemble-delay={`${3 + i}`} className={cn("group text-center p-6 sm:p-8 md:p-10", "steel-panel metal-surface pressure-hover machined-corners")}>
+              <div key={item.key} data-assemble="up" data-assemble-delay={`${3 + i}`} className={cn("group text-center p-6 sm:p-8 md:p-10", "steel-panel grinding-marks pressure-hover machined-corners bevel-cut oxide-patina")}>
                 <div className="inline-flex items-center justify-center w-14 h-14 inset-chamber mb-5">
                   <Icon size={22} className="text-[var(--copper)]" />
                 </div>

@@ -45,7 +45,7 @@ export function CapabilitiesSection() {
   const tSection = useTranslations("services");
 
   return (
-    <AssembleSection id="services" className="section-padding relative scratches weld-seam section-edges base-layer">
+    <AssembleSection id="services" className="section-padding relative mill-scale weld-seam section-edges base-layer stressed-metal">
       <div className="absolute bottom-1/4 start-1/5 w-[400px] h-[300px] rounded-full bg-[var(--copper)] opacity-[0.015] blur-[100px] animate-[glow-breathe_11s_ease-in-out_infinite_4s] pointer-events-none" />
       <div className="container-wide">
         {/* Section header */}
@@ -64,7 +64,7 @@ export function CapabilitiesSection() {
                 key={service.id}
                 className={cn(
                   "group relative p-6 md:p-7",
-                  "steel-panel metal-surface pressure-hover machined-corners",
+                  "steel-panel grinding-marks pressure-hover machined-corners bevel-cut heat-tint",
                   "transition-all duration-500 cursor-default"
                 )}
               >

@@ -14,7 +14,7 @@ export function WorkshopSection() {
   const t = useTranslations("workshop");
 
   return (
-    <AssembleSection id="workshop" className="section-padding relative base-layer rust-patch weld-seam section-edges">
+    <AssembleSection id="workshop" className="section-padding relative base-layer forge-heat arc-weld-border section-edges spark-trail">
       <div className="container-wide">
         <div className="mb-10 sm:mb-14 md:mb-20">
           <span data-assemble="up" data-assemble-delay="0" className="inline-block eng-label text-[var(--copper)]">{t("subtitle")}</span>
@@ -37,7 +37,7 @@ export function WorkshopSection() {
                   <span className="text-xs sm:text-sm md:text-base font-bold text-[var(--copper)]">{step.num}</span>
                 </div>
                 {/* Step content -- steel panel */}
-                <div className="flex-1 pt-0 sm:pt-1 steel-panel p-4 sm:p-5 md:p-6 pressure-hover">
+                <div className="flex-1 pt-0 sm:pt-1 steel-panel grinding-marks p-4 sm:p-5 md:p-6 pressure-hover bevel-cut">
                   <h3 className="text-base sm:text-lg md:text-xl font-semibold text-[var(--off-white)] mb-1">{t(`${step.key}.title` as "step1.title")}</h3>
                   <p className="text-xs sm:text-sm text-[var(--titanium)] leading-relaxed max-w-md">{t(`${step.key}.description` as "step1.description")}</p>
                 </div>

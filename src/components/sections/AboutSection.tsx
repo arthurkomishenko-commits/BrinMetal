@@ -13,7 +13,7 @@ export function AboutSection() {
   const t = useTranslations("about");
 
   return (
-    <AssembleSection id="about" className="section-padding relative steel-gradient brushed-steel scratches milled-edge section-edges">
+    <AssembleSection id="about" className="section-padding relative steel-gradient cold-rolled oxide-patina milled-edge section-edges">
       {/* Ambient glow */}
       <div className="absolute bottom-10 end-10 w-[400px] h-[400px] rounded-full bg-[var(--copper)] opacity-[0.015] blur-[100px] animate-[glow-breathe_10s_ease-in-out_infinite_2s] pointer-events-none" />
 
@@ -41,7 +41,7 @@ export function AboutSection() {
                   key={stat.key}
                   data-assemble="right"
                   data-assemble-delay={`${i + 2}`}
-                  className="flex items-center gap-4 sm:gap-6 p-4 sm:p-5 lg:p-6 steel-panel metal-surface pressure-hover frame-glow"
+                  className="flex items-center gap-4 sm:gap-6 p-4 sm:p-5 lg:p-6 steel-panel grinding-marks pressure-hover frame-glow bevel-cut"
                 >
                   <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--copper)] tracking-tight min-w-[60px] sm:min-w-[80px]">{stat.value}</span>
                   <div className="w-[1px] h-8 bg-white/[0.06] shrink-0" />

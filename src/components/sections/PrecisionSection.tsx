@@ -14,7 +14,7 @@ export function PrecisionSection() {
   const t = useTranslations("precision");
 
   return (
-    <AssembleSection id="precision" className="section-padding relative steel-gradient brushed-steel scratches milled-edge section-edges">
+    <AssembleSection id="precision" className="section-padding relative steel-gradient cold-rolled anodized-dark milled-edge section-edges">
       <div className="absolute top-1/4 start-1/3 w-[500px] h-[400px] rounded-full bg-[var(--copper)] opacity-[0.02] blur-[120px] animate-[glow-breathe_12s_ease-in-out_infinite_3s] pointer-events-none" />
       <div className="container-wide">
         <div className="text-center mb-10 sm:mb-14 md:mb-20">
@@ -31,7 +31,7 @@ export function PrecisionSection() {
               key={metric.key}
               data-assemble="scale"
               data-assemble-delay={`${4 + i}`}
-              className="text-center p-5 sm:p-6 md:p-8 lg:p-10 inset-chamber metal-surface relative machined-corners corner-sparks"
+              className="text-center p-5 sm:p-6 md:p-8 lg:p-10 inset-chamber lathe-marks relative machined-corners corner-sparks stamp-indent"
             >
               <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--copper)] tracking-tight text-stamped">{metric.value}</span>
               <span className="block mt-2 sm:mt-3 eng-label text-[var(--titanium)]">{t(`metric_${metric.key}` as "metric_years")}</span>

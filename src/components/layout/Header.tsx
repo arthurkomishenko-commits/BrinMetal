@@ -95,11 +95,16 @@ export function Header() {
       <header
         data-header
         className={cn(
-          "fixed top-0 inset-x-0 z-40 transition-all duration-500",
+          "fixed top-0 inset-x-0 z-40 transition-all duration-700",
           scrolled
-            ? "bg-[var(--graphite)]/95 backdrop-blur-lg border-b border-white/[0.06] shadow-[0_1px_20px_rgba(0,0,0,0.3)]"
+            ? "backdrop-blur-xl border-b shadow-[0_4px_24px_rgba(0,0,0,0.5)]"
             : "bg-transparent border-b border-transparent"
         )}
+        style={scrolled ? {
+          background: "linear-gradient(180deg, rgba(17,17,19,0.97) 0%, rgba(22,22,25,0.95) 100%)",
+          borderColor: "rgba(255,255,255,0.04)",
+          borderBottomWidth: "1px",
+        } : undefined}
       >
         <div className="container-wide flex items-center justify-between py-4 sm:py-5 md:py-6">
           {/* Logo */}

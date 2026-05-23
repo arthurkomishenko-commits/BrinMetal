@@ -1,0 +1,806 @@
+/* ==========================================================================
+   metal-textures.css
+   Industrial metal surface effects — CSS only, no images.
+   All effects operate at very low opacity (0.02–0.15) for subliminal realism.
+   Dark-theme palette: --graphite #1a1a1a, --gunmetal #2a2d35
+   ========================================================================== */
+
+@layer components {
+
+  /* --------------------------------------------------------------------------
+     1. COLD-ROLLED STEEL
+     Fine directional grain from multiple slightly-angled linear gradients.
+     Mimics the elongated crystalline structure of cold-reduction rolling.
+     -------------------------------------------------------------------------- */
+  .cold-rolled {
+    position: relative;
+  }
+
+  .cold-rolled::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+    background:
+      /* Primary rolling direction — near-horizontal fine lines */
+      repeating-linear-gradient(
+        2deg,
+        transparent 0px,
+        transparent 1px,
+        rgba(255, 255, 255, 0.018) 1px,
+        rgba(255, 255, 255, 0.018) 2px
+      ),
+      /* Secondary pass — slightly offset angle */
+      repeating-linear-gradient(
+        -1deg,
+        transparent 0px,
+        transparent 2px,
+        rgba(200, 205, 215, 0.012) 2px,
+        rgba(200, 205, 215, 0.012) 3px
+      ),
+      /* Tertiary micro-grain — finer pitch */
+      repeating-linear-gradient(
+        3deg,
+        transparent 0px,
+        transparent 0.5px,
+        rgba(180, 185, 195, 0.008) 0.5px,
+        rgba(180, 185, 195, 0.008) 1px
+      ),
+      /* Broad sheen variation from rolling pressure */
+      linear-gradient(
+        1deg,
+        rgba(255, 255, 255, 0.0) 0%,
+        rgba(255, 255, 255, 0.025) 25%,
+        rgba(255, 255, 255, 0.0) 50%,
+        rgba(255, 255, 255, 0.02) 75%,
+        rgba(255, 255, 255, 0.0) 100%
+      );
+  }
+
+
+  /* --------------------------------------------------------------------------
+     2. FORGE HEAT
+     Very muted warm glow from within — recently forged metal cooling down.
+     -------------------------------------------------------------------------- */
+  .forge-heat {
+    position: relative;
+  }
+
+  .forge-heat::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+    background:
+      /* Deep core heat */
+      radial-gradient(
+        ellipse 60% 50% at 50% 55%,
+        rgba(255, 140, 50, 0.045) 0%,
+        rgba(255, 100, 30, 0.02) 35%,
+        rgba(200, 60, 20, 0.008) 60%,
+        transparent 100%
+      ),
+      /* Secondary warmth bloom — offset for asymmetry */
+      radial-gradient(
+        ellipse 40% 35% at 55% 60%,
+        rgba(255, 170, 80, 0.025) 0%,
+        rgba(255, 120, 40, 0.01) 50%,
+        transparent 100%
+      );
+    mix-blend-mode: screen;
+  }
+
+
+  /* --------------------------------------------------------------------------
+     3. ARC WELD BORDER
+     Simulated MIG/TIG weld seam with splatter spots.
+     Box-shadow stacking creates irregular bead + splatter geometry.
+     -------------------------------------------------------------------------- */
+  .arc-weld-border {
+    position: relative;
+    border: 2px solid rgba(120, 125, 135, 0.4);
+    border-image: repeating-linear-gradient(
+      90deg,
+      rgba(180, 185, 190, 0.3) 0px,
+      rgba(140, 145, 155, 0.5) 3px,
+      rgba(100, 105, 115, 0.25) 5px,
+      rgba(160, 165, 175, 0.45) 8px,
+      rgba(120, 125, 135, 0.3) 10px
+    ) 2;
+    box-shadow:
+      /* Weld bead glow — the molten pool reflection */
+      inset 0 0 4px 0 rgba(200, 210, 230, 0.06),
+      0 0 3px 0 rgba(180, 190, 210, 0.08),
+      /* Splatter dots — asymmetric, varied distances */
+      4px -3px 0 0 rgba(220, 225, 235, 0.12),
+      -6px 2px 0 0 rgba(210, 215, 225, 0.08),
+      8px 5px 0 0 rgba(230, 235, 240, 0.06),
+      -3px -7px 0 0 rgba(200, 205, 215, 0.1),
+      12px -1px 0 0 rgba(215, 220, 230, 0.05),
+      -9px 6px 0 0 rgba(225, 230, 235, 0.07),
+      5px 9px 0 0 rgba(205, 210, 220, 0.04),
+      -11px -4px 0 0 rgba(220, 225, 235, 0.06),
+      /* Wider heat-affected zone */
+      0 0 8px 1px rgba(160, 170, 200, 0.04),
+      0 0 15px 2px rgba(130, 140, 180, 0.025);
+  }
+
+  .arc-weld-border::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+    /* Heat-affected zone tint along border */
+    background:
+      linear-gradient(to bottom, rgba(100, 120, 180, 0.04) 0%, transparent 8px),
+      linear-gradient(to top, rgba(100, 120, 180, 0.04) 0%, transparent 8px),
+      linear-gradient(to right, rgba(100, 120, 180, 0.04) 0%, transparent 8px),
+      linear-gradient(to left, rgba(100, 120, 180, 0.04) 0%, transparent 8px);
+  }
+
+
+  /* --------------------------------------------------------------------------
+     4. PLASMA CUT
+     Edges with heat discoloration: blue-purple tint, slight irregularity.
+     Plasma kerf leaves oxidation colors on the cut face.
+     -------------------------------------------------------------------------- */
+  .plasma-cut {
+    position: relative;
+  }
+
+  .plasma-cut::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+    /* Heat discoloration bands along all edges */
+    background:
+      /* Top edge */
+      linear-gradient(to bottom,
+        rgba(80, 60, 160, 0.08) 0px,
+        rgba(60, 80, 180, 0.06) 2px,
+        rgba(180, 160, 80, 0.03) 4px,
+        transparent 10px
+      ),
+      /* Bottom edge */
+      linear-gradient(to top,
+        rgba(90, 50, 150, 0.07) 0px,
+        rgba(50, 70, 170, 0.05) 3px,
+        rgba(170, 150, 70, 0.025) 5px,
+        transparent 10px
+      ),
+      /* Left edge */
+      linear-gradient(to right,
+        rgba(70, 55, 155, 0.075) 0px,
+        rgba(55, 75, 175, 0.055) 2px,
+        rgba(175, 155, 75, 0.028) 5px,
+        transparent 10px
+      ),
+      /* Right edge */
+      linear-gradient(to left,
+        rgba(85, 58, 158, 0.07) 0px,
+        rgba(58, 78, 178, 0.05) 3px,
+        rgba(178, 158, 78, 0.025) 5px,
+        transparent 10px
+      );
+  }
+
+  .plasma-cut::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+    /* Dross / slight edge roughness simulation via SVG noise at edges only */
+    mask-image:
+      linear-gradient(to bottom, black 0px, transparent 3px, transparent calc(100% - 3px), black 100%),
+      linear-gradient(to right, black 0px, transparent 3px, transparent calc(100% - 3px), black 100%);
+    mask-composite: add;
+    -webkit-mask-composite: source-over;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 64px 64px;
+    opacity: 0.06;
+  }
+
+
+  /* --------------------------------------------------------------------------
+     5. OXIDE PATINA
+     Subtle surface oxidation — desaturated brown/rust in corners and edges.
+     -------------------------------------------------------------------------- */
+  .oxide-patina {
+    position: relative;
+  }
+
+  .oxide-patina::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+    background:
+      /* Top-left corner oxidation */
+      radial-gradient(
+        ellipse 35% 30% at 5% 5%,
+        rgba(140, 100, 60, 0.06) 0%,
+        rgba(120, 85, 50, 0.03) 40%,
+        transparent 100%
+      ),
+      /* Bottom-right corner — heavier accumulation */
+      radial-gradient(
+        ellipse 40% 35% at 95% 95%,
+        rgba(130, 90, 55, 0.07) 0%,
+        rgba(110, 80, 45, 0.035) 45%,
+        transparent 100%
+      ),
+      /* Top-right — lighter */
+      radial-gradient(
+        ellipse 25% 20% at 92% 8%,
+        rgba(135, 95, 58, 0.04) 0%,
+        transparent 100%
+      ),
+      /* Bottom-left */
+      radial-gradient(
+        ellipse 30% 25% at 8% 90%,
+        rgba(125, 88, 52, 0.05) 0%,
+        transparent 100%
+      ),
+      /* Edge tarnish — top */
+      linear-gradient(to bottom,
+        rgba(120, 85, 50, 0.035) 0px,
+        transparent 15px
+      ),
+      /* Edge tarnish — bottom */
+      linear-gradient(to top,
+        rgba(115, 82, 48, 0.03) 0px,
+        transparent 12px
+      );
+    mix-blend-mode: multiply;
+  }
+
+
+  /* --------------------------------------------------------------------------
+     6. MILL SCALE
+     Dark speckled iron-oxide layer that forms during hot rolling.
+     Fine-grained, matte-dark appearance.
+     -------------------------------------------------------------------------- */
+  .mill-scale {
+    position: relative;
+  }
+
+  .mill-scale::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+    /* High-frequency noise for speckle */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 128 128' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='ms'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.8' numOctaves='4' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23ms)'/%3E%3C/svg%3E");
+    background-size: 128px 128px;
+    opacity: 0.08;
+    mix-blend-mode: multiply;
+  }
+
+  .mill-scale::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+    /* Darker patches — uneven scale thickness */
+    background:
+      radial-gradient(ellipse 50% 40% at 30% 40%, rgba(20, 18, 15, 0.04) 0%, transparent 100%),
+      radial-gradient(ellipse 45% 50% at 70% 65%, rgba(25, 22, 18, 0.035) 0%, transparent 100%);
+  }
+
+
+  /* --------------------------------------------------------------------------
+     7. LATHE MARKS
+     Concentric machining rings — turned on a lathe.
+     Best applied to circular/rounded elements.
+     -------------------------------------------------------------------------- */
+  .lathe-marks {
+    position: relative;
+  }
+
+  .lathe-marks::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+    background:
+      /* Concentric rings from center */
+      repeating-radial-gradient(
+        circle at 50% 50%,
+        transparent 0px,
+        transparent 2px,
+        rgba(255, 255, 255, 0.02) 2px,
+        rgba(255, 255, 255, 0.02) 3px
+      ),
+      /* Offset concentric set for feed-line irregularity */
+      repeating-radial-gradient(
+        circle at 50% 50%,
+        transparent 0px,
+        transparent 4px,
+        rgba(200, 205, 215, 0.015) 4px,
+        rgba(200, 205, 215, 0.015) 5px
+      ),
+      /* Very fine micro-rings */
+      repeating-radial-gradient(
+        circle at 50% 50%,
+        transparent 0px,
+        transparent 0.8px,
+        rgba(230, 235, 240, 0.01) 0.8px,
+        rgba(230, 235, 240, 0.01) 1.2px
+      );
+  }
+
+  .lathe-marks::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+    /* Directional sheen from tool approach angle */
+    background: conic-gradient(
+      from 0deg at 50% 50%,
+      rgba(255, 255, 255, 0.0) 0deg,
+      rgba(255, 255, 255, 0.025) 45deg,
+      rgba(255, 255, 255, 0.0) 90deg,
+      rgba(255, 255, 255, 0.02) 180deg,
+      rgba(255, 255, 255, 0.0) 270deg,
+      rgba(255, 255, 255, 0.015) 315deg,
+      rgba(255, 255, 255, 0.0) 360deg
+    );
+  }
+
+
+  /* --------------------------------------------------------------------------
+     8. GRINDING MARKS
+     Parallel linear scoring at a consistent angle (belt/surface grinder).
+     -------------------------------------------------------------------------- */
+  .grinding-marks {
+    position: relative;
+  }
+
+  .grinding-marks::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+    background:
+      /* Primary grind direction — 37deg (typical hand-grinding angle) */
+      repeating-linear-gradient(
+        37deg,
+        transparent 0px,
+        transparent 1.5px,
+        rgba(255, 255, 255, 0.022) 1.5px,
+        rgba(255, 255, 255, 0.022) 2px
+      ),
+      /* Deeper scoring — fewer, more prominent */
+      repeating-linear-gradient(
+        37deg,
+        transparent 0px,
+        transparent 8px,
+        rgba(255, 255, 255, 0.035) 8px,
+        rgba(255, 255, 255, 0.035) 8.5px
+      ),
+      /* Cross-hatch from second pass at slightly different angle */
+      repeating-linear-gradient(
+        39deg,
+        transparent 0px,
+        transparent 3px,
+        rgba(200, 205, 215, 0.012) 3px,
+        rgba(200, 205, 215, 0.012) 3.5px
+      );
+  }
+
+  .grinding-marks::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+    /* Directional reflective sheen perpendicular to grind lines */
+    background: linear-gradient(
+      127deg,
+      rgba(255, 255, 255, 0.0) 0%,
+      rgba(255, 255, 255, 0.03) 40%,
+      rgba(255, 255, 255, 0.0) 60%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+  }
+
+
+  /* --------------------------------------------------------------------------
+     9. HEAT TINT
+     Temper colors from welding / heat treatment.
+     Straw → gold → blue → purple progression at very low opacity.
+     -------------------------------------------------------------------------- */
+  .heat-tint {
+    position: relative;
+  }
+
+  .heat-tint::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+    background:
+      /* Primary heat band — edge proximity */
+      linear-gradient(
+        135deg,
+        rgba(200, 180, 80, 0.04) 0%,
+        rgba(220, 160, 60, 0.035) 15%,
+        rgba(180, 100, 60, 0.03) 30%,
+        rgba(120, 80, 160, 0.025) 45%,
+        rgba(60, 80, 180, 0.03) 60%,
+        transparent 75%
+      ),
+      /* Secondary band — opposite corner */
+      linear-gradient(
+        315deg,
+        rgba(190, 170, 70, 0.03) 0%,
+        rgba(160, 90, 55, 0.025) 20%,
+        rgba(80, 70, 150, 0.02) 40%,
+        transparent 60%
+      );
+    mix-blend-mode: screen;
+  }
+
+
+  /* --------------------------------------------------------------------------
+     10. STAMP INDENT
+     Text/content appears physically stamped into the metal surface.
+     Deep inset shadow, compressed texture.
+     -------------------------------------------------------------------------- */
+  .stamp-indent {
+    color: rgba(0, 0, 0, 0.35);
+    text-shadow:
+      /* Deep primary indent shadow */
+      0 -1px 0 rgba(0, 0, 0, 0.5),
+      /* Bottom highlight — light catching the lower edge */
+      0 1px 0 rgba(255, 255, 255, 0.06),
+      /* Depth shadow */
+      0 -2px 1px rgba(0, 0, 0, 0.25),
+      /* Inner wall shadow left */
+      -1px 0 0 rgba(0, 0, 0, 0.15),
+      /* Inner wall shadow right */
+      1px 0 0 rgba(0, 0, 0, 0.15),
+      /* Subtle ambient occlusion */
+      0 0 3px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.03em;
+  }
+
+  /* Block-level stamp (for divs/sections rather than text) */
+  .stamp-indent--block {
+    box-shadow:
+      inset 0 2px 4px rgba(0, 0, 0, 0.35),
+      inset 0 1px 1px rgba(0, 0, 0, 0.25),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.04),
+      inset 1px 0 2px rgba(0, 0, 0, 0.15),
+      inset -1px 0 2px rgba(0, 0, 0, 0.15);
+  }
+
+
+  /* --------------------------------------------------------------------------
+     11. BEVEL CUT
+     Hard geometric chamfer on element edges.
+     Multi-layer box-shadow creates the illusion of a 45-degree bevel.
+     -------------------------------------------------------------------------- */
+  .bevel-cut {
+    box-shadow:
+      /* Top bevel face — catches light */
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+      inset 1px 0 0 0 rgba(255, 255, 255, 0.06),
+      /* Bottom bevel face — in shadow */
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.3),
+      inset -1px 0 0 0 rgba(0, 0, 0, 0.2),
+      /* Secondary bevel depth */
+      inset 0 2px 0 0 rgba(255, 255, 255, 0.04),
+      inset 2px 0 0 0 rgba(255, 255, 255, 0.025),
+      inset 0 -2px 0 0 rgba(0, 0, 0, 0.2),
+      inset -2px 0 0 0 rgba(0, 0, 0, 0.12),
+      /* Outer drop — the cut face in shadow */
+      1px 1px 2px rgba(0, 0, 0, 0.25),
+      2px 2px 4px rgba(0, 0, 0, 0.15),
+      /* Outer top-left — faint light catch */
+      -1px -1px 0 rgba(255, 255, 255, 0.03);
+  }
+
+
+  /* --------------------------------------------------------------------------
+     12. SPARK TRAIL
+     2-3 tiny sparks drifting downward — welding sparks cooling.
+     CSS-only animation using pseudo-elements.
+     -------------------------------------------------------------------------- */
+  .spark-trail {
+    position: relative;
+    overflow: visible;
+  }
+
+  .spark-trail::before,
+  .spark-trail::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 2;
+    will-change: transform, opacity;
+  }
+
+  /* Spark 1 */
+  .spark-trail::before {
+    top: 0;
+    left: 30%;
+    background: rgba(255, 200, 80, 0.8);
+    box-shadow:
+      0 0 2px 1px rgba(255, 180, 60, 0.4),
+      0 0 4px 1px rgba(255, 140, 30, 0.15);
+    animation: spark-fall-1 4.5s ease-in infinite;
+    animation-delay: 0s;
+  }
+
+  /* Spark 2 */
+  .spark-trail::after {
+    top: 0;
+    left: 65%;
+    width: 1.5px;
+    height: 1.5px;
+    background: rgba(255, 220, 120, 0.7);
+    box-shadow:
+      0 0 2px 0.5px rgba(255, 190, 80, 0.35),
+      0 0 3px 1px rgba(255, 150, 40, 0.12);
+    animation: spark-fall-2 5.8s ease-in infinite;
+    animation-delay: 1.5s;
+  }
+
+  @keyframes spark-fall-1 {
+    0% {
+      transform: translate(0, 0) scale(1);
+      opacity: 0;
+    }
+    3% {
+      opacity: 0.9;
+    }
+    15% {
+      opacity: 0.7;
+    }
+    100% {
+      transform: translate(8px, 120px) scale(0.2);
+      opacity: 0;
+    }
+  }
+
+  @keyframes spark-fall-2 {
+    0% {
+      transform: translate(0, 0) scale(1);
+      opacity: 0;
+    }
+    4% {
+      opacity: 0.75;
+    }
+    20% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: translate(-6px, 100px) scale(0.15);
+      opacity: 0;
+    }
+  }
+
+
+  /* --------------------------------------------------------------------------
+     13. STRESSED METAL
+     Hairline stress lines at concentration points (corners, center).
+     Simulates fatigue cracking under load.
+     -------------------------------------------------------------------------- */
+  .stressed-metal {
+    position: relative;
+  }
+
+  .stressed-metal::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+    background:
+      /* Stress line 1 — top-left corner, diagonal */
+      linear-gradient(
+        42deg,
+        transparent 0%,
+        transparent calc(15% - 0.5px),
+        rgba(255, 255, 255, 0.06) 15%,
+        transparent calc(15% + 0.5px),
+        transparent 100%
+      ),
+      /* Stress line 2 — branching from first */
+      linear-gradient(
+        55deg,
+        transparent 0%,
+        transparent calc(18% - 0.3px),
+        rgba(255, 255, 255, 0.04) 18%,
+        transparent calc(18% + 0.3px),
+        transparent 100%
+      ),
+      /* Stress line 3 — bottom-right area */
+      linear-gradient(
+        -38deg,
+        transparent 0%,
+        transparent calc(82% - 0.4px),
+        rgba(255, 255, 255, 0.05) 82%,
+        transparent calc(82% + 0.4px),
+        transparent 100%
+      ),
+      /* Micro-crazing at top-left corner */
+      radial-gradient(
+        circle at 5% 5%,
+        rgba(255, 255, 255, 0.03) 0%,
+        transparent 8%
+      ),
+      /* Stress concentration shadow at crack origins */
+      radial-gradient(
+        circle at 12% 10%,
+        rgba(0, 0, 0, 0.04) 0%,
+        transparent 5%
+      );
+  }
+
+  .stressed-metal::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+    /* Deformation shadow along stress lines */
+    background:
+      linear-gradient(
+        42deg,
+        transparent 0%,
+        transparent calc(15% - 1.5px),
+        rgba(0, 0, 0, 0.03) calc(15% - 0.5px),
+        transparent 15%,
+        transparent 100%
+      ),
+      linear-gradient(
+        -38deg,
+        transparent 0%,
+        transparent calc(82% - 1.5px),
+        rgba(0, 0, 0, 0.025) calc(82% - 0.5px),
+        transparent 82%,
+        transparent 100%
+      );
+  }
+
+
+  /* --------------------------------------------------------------------------
+     14. ANODIZED DARK
+     Dark anodized aluminum — subtle cool blue-grey sheen.
+     Type III hard anodize appearance.
+     -------------------------------------------------------------------------- */
+  .anodized-dark {
+    position: relative;
+  }
+
+  .anodized-dark::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+    background:
+      /* Anodic layer sheen — cool blue-grey */
+      linear-gradient(
+        165deg,
+        rgba(100, 120, 160, 0.06) 0%,
+        rgba(80, 100, 145, 0.04) 30%,
+        rgba(70, 90, 135, 0.02) 60%,
+        rgba(90, 110, 150, 0.05) 100%
+      ),
+      /* Slight iridescence shift */
+      linear-gradient(
+        250deg,
+        rgba(90, 100, 140, 0.03) 0%,
+        transparent 40%,
+        rgba(80, 95, 135, 0.025) 80%,
+        transparent 100%
+      );
+  }
+
+  .anodized-dark::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+    /* Very fine pore structure of anodized surface */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 96 96' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='an'%3E%3CfeTurbulence type='turbulence' baseFrequency='2.5' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23an)'/%3E%3C/svg%3E");
+    background-size: 96px 96px;
+    opacity: 0.03;
+    mix-blend-mode: overlay;
+  }
+
+} /* end @layer components */
+
+
+/* ===========================================================================
+   UTILITY: Combination helpers
+   Apply multiple textures to a single element using CSS custom properties.
+   These sit outside the layer for higher specificity when needed.
+   =========================================================================== */
+
+/* Ensure pseudo-element positioning context */
+.cold-rolled,
+.forge-heat,
+.plasma-cut,
+.oxide-patina,
+.mill-scale,
+.lathe-marks,
+.grinding-marks,
+.heat-tint,
+.stressed-metal,
+.anodized-dark,
+.arc-weld-border,
+.spark-trail {
+  isolation: isolate;
+}
+
+/* Reduced motion: disable spark animation */
+@media (prefers-reduced-motion: reduce) {
+  .spark-trail::before,
+  .spark-trail::after {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* Print: remove all decorative textures */
+@media print {
+  .cold-rolled::before,
+  .forge-heat::after,
+  .plasma-cut::before,
+  .plasma-cut::after,
+  .oxide-patina::before,
+  .mill-scale::before,
+  .mill-scale::after,
+  .lathe-marks::before,
+  .lathe-marks::after,
+  .grinding-marks::before,
+  .grinding-marks::after,
+  .heat-tint::before,
+  .stressed-metal::before,
+  .stressed-metal::after,
+  .anodized-dark::before,
+  .anodized-dark::after,
+  .arc-weld-border::before,
+  .spark-trail::before,
+  .spark-trail::after {
+    display: none !important;
+  }
+}
