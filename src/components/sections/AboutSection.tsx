@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { AssembleSection } from "@/components/motion/AssembleSection";
 
@@ -50,22 +51,24 @@ export function AboutSection() {
                 boxShadow: "0 8px 30px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.02)",
               }}
             >
-              {/* Inner frame */}
-              <div className="absolute inset-3 sm:inset-4 border border-[var(--copper)]/10" />
+              {/* Photo */}
+              <Image
+                src="/images/about/andrey.png"
+                alt="Andrey — BrinMetal founder"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              {/* Overlay gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
               {/* Corner marks */}
-              <div className="absolute top-3 start-3 sm:top-4 sm:start-4 w-4 h-4 border-t border-s border-[var(--copper)]/20" />
-              <div className="absolute bottom-3 end-3 sm:bottom-4 sm:end-4 w-4 h-4 border-b border-e border-[var(--copper)]/20" />
+              <div className="absolute top-3 start-3 sm:top-4 sm:start-4 w-4 h-4 border-t border-s border-[var(--copper)]/30" />
+              <div className="absolute bottom-3 end-3 sm:bottom-4 sm:end-4 w-4 h-4 border-b border-e border-[var(--copper)]/30" />
 
-              <div className="text-center">
-                <span className="eng-label tracking-[0.3em] opacity-50">WORKSHOP</span>
-                <div className="mt-2 w-8 h-[1px] bg-[var(--copper)]/20 mx-auto" />
-                <span className="block mt-2 eng-label tracking-[0.15em] opacity-40">IMG_PLACEHOLDER</span>
-              </div>
-
-              {/* Engineering label */}
+              {/* Label */}
               <div className="absolute bottom-3 start-3 sm:bottom-4 sm:start-4">
-                <span className="eng-label opacity-40">REF: BM-WS-001</span>
+                <span className="eng-label text-white/60">ANDREY | FOUNDER</span>
               </div>
             </div>
           </div>
