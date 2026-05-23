@@ -40,9 +40,9 @@ export function CapabilitiesSection() {
                 data-assemble-delay={`${3 + i}`}
                 className="group relative p-6 md:p-7 pressure-hover"
                 style={{
-                  background: "linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 40%, transparent 60%, rgba(0,0,0,0.08) 100%), rgba(42,45,53,0.35)",
+                  background: "linear-gradient(102deg, rgba(255,255,255,0.03) 0%, transparent 15%), linear-gradient(180deg, #2e3239 0%, #272b31 40%, #22262c 100%)",
                   border: "1px solid rgba(255,255,255,0.08)",
-                  boxShadow: "0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.02)",
+                  boxShadow: "0 1px 0 rgba(255,255,255,0.03), 0 2px 4px rgba(0,0,0,0.22), 0 10px 20px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.03), inset 0 -2px 4px rgba(0,0,0,0.5)",
                 }}
               >
                 {/* Service number */}

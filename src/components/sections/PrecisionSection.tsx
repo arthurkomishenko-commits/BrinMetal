@@ -33,9 +33,9 @@ export function PrecisionSection() {
               data-assemble-delay={`${4 + i}`}
               className="relative text-center p-6 sm:p-8 md:p-10 pressure-hover"
               style={{
-                background: "linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 50%, rgba(0,0,0,0.06) 100%)",
+                background: "linear-gradient(98deg, rgba(255,255,255,0.025) 0%, transparent 12%), linear-gradient(180deg, rgba(255,255,255,0.015) 0%, transparent 40%, rgba(0,0,0,0.08) 100%)",
                 border: "1px solid rgba(255,255,255,0.08)",
-                boxShadow: "0 4px 24px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.02)",
+                boxShadow: "0 1px 0 rgba(255,255,255,0.03), 0 2px 4px rgba(0,0,0,0.22), 0 10px 20px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.03), inset 0 -2px 4px rgba(0,0,0,0.5)",
               }}
             >
               <span className="block text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--copper)] tracking-tight text-stamped">{metric.value}</span>

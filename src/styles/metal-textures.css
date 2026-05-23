@@ -1,56 +1,79 @@
 /* ==========================================================================
-   metal-textures.css — LIGHTWEIGHT edition
-   Only the most impactful effects. No SVG filters. No blend modes.
-   Pure gradients, box-shadows, and borders for performance.
+   STEEL MATERIAL PHYSICS SYSTEM
+   Not decoration. Material behavior under light, pressure, and age.
    ========================================================================== */
 
 @layer components {
 
-  /* === STEEL MODULE — the core fabricated panel === */
+  /* === ANISOTROPIC STEEL SURFACE ===
+     Directional light that stretches, breaks, and varies.
+     The most important property of real machined steel. */
   .steel-module {
     position: relative;
     background:
-      linear-gradient(180deg, rgba(255,255,255,0.025) 0%, rgba(255,255,255,0.005) 30%, transparent 50%, rgba(0,0,0,0.1) 100%),
-      linear-gradient(180deg, #2e3139 0%, #2a2d35 30%, #272a31 60%, #24272e 100%);
+      linear-gradient(102deg, rgba(255,255,255,0.035) 0%, rgba(255,255,255,0.012) 8%, transparent 16%),
+      linear-gradient(97deg, transparent 0%, rgba(255,255,255,0.025) 48%, rgba(255,255,255,0.005) 52%, transparent 58%),
+      linear-gradient(180deg, #353941 0%, #2b2f36 22%, #23272d 48%, #1d2025 100%);
     border: 1px solid rgba(255,255,255,0.05);
     border-top-color: rgba(255,255,255,0.07);
-    border-bottom-color: rgba(0,0,0,0.2);
+    border-bottom-color: rgba(0,0,0,0.25);
     box-shadow:
-      0 4px 24px rgba(0,0,0,0.4),
-      0 1px 3px rgba(0,0,0,0.3),
-      inset 0 1px 0 rgba(255,255,255,0.04),
-      inset 0 -1px 0 rgba(0,0,0,0.3);
+      0 1px 0 rgba(255,255,255,0.04),
+      0 2px 4px rgba(0,0,0,0.22),
+      0 12px 18px rgba(0,0,0,0.18),
+      0 28px 36px rgba(0,0,0,0.14),
+      inset 0 1px 0 rgba(255,255,255,0.03),
+      inset 0 -2px 4px rgba(0,0,0,0.55);
   }
 
-  /* === PANEL THICKNESS — shadow beneath for weight === */
+  /* === COMPRESSED CONTACT SHADOWS ===
+     Heavy steel doesn't float. It compresses into the surface. */
   .panel-thickness {
     box-shadow:
-      0 8px 30px rgba(0,0,0,0.4),
+      0 1px 0 rgba(255,255,255,0.03),
+      0 2px 4px rgba(0,0,0,0.25),
+      0 8px 16px rgba(0,0,0,0.2),
+      0 24px 48px rgba(0,0,0,0.15),
       inset 0 1px 0 rgba(255,255,255,0.03),
-      inset 0 -1px 0 rgba(0,0,0,0.3);
+      inset 0 -2px 6px rgba(0,0,0,0.5);
   }
 
-  /* === OVERHEAD LIGHT — workshop ceiling lamp (no blend mode) === */
+  /* === WORKSHOP FLUORESCENT LIGHTING ===
+     Multiple narrow directional light bands, not one soft gradient. */
   .overhead-light {
     position: relative;
   }
   .overhead-light::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 5%;
-    width: 50%;
-    height: 60%;
-    background: linear-gradient(
-      135deg,
-      rgba(255,255,255,0.04) 0%,
-      rgba(255,255,255,0.01) 30%,
-      transparent 60%
-    );
+    inset: 0;
     pointer-events: none;
+    background-image:
+      linear-gradient(92deg, transparent 0%, rgba(255,255,255,0.045) 18%, rgba(255,255,255,0.008) 22%, transparent 28%),
+      linear-gradient(87deg, transparent 55%, rgba(255,255,255,0.022) 62%, transparent 68%);
   }
 
-  /* === EDGE GLINT — knife reflection sweep === */
+  /* === PRESSURE HOVER ===
+     Steel depresses under load. Compressed, not scaled. */
+  .pressure-hover {
+    transition: box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .pressure-hover:hover {
+    transform: translateY(2px);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.02),
+      0 1px 2px rgba(0,0,0,0.3),
+      0 4px 8px rgba(0,0,0,0.25),
+      inset 0 1px 0 rgba(255,255,255,0.02),
+      inset 0 -3px 6px rgba(0,0,0,0.6);
+  }
+  .pressure-hover:active {
+    transform: translateY(3px);
+  }
+
+  /* === EDGE GLINT ===
+     Sharp anisotropic reflection sweep -- like light catching a knife edge */
   .edge-glint {
     position: relative;
     overflow: hidden;
@@ -59,72 +82,78 @@
     content: "";
     position: absolute;
     top: 0;
-    left: -100%;
-    width: 50%;
-    height: 2px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,0.15),
-      transparent
-    );
-    animation: edgeGlint 8s ease-in-out infinite;
+    left: -60%;
+    width: 30%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3) 40%, rgba(255,255,255,0.08) 60%, transparent);
+    animation: edgeGlint 10s ease-in-out infinite;
     pointer-events: none;
   }
   @keyframes edgeGlint {
-    0%   { left: -50%; }
-    100% { left: 150%; }
+    0%   { left: -30%; opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 1; }
+    100% { left: 130%; opacity: 0; }
   }
 
-  /* === PRESSURE HOVER — mechanical depression === */
-  .pressure-hover {
-    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-                box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .pressure-hover:hover {
-    transform: scale(0.985) translateY(1px);
-  }
-  .pressure-hover:active {
-    transform: scale(0.975) translateY(2px);
-  }
-
-  /* === SECTION SEAM — welded structural joint === */
+  /* === WELD SEAM ===
+     Fused metal. Uneven bead, thermal edge zones, pressure. */
   .section-seam {
-    height: 6px;
+    height: 8px;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(
-      to bottom,
-      rgba(0,0,0,0.7),
-      rgba(255,255,255,0.04) 40%,
-      rgba(255,255,255,0.02) 60%,
-      rgba(0,0,0,0.5)
+    background: linear-gradient(180deg,
+      rgba(0,0,0,0.7) 0%,
+      rgba(0,0,0,0.4) 20%,
+      rgba(255,255,255,0.025) 45%,
+      rgba(255,255,255,0.015) 55%,
+      rgba(0,0,0,0.3) 80%,
+      rgba(0,0,0,0.6) 100%
     );
-    box-shadow: 0 -2px 6px rgba(0,0,0,0.4), 0 2px 6px rgba(0,0,0,0.4);
+    box-shadow: 0 -3px 8px rgba(0,0,0,0.5), 0 3px 8px rgba(0,0,0,0.5);
   }
+  /* Uneven weld bead */
   .section-seam::before {
     content: "";
     position: absolute;
-    top: 50%;
-    left: 5%;
-    right: 5%;
-    height: 1px;
-    transform: translateY(-50%);
-    background: linear-gradient(90deg, transparent, rgba(196,149,106,0.12) 15%, rgba(196,149,106,0.06) 40%, rgba(196,149,106,0.15) 60%, rgba(196,149,106,0.08) 85%, transparent);
+    top: 35%;
+    left: 3%;
+    right: 3%;
+    height: 2px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(196,149,106,0.06) 4%,
+      rgba(196,149,106,0.14) 8%,
+      rgba(196,149,106,0.04) 15%,
+      rgba(196,149,106,0.18) 22%,
+      rgba(196,149,106,0.03) 30%,
+      rgba(196,149,106,0.12) 38%,
+      rgba(196,149,106,0.08) 45%,
+      rgba(196,149,106,0.2) 52%,
+      rgba(196,149,106,0.05) 60%,
+      rgba(196,149,106,0.15) 68%,
+      rgba(196,149,106,0.03) 76%,
+      rgba(196,149,106,0.1) 84%,
+      rgba(196,149,106,0.06) 92%,
+      transparent 100%
+    );
+    pointer-events: none;
   }
+  /* Thermal discoloration */
   .section-seam::after {
     content: "";
     position: absolute;
-    top: 0;
-    left: -30%;
-    width: 30%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(196,149,106,0.25), transparent);
-    animation: seamShimmer 7s ease-in-out infinite;
-  }
-  @keyframes seamShimmer {
-    0%   { left: -30%; }
-    100% { left: 130%; }
+    inset: 0;
+    background: linear-gradient(90deg,
+      transparent 10%,
+      rgba(80,60,120,0.04) 20%,
+      rgba(60,80,140,0.03) 35%,
+      transparent 50%,
+      rgba(140,100,60,0.04) 65%,
+      rgba(80,60,120,0.03) 80%,
+      transparent 90%
+    );
+    pointer-events: none;
   }
 
   /* === ACCENT LINE SHIMMER === */
@@ -136,18 +165,28 @@
     content: "";
     position: absolute;
     top: 0;
-    left: -50%;
-    width: 50%;
+    left: -40%;
+    width: 25%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
-    animation: shimmerLine 4s ease-in-out infinite;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4) 40%, rgba(255,255,255,0.1) 60%, transparent);
+    animation: shimmerLine 5s ease-in-out infinite;
   }
   @keyframes shimmerLine {
-    0%   { left: -50%; }
-    100% { left: 150%; }
+    0%   { left: -25%; }
+    100% { left: 125%; }
   }
 
-  /* === SERIAL MARK — engineering label === */
+  /* === TEXT STAMPED INTO STEEL ===
+     Physically pressed. Compressed surface around the stamp. */
+  .text-stamped {
+    text-shadow:
+      0 1px 0 rgba(0,0,0,0.7),
+      0 2px 3px rgba(0,0,0,0.4),
+      0 0 8px rgba(0,0,0,0.15),
+      0 -1px 0 rgba(255,255,255,0.04);
+  }
+
+  /* === SERIAL / ENGINEERING MARKS === */
   .serial-mark {
     font-family: var(--font-inter), monospace;
     letter-spacing: 0.1em;
@@ -156,16 +195,6 @@
     color: var(--titanium);
     user-select: none;
   }
-
-  /* === TEXT STAMPED — pressed into metal === */
-  .text-stamped {
-    text-shadow:
-      0 1px 0 rgba(0,0,0,0.6),
-      0 2px 4px rgba(0,0,0,0.3),
-      0 -1px 0 rgba(255,255,255,0.03);
-  }
-
-  /* === ENG LABEL — engineering text === */
   .eng-label {
     font-family: var(--font-inter), monospace;
     font-size: 16px;
@@ -175,7 +204,8 @@
     user-select: none;
   }
 
-  /* === MACHINED CORNERS — L-marks === */
+  /* === MACHINED CORNERS ===
+     Precision alignment marks. Structural, not decorative. */
   .machined-corners {
     position: relative;
   }
@@ -183,34 +213,23 @@
     content: "";
     position: absolute;
     top: 6px; left: 6px;
-    width: 12px; height: 12px;
-    border-top: 1px solid rgba(196,149,106,0.12);
-    border-left: 1px solid rgba(196,149,106,0.12);
+    width: 14px; height: 14px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-left: 1px solid rgba(255,255,255,0.08);
     pointer-events: none;
   }
   .machined-corners::after {
     content: "";
     position: absolute;
     bottom: 6px; right: 6px;
-    width: 12px; height: 12px;
-    border-bottom: 1px solid rgba(196,149,106,0.12);
-    border-right: 1px solid rgba(196,149,106,0.12);
+    width: 14px; height: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-right: 1px solid rgba(255,255,255,0.08);
     pointer-events: none;
   }
 
-  /* === FRAME GLOW — subtle border breathing === */
-  .frame-glow {
-    animation: frameGlow 6s ease-in-out infinite;
-  }
-  @keyframes frameGlow {
-    0%, 100% { box-shadow: 0 4px 20px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.02); }
-    50%      { box-shadow: 0 4px 20px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.02), 0 0 8px rgba(196,149,106,0.04); }
-  }
-
-  /* === CORNER SPARKS — tiny copper glints === */
-  .corner-sparks {
-    position: relative;
-  }
+  /* === CORNER SPARKS === */
+  .corner-sparks { position: relative; }
   .corner-sparks::before,
   .corner-sparks::after {
     content: "";
@@ -226,6 +245,12 @@
   @keyframes sparkPulse {
     0%, 100% { opacity: 0; transform: scale(0.5); }
     50%      { opacity: 0.3; transform: scale(1); }
+  }
+
+  /* === FOOTER SHIMMER === */
+  .footer-shimmer {
+    position: relative;
+    border-top: 1px solid rgba(255,255,255,0.04);
   }
 }
 

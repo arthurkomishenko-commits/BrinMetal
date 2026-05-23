@@ -66,7 +66,9 @@
     font-family: var(--font-heading), var(--font-inter), system-ui, sans-serif;
   }
 
-  /* Brushed steel grain -- directional scratches via CSS */
+  /* MACHINING MARKS + SCRATCHES
+     Irregular, clustered, varied depth. Felt, not seen.
+     Simulates cold-rolled steel surface under workshop light. */
   body::after {
     content: "";
     position: fixed;
@@ -74,14 +76,16 @@
     pointer-events: none;
     z-index: 9999;
     background-image:
-      repeating-linear-gradient(90deg, transparent 0px, rgba(255,255,255,0.05) 1px, transparent 2px, transparent 4px),
-      repeating-linear-gradient(87deg, transparent 0px, rgba(255,255,255,0.035) 1px, transparent 2px, transparent 6px),
-      repeating-linear-gradient(93deg, transparent 0px, rgba(255,255,255,0.025) 1px, transparent 2px, transparent 9px),
-      linear-gradient(125deg, transparent 42%, rgba(255,255,255,0.04) 42.3%, transparent 42.6%),
-      linear-gradient(118deg, transparent 58%, rgba(255,255,255,0.03) 58.2%, transparent 58.4%),
-      linear-gradient(135deg, transparent 25%, rgba(255,255,255,0.025) 25.15%, transparent 25.3%),
-      linear-gradient(122deg, transparent 70%, rgba(255,255,255,0.035) 70.3%, transparent 70.6%),
-      linear-gradient(110deg, transparent 35%, rgba(255,255,255,0.02) 35.2%, transparent 35.4%);
+      /* Anisotropic machining -- directional grain */
+      linear-gradient(102deg, rgba(255,255,255,0.035) 0%, rgba(255,255,255,0.01) 8%, transparent 16%),
+      linear-gradient(97deg, transparent 48%, rgba(255,255,255,0.02) 50%, transparent 52%),
+      /* Clustered scratches -- different angles, depths, pressures */
+      linear-gradient(127deg, transparent 49.2%, rgba(255,255,255,0.022) 49.5%, rgba(0,0,0,0.04) 49.8%, transparent 50.4%),
+      linear-gradient(132deg, transparent 51%, rgba(255,255,255,0.015) 51.3%, transparent 52%),
+      linear-gradient(118deg, transparent 47%, rgba(0,0,0,0.05) 47.3%, transparent 48%),
+      linear-gradient(124deg, transparent 73%, rgba(255,255,255,0.018) 73.2%, rgba(0,0,0,0.03) 73.5%, transparent 74%),
+      linear-gradient(115deg, transparent 28%, rgba(255,255,255,0.012) 28.2%, transparent 28.5%),
+      linear-gradient(138deg, transparent 62%, rgba(0,0,0,0.04) 62.2%, rgba(255,255,255,0.01) 62.5%, transparent 63%);
   }
 
   /* Selection styling */
@@ -190,19 +194,25 @@
 /* Structural system in metal-textures.css */
 
 @layer components {
-  /* Steel plate -- lighter surface like brushed stainless */
+  /* Steel plate -- anisotropic light behavior */
   .steel-gradient {
-    background: linear-gradient(180deg, #323840 0%, #2d3138 25%, #292d34 50%, #252830 75%, #22262d 100%);
+    background:
+      linear-gradient(95deg, transparent 0%, rgba(255,255,255,0.02) 30%, transparent 50%),
+      linear-gradient(180deg, #323840 0%, #2b2f36 25%, #262a30 50%, #21252b 100%);
   }
 
-  /* Forge dark -- deep heavy base like cast iron */
+  /* Cast iron -- deep, dense, absorbs light */
   .base-layer {
-    background: linear-gradient(180deg, #151518 0%, #18181b 30%, #1a1a1d 60%, #1c1c1f 100%);
+    background:
+      linear-gradient(88deg, transparent 40%, rgba(255,255,255,0.015) 55%, transparent 65%),
+      linear-gradient(180deg, #141416 0%, #17171a 30%, #1a1a1d 60%, #1c1c1f 100%);
   }
 
-  /* Oxidized steel -- warm undertone like weathered metal */
+  /* Oxidized steel -- warm aged patina */
   .oxidized-surface {
-    background: linear-gradient(180deg, #2a2622 0%, #262420 30%, #232120 60%, #201f1e 100%);
+    background:
+      linear-gradient(100deg, transparent 20%, rgba(110,72,48,0.03) 40%, transparent 60%),
+      linear-gradient(180deg, #2a2622 0%, #252320 30%, #222020 60%, #1f1e1d 100%);
   }
 }
 
