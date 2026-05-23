@@ -26,11 +26,9 @@ export function AboutSection() {
             <div className="grid grid-cols-1 gap-4 sm:gap-5 lg:gap-6">
               {STATS.map((stat, i) => (
                 <div key={stat.key} data-assemble="right" data-assemble-delay={`${i + 2}`} className="flex items-center gap-4 sm:gap-6 p-4 sm:p-5 lg:p-6 pressure-hover" style={{
-                  background: "linear-gradient(180deg, rgba(0,0,0,0.12) 0%, transparent 20%, transparent 80%, rgba(255,255,255,0.015) 100%), rgba(26,26,26,0.7)",
-                  border: "1px solid rgba(255,255,255,0.06)",
-                  borderTopColor: "rgba(0,0,0,0.4)",
-                  borderBottomColor: "rgba(255,255,255,0.04)",
-                  boxShadow: "0 2px 8px rgba(0,0,0,0.4) inset, 0 1px 0 rgba(255,255,255,0.02), 0 4px 12px rgba(0,0,0,0.3)",
+                  background: "rgba(255,255,255,0.02)",
+                  border: "1px solid rgba(255,255,255,0.04)",
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.02)",
                 }}>
                   <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--copper)] tracking-tight min-w-[60px] sm:min-w-[80px] stamp-indent">{stat.value}</span>
                   <div className="w-[1px] h-8 bg-white/[0.06] shrink-0" />

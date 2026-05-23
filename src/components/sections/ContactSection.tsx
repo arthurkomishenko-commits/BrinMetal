@@ -51,11 +51,9 @@ export function ContactSection() {
           </div>
           <div className="lg:col-span-7" data-assemble="right" data-assemble-delay="4">
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 p-5 sm:p-6 md:p-8" style={{
-              background: "linear-gradient(180deg, rgba(0,0,0,0.12) 0%, transparent 20%, transparent 80%, rgba(255,255,255,0.015) 100%), rgba(26,26,26,0.7)",
-              border: "1px solid rgba(255,255,255,0.06)",
-              borderTopColor: "rgba(0,0,0,0.4)",
-              borderBottomColor: "rgba(255,255,255,0.04)",
-              boxShadow: "0 2px 8px rgba(0,0,0,0.4) inset, 0 1px 0 rgba(255,255,255,0.02), 0 8px 24px rgba(0,0,0,0.3)",
+              background: "rgba(255,255,255,0.02)",
+              border: "1px solid rgba(255,255,255,0.04)",
+              boxShadow: "0 4px 20px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.02)",
             }}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <div>

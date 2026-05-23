@@ -46,14 +46,12 @@ export function CapabilitiesSection() {
             const IconComponent = ICON_MAP[service.icon];
             return (
               <TiltCard key={service.id} className={cn("group relative p-6 md:p-7", "pressure-hover")} style={{
-                background: "linear-gradient(180deg, #3a3f46 0%, #2d3138 18%, #262a31 50%, #1f2329 100%)",
-                border: "1px solid rgba(255,255,255,0.06)",
-                borderTopColor: "rgba(255,255,255,0.09)",
-                borderBottomColor: "rgba(0,0,0,0.25)",
-                boxShadow: "0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.04), inset 0 -1px 0 rgba(0,0,0,0.3)",
+                background: "linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 40%, transparent 60%, rgba(0,0,0,0.1) 100%), rgba(42,45,53,0.4)",
+                border: "1px solid rgba(255,255,255,0.04)",
+                boxShadow: "0 4px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.02)",
               }}>
                 <div data-assemble="scale" data-assemble-delay={`${3 + i}`} className="relative z-10">
-                  <div className="w-12 h-12 flex items-center justify-center mb-5 border border-[var(--copper)]/15 bg-[var(--graphite)]">
+                  <div className="w-12 h-12 flex items-center justify-center mb-5 border border-white/[0.04] bg-white/[0.02]">
                     {IconComponent && <IconComponent size={22} className="text-[var(--copper)]" />}
                   </div>
                   <h3 className="text-base font-semibold text-[var(--off-white)] mb-2 tracking-tight">{t(service.titleKey)}</h3>
