@@ -53,7 +53,7 @@ export function AboutSection() {
             >
               {/* Photo */}
               <Image
-                src="/images/about/andrey.png"
+                src="/images/about/andrey-portrait.jpg"
                 alt="Andrey — BrinMetal founder"
                 fill
                 className="object-cover"
