@@ -74,7 +74,7 @@
     position: fixed;
     inset: 0;
     pointer-events: none;
-    z-index: 9999;
+    z-index: -1;
     background-image:
       /* Anisotropic machining -- directional grain */
       linear-gradient(102deg, rgba(255,255,255,0.035) 0%, rgba(255,255,255,0.01) 8%, transparent 16%),
