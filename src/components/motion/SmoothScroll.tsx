@@ -18,8 +18,10 @@ export function SmoothScroll({ children }: SmoothScrollProps) {
       navigator.maxTouchPoints > 0 ||
       window.matchMedia("(pointer: coarse)").matches;
 
+    // Force scroll to top on mount
+    window.scrollTo(0, 0);
+
     if (isTouch) {
-      // Mobile: native scroll, just ensure ScrollTrigger is ready
       Promise.all([
         import("gsap"),
         import("gsap/ScrollTrigger"),
