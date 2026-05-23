@@ -40,7 +40,7 @@ export function TrustSection() {
               >
                 {/* Engineering label in corner */}
                 <div className="absolute top-3 end-3 hidden sm:block">
-                  <span className="eng-label opacity-40">{item.label}</span>
+                  <span className="eng-label">{item.label}</span>
                 </div>
 
                 <div className="inline-flex items-center justify-center w-14 h-14 mb-5 border border-white/[0.04] bg-white/[0.02]">

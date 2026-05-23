@@ -25,7 +25,7 @@ export function WorkshopSection() {
           </div>
           {/* Engineering spec label */}
           <div data-assemble="right" data-assemble-delay="2" className="hidden lg:block">
-            <span className="eng-label opacity-50">PROCESS SPEC: BM-WF-2024</span>
+            <span className="eng-label">PROCESS SPEC: BM-WF-2024</span>
           </div>
         </div>
 

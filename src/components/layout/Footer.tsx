@@ -40,7 +40,7 @@ export function Footer() {
       {/* Engineering tagline bar */}
       <div className="border-b border-white/[0.04]">
         <div className="container-wide py-4 sm:py-5 flex items-center justify-between">
-          <span className="eng-label text-[var(--warm-steel)] tracking-[0.15em] opacity-40 text-base">
+          <span className="eng-label text-[var(--warm-steel)] tracking-[0.15em] text-base">
             STRUCTURAL ENGINEERING | METAL FABRICATION | EST. 2004
           </span>
           <button

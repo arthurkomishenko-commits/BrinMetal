@@ -72,7 +72,7 @@ export function ContactSection() {
             </div>
 
             {/* Hours */}
-            <div data-assemble="up" data-assemble-delay="4" className="mt-6 flex items-center gap-3 opacity-40">
+            <div data-assemble="up" data-assemble-delay="4" className="mt-6 flex items-center gap-3">
               <div className="w-6 h-[1px] bg-[var(--copper)]" />
               <span className="eng-label">SUN-THU 08:00-18:00</span>
             </div>
@@ -91,8 +91,8 @@ export function ContactSection() {
             >
               {/* Header */}
               <div className="flex items-center justify-between mb-2">
-                <span className="eng-label opacity-50">CONTACT FORM</span>
-                <span className="eng-label opacity-40">REQ-001</span>
+                <span className="eng-label">CONTACT FORM</span>
+                <span className="eng-label">REQ-001</span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
