@@ -66,27 +66,7 @@
     font-family: var(--font-heading), var(--font-inter), system-ui, sans-serif;
   }
 
-  /* MACHINING MARKS + SCRATCHES
-     Irregular, clustered, varied depth. Felt, not seen.
-     Simulates cold-rolled steel surface under workshop light. */
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: -1;
-    background-image:
-      /* Anisotropic machining -- directional grain */
-      linear-gradient(102deg, rgba(255,255,255,0.035) 0%, rgba(255,255,255,0.01) 8%, transparent 16%),
-      linear-gradient(97deg, transparent 48%, rgba(255,255,255,0.02) 50%, transparent 52%),
-      /* Clustered scratches -- different angles, depths, pressures */
-      linear-gradient(127deg, transparent 49.2%, rgba(255,255,255,0.022) 49.5%, rgba(0,0,0,0.04) 49.8%, transparent 50.4%),
-      linear-gradient(132deg, transparent 51%, rgba(255,255,255,0.015) 51.3%, transparent 52%),
-      linear-gradient(118deg, transparent 47%, rgba(0,0,0,0.05) 47.3%, transparent 48%),
-      linear-gradient(124deg, transparent 73%, rgba(255,255,255,0.018) 73.2%, rgba(0,0,0,0.03) 73.5%, transparent 74%),
-      linear-gradient(115deg, transparent 28%, rgba(255,255,255,0.012) 28.2%, transparent 28.5%),
-      linear-gradient(138deg, transparent 62%, rgba(0,0,0,0.04) 62.2%, rgba(255,255,255,0.01) 62.5%, transparent 63%);
-  }
+  /* Steel texture removed -- was overlapping images/cards */
 
   /* Selection styling */
   ::selection {
