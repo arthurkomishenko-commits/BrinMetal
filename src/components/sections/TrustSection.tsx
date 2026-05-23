@@ -46,7 +46,7 @@ export function TrustSection() {
                 <div className="inline-flex items-center justify-center w-14 h-14 mb-5 border border-white/[0.04] bg-white/[0.02]">
                   <Icon size={22} className="text-[var(--copper)]" />
                 </div>
-                <p className="text-sm sm:text-base text-[var(--titanium)] leading-relaxed">{t(item.key)}</p>
+                <p className="text-base sm:text-base text-[var(--titanium)] leading-relaxed">{t(item.key)}</p>
               </div>
             );
           })}

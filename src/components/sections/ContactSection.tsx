@@ -31,7 +31,7 @@ export function ContactSection() {
   }
 
   const SubmitWrapper = isDesktop ? MagneticElement : "div";
-  const inputClass = "w-full px-3 sm:px-4 py-3 bg-[var(--graphite)] border border-white/[0.06] text-[var(--off-white)] text-sm focus:outline-none focus:border-[var(--copper)]/30 transition-colors min-h-[44px]";
+  const inputClass = "w-full px-3 sm:px-4 py-3 bg-[var(--graphite)] border border-white/[0.06] text-[var(--off-white)] text-base focus:outline-none focus:border-[var(--copper)]/30 transition-colors min-h-[44px]";
 
   return (
     <AssembleSection id="contact" className="section-padding steel-module overhead-light panel-thickness">
@@ -52,7 +52,7 @@ export function ContactSection() {
                     <div className="w-10 h-10 flex items-center justify-center shrink-0 border border-white/[0.04] bg-white/[0.02]">
                       <Icon size={16} className="text-[var(--copper)]" />
                     </div>
-                    <span dir={item.dir} className="text-sm sm:text-base">{value}</span>
+                    <span dir={item.dir} className="text-base sm:text-base">{value}</span>
                   </div>
                 );
                 return item.href ? (
@@ -67,7 +67,7 @@ export function ContactSection() {
                 <div className="w-10 h-10 flex items-center justify-center shrink-0 border border-[#25D366]/20 bg-[#25D366]/[0.03]">
                   <MessageCircle size={16} className="text-[#25D366]" />
                 </div>
-                <span className="text-sm sm:text-base">WhatsApp</span>
+                <span className="text-base sm:text-base">WhatsApp</span>
               </a>
             </div>
 
@@ -120,7 +120,7 @@ export function ContactSection() {
                   data-cursor-accent
                   disabled={formState === "sending" || formState === "success"}
                   className={cn(
-                    "w-full py-3.5 text-sm sm:text-sm uppercase tracking-[0.1em] font-semibold transition-all duration-300 min-h-[48px]",
+                    "w-full py-3.5 text-base sm:text-base uppercase tracking-[0.1em] font-semibold transition-all duration-300 min-h-[48px]",
                     formState === "success" ? "bg-green-700/80 text-white" : "bg-[var(--copper)] text-[var(--graphite)] active:bg-[var(--copper)]/80 md:hover:bg-[var(--copper)]/90",
                     "disabled:opacity-70"
                   )}
@@ -129,7 +129,7 @@ export function ContactSection() {
                   {formState === "sending" ? "..." : formState === "success" ? t("success") : t("send")}
                 </button>
               </SubmitWrapper>
-              {formState === "error" && <p className="text-sm text-red-400 text-center">{t("error")}</p>}
+              {formState === "error" && <p className="text-base text-red-400 text-center">{t("error")}</p>}
             </form>
           </div>
         </div>

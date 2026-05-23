@@ -54,7 +54,7 @@ export function CapabilitiesSection() {
                   {IconComponent && <IconComponent size={20} className="text-[var(--copper)]" />}
                 </div>
                 <h3 className="text-base font-semibold text-[var(--off-white)] mb-2 tracking-tight">{t(service.titleKey)}</h3>
-                <p className="text-sm text-[var(--titanium)] leading-relaxed">{t(service.descriptionKey)}</p>
+                <p className="text-base text-[var(--titanium)] leading-relaxed">{t(service.descriptionKey)}</p>
 
                 {/* Bottom hover line */}
                 <div className="absolute bottom-0 inset-x-0 h-[1px] bg-[var(--copper)]/30 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-start" />

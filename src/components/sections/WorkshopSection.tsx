@@ -29,7 +29,7 @@ export function WorkshopSection() {
           </div>
         </div>
 
-        <p data-assemble="up" data-assemble-delay="3" className="text-sm sm:text-base md:text-lg text-[var(--titanium)] leading-[1.7] max-w-2xl mb-10 sm:mb-14">{t("description")}</p>
+        <p data-assemble="up" data-assemble-delay="3" className="text-base sm:text-base md:text-lg text-[var(--titanium)] leading-[1.7] max-w-2xl mb-10 sm:mb-14">{t("description")}</p>
 
         {/* Process steps -- horizontal on desktop, vertical on mobile */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 md:gap-5">
@@ -50,7 +50,7 @@ export function WorkshopSection() {
               {/* Thin copper line */}
               <div className="w-8 h-[1px] bg-[var(--copper)]/30 mb-4" />
               <h3 className="text-base sm:text-lg font-semibold text-[var(--off-white)] mb-1.5">{t(`${step.key}.title` as "step1.title")}</h3>
-              <p className="text-sm text-[var(--titanium)] leading-relaxed">{t(`${step.key}.description` as "step1.description")}</p>
+              <p className="text-base text-[var(--titanium)] leading-relaxed">{t(`${step.key}.description` as "step1.description")}</p>
             </div>
           ))}
         </div>

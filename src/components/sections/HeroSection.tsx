@@ -99,7 +99,7 @@ export function HeroSection() {
         <div data-hero-cta className="mt-8 sm:mt-10 md:mt-12 flex items-center gap-5">
           {isDesktop ? (
             <MagneticElement strength={0.2}>
-              <button data-cursor-accent onClick={handleCTAClick} className="group relative px-8 py-3.5 bg-[var(--copper)] text-[var(--graphite)] text-sm uppercase tracking-[0.1em] font-semibold overflow-hidden active:scale-[0.98]" style={{
+              <button data-cursor-accent onClick={handleCTAClick} className="group relative px-8 py-3.5 bg-[var(--copper)] text-[var(--graphite)] text-base uppercase tracking-[0.1em] font-semibold overflow-hidden active:scale-[0.98]" style={{
                 boxShadow: "0 0 15px rgba(196,149,106,0.1), 0 4px 12px rgba(0,0,0,0.4)"
               }}>
                 <span className="relative z-10">{t("cta")}</span>
@@ -107,7 +107,7 @@ export function HeroSection() {
               </button>
             </MagneticElement>
           ) : (
-            <button onClick={handleCTAClick} className="px-7 py-3.5 bg-[var(--copper)] text-[var(--graphite)] text-sm uppercase tracking-[0.1em] font-semibold active:bg-[var(--copper)]/80 min-h-[48px]">
+            <button onClick={handleCTAClick} className="px-7 py-3.5 bg-[var(--copper)] text-[var(--graphite)] text-base uppercase tracking-[0.1em] font-semibold active:bg-[var(--copper)]/80 min-h-[48px]">
               {t("cta")}
             </button>
           )}

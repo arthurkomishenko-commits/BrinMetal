@@ -122,7 +122,7 @@ export function Header() {
                   key={item.key}
                   onClick={() => handleNavClick(item.href)}
                   className={cn(
-                    "relative px-4 py-2 text-sm uppercase tracking-[0.08em] font-medium transition-colors duration-300",
+                    "relative px-4 py-2 text-base uppercase tracking-[0.08em] font-medium transition-colors duration-300",
                     isActive ? "text-[var(--off-white)]" : "text-[var(--titanium)] hover:text-[var(--off-white)]"
                   )}
                 >
@@ -137,14 +137,14 @@ export function Header() {
 
             <div className="w-[1px] h-5 bg-white/10 mx-3" />
 
-            <Link href={`/${alternateLocale}`} className="px-3 py-1.5 text-sm uppercase tracking-[0.1em] font-medium text-[var(--titanium)] border border-white/10 hover:border-[var(--copper)] hover:text-[var(--copper)] transition-all duration-300">
+            <Link href={`/${alternateLocale}`} className="px-3 py-1.5 text-base uppercase tracking-[0.1em] font-medium text-[var(--titanium)] border border-white/10 hover:border-[var(--copper)] hover:text-[var(--copper)] transition-all duration-300">
               {alternateLabel}
             </Link>
 
             <Link
               href={`/${locale}#contact`}
               onClick={(e) => { e.preventDefault(); handleNavClick("#contact"); }}
-              className="ms-4 px-6 py-2.5 text-sm uppercase tracking-[0.1em] font-semibold bg-[var(--copper)] text-[var(--graphite)] hover:bg-[var(--copper)]/90 transition-all duration-300"
+              className="ms-4 px-6 py-2.5 text-base uppercase tracking-[0.1em] font-semibold bg-[var(--copper)] text-[var(--graphite)] hover:bg-[var(--copper)]/90 transition-all duration-300"
             >
               {t("contact")}
             </Link>
@@ -170,15 +170,15 @@ export function Header() {
           <nav className="flex flex-col items-center gap-1 sm:gap-2">
             {NAV_ITEMS.map((item, i) => (
               <button key={item.key} data-mobile-link onClick={() => handleNavClick(item.href)} className="text-[28px] sm:text-4xl font-bold text-[var(--off-white)] active:text-[var(--copper)] transition-colors duration-200 py-3 sm:py-4 min-h-[48px] flex items-center">
-                <span className="text-[var(--copper)]/40 text-sm font-normal me-3 tabular-nums">0{i + 1}</span>
+                <span className="text-[var(--copper)]/40 text-base font-normal me-3 tabular-nums">0{i + 1}</span>
                 {t(item.key)}
               </button>
             ))}
             <div data-mobile-link className="flex items-center gap-3 sm:gap-4 mt-8 sm:mt-10 pt-8 border-t border-white/10 w-full justify-center">
-              <Link href={`/${alternateLocale}`} className="px-5 py-2.5 text-sm uppercase tracking-[0.1em] font-medium text-[var(--titanium)] border border-white/10 active:border-[var(--copper)] active:text-[var(--copper)] transition-all duration-200 min-h-[44px] flex items-center">
+              <Link href={`/${alternateLocale}`} className="px-5 py-2.5 text-base uppercase tracking-[0.1em] font-medium text-[var(--titanium)] border border-white/10 active:border-[var(--copper)] active:text-[var(--copper)] transition-all duration-200 min-h-[44px] flex items-center">
                 {alternateLabel}
               </Link>
-              <button onClick={() => handleNavClick("#contact")} className="px-6 py-2.5 text-sm uppercase tracking-[0.1em] font-semibold bg-[var(--copper)] text-[var(--graphite)] active:bg-[var(--copper)]/80 min-h-[44px] flex items-center">
+              <button onClick={() => handleNavClick("#contact")} className="px-6 py-2.5 text-base uppercase tracking-[0.1em] font-semibold bg-[var(--copper)] text-[var(--graphite)] active:bg-[var(--copper)]/80 min-h-[44px] flex items-center">
                 {t("contact")}
               </button>
             </div>
