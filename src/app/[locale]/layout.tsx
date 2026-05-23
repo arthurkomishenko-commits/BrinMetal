@@ -58,6 +58,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html lang={locale} dir={dir} className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: `if(history.scrollRestoration)history.scrollRestoration="manual";window.scrollTo(0,0);` }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
@@ -75,7 +76,6 @@ export default async function LocaleLayout({ children, params }: Props) {
           <MobileCTA />
         </NextIntlClientProvider>
         <script src="/scroll-reveal.js" defer />
-        <script dangerouslySetInnerHTML={{ __html: `window.history.scrollRestoration="manual";window.scrollTo(0,0);` }} />
       </body>
     </html>
   );
