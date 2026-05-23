@@ -39,7 +39,7 @@ export function Footer() {
       <div className="border-b border-white/[0.04]">
         <div className="container-wide py-4 sm:py-5 flex items-center justify-between">
           <span className="eng-label text-[var(--warm-steel)] tracking-[0.15em] text-base">
-            STRUCTURAL ENGINEERING | METAL FABRICATION | EST. 2004
+            {t("footer.tagbar")}
           </span>
           <button
             onClick={handleBackToTop}

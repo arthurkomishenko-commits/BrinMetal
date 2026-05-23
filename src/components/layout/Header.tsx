@@ -193,7 +193,7 @@ export function Header() {
             </div>
           </nav>
           <div data-mobile-link className="absolute bottom-8 inset-x-6 text-center">
-            <p className="eng-label opacity-20">STRUCTURAL ENGINEERING SINCE 2004</p>
+            <p className="eng-label opacity-20">{t("since")}</p>
           </div>
         </div>
       )}
