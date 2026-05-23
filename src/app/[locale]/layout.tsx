@@ -58,7 +58,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html lang={locale} dir={dir} className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: `if(history.scrollRestoration)history.scrollRestoration="manual";window.scrollTo(0,0);` }} />
+        <script dangerouslySetInnerHTML={{ __html: `if(history.scrollRestoration)history.scrollRestoration="manual";document.addEventListener("DOMContentLoaded",function(){window.scrollTo(0,0)});window.addEventListener("load",function(){setTimeout(function(){window.scrollTo(0,0)},50)});` }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
