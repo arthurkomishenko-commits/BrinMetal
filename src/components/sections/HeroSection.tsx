@@ -45,7 +45,7 @@ export function HeroSection() {
   }
 
   return (
-    <section ref={containerRef} id="hero" className="relative min-h-[100svh] lg:min-h-[140svh] flex items-center overflow-hidden">
+    <section ref={containerRef} id="hero" className="relative min-h-[100svh] flex items-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, #0c0c0e 0%, #111113 25%, #161618 50%, #1a1a1c 75%, #1e1e22 100%)" }} />
       <div className="absolute inset-0 hidden lg:block pointer-events-none opacity-[0.02]" style={{

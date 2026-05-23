@@ -58,12 +58,15 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html lang={locale} dir={dir} className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: `try{history.scrollRestoration="manual"}catch(e){}` }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       </head>
       <body className="bg-[var(--graphite)] text-[var(--off-white)] font-sans antialiased">
+        {/* Anchor at the very top -- browser scrolls here on load */}
+        <div id="top" style={{ position: "absolute", top: 0, left: 0, width: 0, height: 0 }} />
         <NextIntlClientProvider messages={messages}>
           <CustomCursor />
           <SmoothScroll>
