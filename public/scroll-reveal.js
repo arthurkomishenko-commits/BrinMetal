@@ -108,5 +108,5 @@ window.addEventListener("load", function () {
       }
     });
   });
-  }, 300); // 300ms delay ensures React hydration is complete
+  }, 1500); // 1.5s delay ensures React hydration is fully complete
 });
