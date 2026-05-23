@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useLenis } from "@/hooks/useLenis";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
@@ -82,11 +83,23 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="container-wide relative z-10 pt-20 sm:pt-24 md:pt-32 pb-20 sm:pb-24">
+        {/* Logo */}
+        <div data-hero-line className="mb-6 sm:mb-8">
+          <Image
+            src="/images/hero/logo-brinmetall.jpg"
+            alt="BrinMetall logo"
+            width={280}
+            height={160}
+            className="w-[180px] sm:w-[220px] md:w-[280px] h-auto object-contain"
+            priority
+          />
+        </div>
+
         {/* Engineering coordinates */}
         <div className="hidden lg:flex items-center gap-3 mb-6">
-          <span className="eng-label">REF: 32.32°N 34.85°E</span>
+          <span className="eng-label">055-972-2255</span>
           <div className="w-8 h-[1px] bg-[var(--copper)]/30" />
-          <span className="eng-label">EST. 2004</span>
+          <span className="eng-label">NETANYA, ISRAEL</span>
         </div>
 
         <div data-hero-line className="w-10 sm:w-16 h-[2px] bg-[var(--copper)] mb-5 sm:mb-8 origin-start accent-line-shimmer" />

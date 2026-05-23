@@ -6,7 +6,7 @@ export const siteConfig = {
   locales: ["he", "ru"] as Locale[],
 
   contact: {
-    phone: "+972-00-000-0000",
+    phone: "055-972-2255",
     email: "info@brinmetal.co.il",
     address: {
       he: "\u05d0\u05d6\u05d5\u05e8 \u05e0\u05ea\u05e0\u05d9\u05d4, \u05d9\u05e9\u05e8\u05d0\u05dc",
@@ -17,7 +17,7 @@ export const siteConfig = {
   social: {
     facebook: "https://facebook.com/brinmetal",
     instagram: "https://instagram.com/brinmetal",
-    whatsapp: "https://wa.me/97200000000",
+    whatsapp: "https://wa.me/9720559722255",
   },
 } as const;
 
