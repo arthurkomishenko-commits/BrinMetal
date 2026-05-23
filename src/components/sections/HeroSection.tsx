@@ -123,7 +123,7 @@ export function HeroSection() {
                 fill
                 className="object-cover brightness-[0.6]"
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                priority unoptimized
+                priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
               <div className="absolute bottom-4 start-4">
