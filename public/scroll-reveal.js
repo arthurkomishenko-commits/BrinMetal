@@ -1,7 +1,9 @@
 // BrinMetal scroll reveal -- heavy industrial animations
 // Vanilla JS, zero dependencies, works on all devices
 
-document.addEventListener("DOMContentLoaded", function () {
+// Wait for React hydration to complete before modifying DOM
+window.addEventListener("load", function () {
+  setTimeout(function () {
   // Heavy industrial easing -- slow start, powerful finish
   var heavyEase = "cubic-bezier(0.16, 1, 0.3, 1)";
   var els = document.querySelectorAll("[data-assemble]");
@@ -106,4 +108,5 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+  }, 300); // 300ms delay ensures React hydration is complete
 });
