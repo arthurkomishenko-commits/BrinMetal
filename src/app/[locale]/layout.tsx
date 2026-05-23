@@ -58,13 +58,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html lang={locale} dir={dir} className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <head>
-        <style dangerouslySetInnerHTML={{ __html: `html{overflow:hidden}` }} />
-        <script dangerouslySetInnerHTML={{ __html: `
-          document.addEventListener('DOMContentLoaded',function(){
-            document.documentElement.style.overflow='';
-            window.scrollTo(0,0);
-          });
-        ` }} />
+        <script dangerouslySetInnerHTML={{ __html: `history.scrollRestoration='manual';window.scrollTo(0,0);` }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
