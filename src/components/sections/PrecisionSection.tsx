@@ -33,8 +33,8 @@ export function PrecisionSection() {
               data-assemble-delay={`${4 + i}`}
               className="relative text-center p-6 sm:p-8 md:p-10 pressure-hover"
               style={{
-                background: "rgba(255,255,255,0.015)",
-                border: "1px solid rgba(255,255,255,0.04)",
+                background: "linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 50%, rgba(0,0,0,0.06) 100%)",
+                border: "1px solid rgba(255,255,255,0.06)",
                 boxShadow: "0 4px 20px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.02)",
               }}
             >

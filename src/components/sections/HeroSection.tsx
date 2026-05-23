@@ -59,14 +59,19 @@ export function HeroSection() {
       id="hero"
       className="relative min-h-[100svh] flex items-center overflow-hidden"
     >
-      {/* Background */}
+      {/* Background -- heavy steel wall */}
       <div className="absolute inset-0" style={{
-        background: "linear-gradient(180deg, #111113 0%, #151517 30%, #1a1a1c 60%, #1e1e22 100%)"
+        background: "linear-gradient(180deg, #0e0e10 0%, #131315 20%, #181819 45%, #1d1d20 70%, #222226 100%)"
       }} />
 
-      {/* Engineering grid overlay - desktop only */}
-      <div className="absolute inset-0 hidden lg:block pointer-events-none opacity-[0.025]" style={{
-        backgroundImage: "linear-gradient(rgba(196,149,106,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(196,149,106,0.4) 1px, transparent 1px)",
+      {/* Directional steel grain */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.04]" style={{
+        backgroundImage: "repeating-linear-gradient(90deg, transparent 0px, rgba(255,255,255,0.03) 1px, transparent 2px, transparent 5px)",
+      }} />
+
+      {/* Blueprint grid -- desktop only */}
+      <div className="absolute inset-0 hidden lg:block pointer-events-none opacity-[0.03]" style={{
+        backgroundImage: "linear-gradient(rgba(196,149,106,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(196,149,106,0.3) 1px, transparent 1px)",
         backgroundSize: "80px 80px",
       }} />
 

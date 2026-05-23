@@ -66,17 +66,17 @@
     font-family: var(--font-heading), var(--font-inter), system-ui, sans-serif;
   }
 
-  /* Subtle grain overlay -- single layer, no blend mode */
+  /* Brushed steel grain -- directional machining texture */
   body::after {
     content: "";
     position: fixed;
     inset: 0;
     pointer-events: none;
     z-index: 9999;
-    opacity: 0.035;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.06;
+    background-image: url("/textures/brushed-steel.svg");
     background-repeat: repeat;
-    background-size: 256px 256px;
+    background-size: 200px 200px;
   }
 
   /* Selection styling */
@@ -185,14 +185,19 @@
 /* Structural system in metal-textures.css */
 
 @layer components {
-  /* Directional steel gradient */
+  /* Steel plate -- lighter surface like brushed stainless */
   .steel-gradient {
-    background: linear-gradient(180deg, #2d3038 0%, #2a2d35 30%, #282b32 70%, #252830 100%);
+    background: linear-gradient(180deg, #323840 0%, #2d3138 25%, #292d34 50%, #252830 75%, #22262d 100%);
   }
 
-  /* Deep base layer */
+  /* Forge dark -- deep heavy base like cast iron */
   .base-layer {
-    background: linear-gradient(180deg, #171717 0%, #1a1a1a 40%, #1c1c1e 100%);
+    background: linear-gradient(180deg, #151518 0%, #18181b 30%, #1a1a1d 60%, #1c1c1f 100%);
+  }
+
+  /* Oxidized steel -- warm undertone like weathered metal */
+  .oxidized-surface {
+    background: linear-gradient(180deg, #2a2622 0%, #262420 30%, #232120 60%, #201f1e 100%);
   }
 }
 

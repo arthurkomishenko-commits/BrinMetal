@@ -41,7 +41,7 @@ export function CapabilitiesSection() {
                 className="group relative p-6 md:p-7 pressure-hover"
                 style={{
                   background: "linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 40%, transparent 60%, rgba(0,0,0,0.08) 100%), rgba(42,45,53,0.35)",
-                  border: "1px solid rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.06)",
                   boxShadow: "0 4px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.02)",
                 }}
               >

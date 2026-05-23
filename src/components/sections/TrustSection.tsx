@@ -33,8 +33,8 @@ export function TrustSection() {
                 data-assemble-delay={`${3 + i}`}
                 className="group text-center p-6 sm:p-8 md:p-10 pressure-hover relative"
                 style={{
-                  background: "rgba(255,255,255,0.02)",
-                  border: "1px solid rgba(255,255,255,0.04)",
+                  background: "linear-gradient(180deg, rgba(255,255,255,0.035) 0%, rgba(255,255,255,0.015) 50%, rgba(0,0,0,0.05) 100%)",
+                  border: "1px solid rgba(255,255,255,0.06)",
                   boxShadow: "0 4px 20px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.02)",
                 }}
               >
