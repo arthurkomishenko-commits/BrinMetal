@@ -13,7 +13,7 @@ export function AboutSection() {
   const t = useTranslations("about");
 
   return (
-    <AssembleSection id="about" className="section-padding steel-module overhead-light oil-film panel-thickness">
+    <AssembleSection id="about" className="section-padding steel-module overhead-light panel-thickness">
       <div className="container-wide relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           <div className="lg:col-span-7">

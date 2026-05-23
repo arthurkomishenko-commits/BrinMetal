@@ -14,7 +14,7 @@ export function WorkshopSection() {
   const t = useTranslations("workshop");
 
   return (
-    <AssembleSection id="workshop" className="section-padding relative base-layer forge-heat heat-zone spark-trail panel-thickness">
+    <AssembleSection id="workshop" className="section-padding relative base-layer panel-thickness">
       <div className="container-wide relative z-10">
         <div className="mb-10 sm:mb-14 md:mb-20">
           <span data-assemble="up" data-assemble-delay="0" className="inline-block serial-mark text-[var(--copper)]">{t("subtitle")}</span>

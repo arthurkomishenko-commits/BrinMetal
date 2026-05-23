@@ -15,7 +15,7 @@ export function TrustSection() {
   const t = useTranslations("trust");
 
   return (
-    <AssembleSection id="trust" className="section-padding relative base-layer rust-aged oil-film panel-thickness">
+    <AssembleSection id="trust" className="section-padding relative base-layer panel-thickness">
       <div className="container-wide relative z-10">
         <div className="text-center mb-10 sm:mb-14 md:mb-20">
           <span data-assemble="up" data-assemble-delay="0" className="inline-block serial-mark text-[var(--copper)]">{t("subtitle")}</span>

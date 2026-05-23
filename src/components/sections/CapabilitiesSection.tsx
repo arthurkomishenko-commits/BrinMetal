@@ -34,7 +34,7 @@ export function CapabilitiesSection() {
   const tSection = useTranslations("services");
 
   return (
-    <AssembleSection id="services" className="section-padding relative base-layer rust-aged edge-glint panel-thickness">
+    <AssembleSection id="services" className="section-padding relative base-layer edge-glint panel-thickness">
       <div className="container-wide relative z-10">
         <div className="mb-10 sm:mb-14 md:mb-20">
           <span data-assemble="up" data-assemble-delay="0" className="inline-block serial-mark text-[var(--copper)]">{tSection("subtitle")}</span>

@@ -14,7 +14,7 @@ export function PrecisionSection() {
   const t = useTranslations("precision");
 
   return (
-    <AssembleSection id="precision" className="section-padding steel-module anodized-dark edge-glint panel-thickness">
+    <AssembleSection id="precision" className="section-padding steel-module edge-glint panel-thickness">
       <div className="container-wide relative z-10">
         <div className="text-center mb-10 sm:mb-14 md:mb-20">
           <span data-assemble="up" data-assemble-delay="0" className="inline-block serial-mark text-[var(--copper)]">{t("subtitle")}</span>

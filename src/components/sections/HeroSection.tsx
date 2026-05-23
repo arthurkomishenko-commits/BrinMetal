@@ -74,7 +74,7 @@ export function HeroSection() {
     <section
       ref={containerRef}
       id="hero"
-      className="relative min-h-[100svh] flex items-center overflow-hidden cold-rolled"
+      className="relative min-h-[100svh] flex items-center overflow-hidden"
       onMouseMove={handleMouseMove}
     >
       {/* === LAYERED METAL BACKGROUND === */}
@@ -112,7 +112,7 @@ export function HeroSection() {
           background: "linear-gradient(250deg, rgba(180,200,220,0.15) 0%, transparent 50%)"
         }} />
 
-        {/* Micro scratches overlay */}
+        {/* Micro overlay */}
         <div className="absolute inset-0 opacity-[0.02]" style={{
           backgroundImage: `
             linear-gradient(125deg, transparent 42%, rgba(255,255,255,0.2) 42.3%, transparent 42.6%),

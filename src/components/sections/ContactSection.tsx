@@ -27,7 +27,7 @@ export function ContactSection() {
   const SubmitWrapper = isDesktop ? MagneticElement : "div";
 
   return (
-    <AssembleSection id="contact" className="section-padding steel-module heat-zone overhead-light panel-thickness">
+    <AssembleSection id="contact" className="section-padding steel-module overhead-light panel-thickness">
       <div className="container-wide relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           <div className="lg:col-span-5">
