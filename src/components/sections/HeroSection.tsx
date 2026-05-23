@@ -71,7 +71,7 @@ export function HeroSection() {
               />
             </div>
 
-            <h1 data-hero-title className="text-[clamp(1.5rem,4vw,3rem)] font-extrabold leading-[1.1] tracking-[-0.02em] text-[var(--off-white)] text-stamped max-w-sm">
+            <h1 data-hero-title className="text-[clamp(1.35rem,4vw,3rem)] font-extrabold leading-[1.1] tracking-[-0.02em] text-[var(--off-white)] text-stamped max-w-[20rem] sm:max-w-sm">
               {t("title")}
             </h1>
 

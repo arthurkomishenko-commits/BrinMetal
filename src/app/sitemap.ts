@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://brinmetal.co.il";
+const BASE_URL = "https://brinmetall.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const locales = ["he", "ru"];

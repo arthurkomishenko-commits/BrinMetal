@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    sitemap: "https://brinmetal.co.il/sitemap.xml",
+    sitemap: "https://brinmetall.vercel.app/sitemap.xml",
   };
 }

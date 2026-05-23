@@ -13,10 +13,10 @@ export function generateLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: "BrinMetallll",
+    name: "BrinMetall",
     description:
       "Professional metal fabrication, welding, gates, fences, staircases and custom engineering solutions.",
-    url: "https://brinmetal.co.il",
+    url: "https://brinmetall.vercel.app",
     telephone: "+972-00-000-0000",
     email: "info@brinmetal.co.il",
     address: {
@@ -45,7 +45,7 @@ export function generateLocalBusinessSchema() {
       },
     ],
     priceRange: "$$",
-    image: "https://brinmetal.co.il/images/og-image.jpg",
+    image: "https://brinmetall.vercel.app/images/og-image.jpg",
     areaServed: {
       "@type": "GeoCircle",
       geoMidpoint: {
@@ -67,8 +67,8 @@ export function generateServiceSchema(service: ServiceSchemaInput) {
     url: service.url,
     provider: {
       "@type": "LocalBusiness",
-      name: "BrinMetallll",
-      url: "https://brinmetal.co.il",
+      name: "BrinMetall",
+      url: "https://brinmetall.vercel.app",
     },
     areaServed: {
       "@type": "Country",

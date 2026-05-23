@@ -42,7 +42,7 @@ export function PrecisionSection() {
               <span className="block mt-3 serial-mark text-[var(--titanium)]">{t(`metric_${metric.key}` as "metric_years")}</span>
               {/* Engineering corner mark */}
               <div className="absolute top-3 end-3 hidden sm:block">
-                <span className="eng-label">M-{String(i + 1).padStart(2, "0")}</span>
+                <span className="eng-label">{String(i + 1).padStart(2, "0")}</span>
               </div>
             </div>
           ))}

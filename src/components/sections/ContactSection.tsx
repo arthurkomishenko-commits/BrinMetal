@@ -99,7 +99,7 @@ export function ContactSection() {
             {/* Hours */}
             <div data-assemble="up" data-assemble-delay="4" className="mt-6 flex items-center gap-3">
               <div className="w-6 h-[1px] bg-[var(--copper)]" />
-              <span className="eng-label">SUN-THU 08:00-18:00</span>
+              <span className="eng-label">{t("hours")}</span>
             </div>
           </div>
 

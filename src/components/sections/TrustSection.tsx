@@ -6,9 +6,9 @@ import { Shield, Clock, CheckCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const TRUST_ITEMS = [
-  { key: "item1", icon: Shield, label: "ACCOUNTABILITY" },
-  { key: "item2", icon: Clock, label: "PRECISION" },
-  { key: "item3", icon: CheckCircle, label: "QUALITY" },
+  { key: "item1", icon: Shield, label: "01" },
+  { key: "item2", icon: Clock, label: "02" },
+  { key: "item3", icon: CheckCircle, label: "03" },
 ] as const;
 
 export function TrustSection() {

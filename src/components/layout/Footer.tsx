@@ -63,7 +63,7 @@ export function Footer() {
                   BRIN
                 </span>
                 <span className="text-xl sm:text-2xl font-bold tracking-[-0.02em] text-[var(--copper)]">
-                  METAL
+                  METALL
                 </span>
               </div>
               <p className="text-base text-[var(--titanium)] leading-relaxed max-w-xs">
