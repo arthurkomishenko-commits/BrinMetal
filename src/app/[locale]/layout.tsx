@@ -9,7 +9,6 @@ import { generateLocalBusinessSchema } from "@/lib/seo/schema";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
-import { CustomCursor } from "@/components/motion/CustomCursor";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { MobileCTA } from "@/components/mobile/MobileCTA";
 import "@/styles/globals.css";
@@ -66,7 +65,6 @@ export default async function LocaleLayout({ children, params }: Props) {
       </head>
       <body className="bg-[var(--graphite)] text-[var(--off-white)] font-sans antialiased">
         <NextIntlClientProvider messages={messages}>
-          <CustomCursor />
           <SmoothScroll>
             <Header />
             <main>{children}</main>
