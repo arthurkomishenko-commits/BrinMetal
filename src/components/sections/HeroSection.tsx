@@ -103,11 +103,11 @@ export function HeroSection() {
 
             {/* Micro trust */}
             <div data-hero-trust className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-[var(--titanium)]">
-              <span className="eng-label">{t("labels.years" as "title")}</span>
+              <span className="eng-label">{t("trust_years")}</span>
               <span className="text-[var(--copper)]">/</span>
-              <span className="eng-label">{t("labels.projects" as "title")}</span>
+              <span className="eng-label">{t("trust_projects")}</span>
               <span className="text-[var(--copper)]">/</span>
-              <span className="eng-label">{t("labels.location" as "title")}</span>
+              <span className="eng-label">{t("trust_location")}</span>
             </div>
           </div>
 

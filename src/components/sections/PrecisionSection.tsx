@@ -50,7 +50,7 @@ export function PrecisionSection() {
 
         {/* Bottom engineering note */}
         <div data-assemble="up" data-assemble-delay="8" className="mt-8 text-center">
-          <span className="eng-label">{t("labels.verified" as "title")}</span>
+          <span className="eng-label">{t("verified_label")}</span>
         </div>
       </div>
     </AssembleSection>

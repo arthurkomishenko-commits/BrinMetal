@@ -1,146 +1,154 @@
 {
   "meta": {
-    "title": "BrinMetall | \u05d9\u05d9\u05e6\u05d5\u05e8 \u05de\u05ea\u05db\u05ea \u05de\u05e7\u05e6\u05d5\u05e2\u05d9",
-    "description": "\u05d9\u05d9\u05e6\u05d5\u05e8 \u05de\u05ea\u05db\u05ea \u05de\u05e7\u05e6\u05d5\u05e2\u05d9, \u05e8\u05d9\u05ea\u05d5\u05da, \u05e9\u05e2\u05e8\u05d9\u05dd, \u05d2\u05d3\u05e8\u05d5\u05ea, \u05de\u05d3\u05e8\u05d2\u05d5\u05ea \u05d5\u05e4\u05ea\u05e8\u05d5\u05e0\u05d5\u05ea \u05d4\u05e0\u05d3\u05e1\u05d9\u05d9\u05dd \u05de\u05d5\u05ea\u05d0\u05de\u05d9\u05dd \u05d0\u05d9\u05e9\u05d9\u05ea. \u05d0\u05d6\u05d5\u05e8 \u05e0\u05ea\u05e0\u05d9\u05d4."
+    "title": "BrinMetall | ייצור מתכת מקצועי",
+    "description": "ייצור מתכת מקצועי, ריתוך, שערים, גדרות, מדרגות ופתרונות הנדסיים מותאמים אישית. אזור נתניה."
   },
   "nav": {
-    "home": "\u05e8\u05d0\u05e9\u05d9",
-    "about": "\u05d0\u05d5\u05d3\u05d5\u05ea",
-    "services": "\u05e9\u05d9\u05e8\u05d5\u05ea\u05d9\u05dd",
-    "projects": "\u05e4\u05e8\u05d5\u05d9\u05e7\u05d8\u05d9\u05dd",
-    "contact": "\u05e6\u05d5\u05e8 \u05e7\u05e9\u05e8"
+    "home": "ראשי",
+    "about": "אודות",
+    "services": "שירותים",
+    "projects": "פרויקטים",
+    "contact": "צור קשר"
   },
   "hero": {
-    "title": "\u05d4\u05e0\u05d3\u05e1\u05ea \u05de\u05ea\u05db\u05ea \u05d1\u05e8\u05de\u05d4 \u05d0\u05d7\u05e8\u05ea",
-    "subtitle": "20+ \u05e9\u05e0\u05d5\u05ea \u05e0\u05d9\u05e1\u05d9\u05d5\u05df \u05d1\u05d9\u05d9\u05e6\u05d5\u05e8 \u05de\u05ea\u05db\u05ea, \u05e8\u05d9\u05ea\u05d5\u05da \u05de\u05e7\u05e6\u05d5\u05e2\u05d9 \u05d5\u05e4\u05ea\u05e8\u05d5\u05e0\u05d5\u05ea \u05d4\u05e0\u05d3\u05e1\u05d9\u05d9\u05dd",
-    "cta": "\u05d3\u05d1\u05e8\u05d5 \u05d0\u05d9\u05ea\u05e0\u05d5"
+    "title": "הנדסת מתכת ברמה אחרת",
+    "subtitle": "20+ שנות ניסיון בייצור מתכת, ריתוך מקצועי ופתרונות הנדסיים",
+    "cta": "דברו איתנו",
+    "trust_years": "20+ שנים",
+    "trust_projects": "500+ פרויקטים",
+    "trust_location": "נתניה"
   },
   "about": {
-    "title": "\u05e2\u05dc BrinMetall",
-    "subtitle": "\u05e4\u05d9\u05dc\u05d5\u05e1\u05d5\u05e4\u05d9\u05d4 \u05d4\u05e0\u05d3\u05e1\u05d9\u05ea",
-    "description": "\u05d0\u05e0\u05d7\u05e0\u05d5 \u05de\u05d0\u05de\u05d9\u05e0\u05d9\u05dd \u05e9\u05db\u05dc \u05e4\u05e8\u05d5\u05d9\u05e7\u05d8 \u05de\u05ea\u05db\u05ea \u05d4\u05d5\u05d0 \u05e9\u05d9\u05dc\u05d5\u05d1 \u05e9\u05dc \u05d7\u05d5\u05d6\u05e7, \u05d3\u05d9\u05d5\u05e7 \u05d5\u05de\u05d7\u05d5\u05d9\u05d1\u05d5\u05ea \u05dc\u05de\u05e6\u05d9\u05d0\u05d5\u05ea. \u05db\u05dc \u05e2\u05d1\u05d5\u05d3\u05d4 \u05e0\u05e2\u05e9\u05d9\u05ea \u05d1\u05d3\u05d9\u05d5\u05e7 \u05de\u05e7\u05e1\u05d9\u05de\u05dc\u05d9 \u05d5\u05e2\u05dc \u05e4\u05d9 \u05e1\u05d8\u05e0\u05d3\u05e8\u05d8\u05d9\u05dd \u05de\u05d7\u05de\u05d9\u05e8\u05d9\u05dd.",
-    "experience": "20+ \u05e9\u05e0\u05d5\u05ea \u05e0\u05d9\u05e1\u05d9\u05d5\u05df",
-    "projects_count": "500+ \u05e4\u05e8\u05d5\u05d9\u05e7\u05d8\u05d9\u05dd",
-    "satisfaction": "100% \u05e9\u05d1\u05d9\u05e2\u05d5\u05ea \u05dc\u05e7\u05d5\u05d7\u05d5\u05ea"
+    "title": "על BrinMetall",
+    "subtitle": "פילוסופיה הנדסית",
+    "description": "אנחנו מאמינים שכל פרויקט מתכת הוא שילוב של חוזק, דיוק ומחויבות למציאות. כל עבודה נעשית בדיוק מקסימלי ועל פי סטנדרטים מחמירים.",
+    "experience": "20+ שנות ניסיון",
+    "projects_count": "500+ פרויקטים",
+    "satisfaction": "100% שביעות לקוחות",
+    "founder_label": "אנדריי | מייסד"
   },
   "services": {
-    "title": "\u05e9\u05d9\u05e8\u05d5\u05ea\u05d9\u05dd",
-    "subtitle": "\u05e4\u05ea\u05e8\u05d5\u05e0\u05d5\u05ea \u05de\u05ea\u05db\u05ea \u05de\u05e7\u05e6\u05d5\u05e2\u05d9\u05d9\u05dd",
+    "title": "שירותים",
+    "subtitle": "פתרונות מתכת מקצועיים",
     "heavyStructures": {
-      "title": "\u05de\u05d1\u05e0\u05d9\u05dd \u05db\u05d1\u05d3\u05d9\u05dd",
-      "description": "\u05ea\u05db\u05e0\u05d5\u05df \u05d5\u05d9\u05d9\u05e6\u05d5\u05e8 \u05de\u05d1\u05e0\u05d9 \u05de\u05ea\u05db\u05ea \u05db\u05d1\u05d3\u05d9\u05dd \u05dc\u05ea\u05e2\u05e9\u05d9\u05d9\u05d4, \u05de\u05e1\u05d7\u05e8 \u05d5\u05ea\u05e9\u05ea\u05d9\u05d5\u05ea"
+      "title": "מבנים כבדים",
+      "description": "תכנון וייצור מבני מתכת כבדים לתעשייה, מסחר ותשתיות"
     },
     "structuralReinforcement": {
-      "title": "\u05d7\u05d9\u05d6\u05d5\u05e7 \u05de\u05d1\u05e0\u05d9\u05dd",
-      "description": "\u05d7\u05d9\u05d6\u05d5\u05e7 \u05d5\u05d9\u05d9\u05e6\u05d5\u05d1 \u05de\u05d1\u05e0\u05d9\u05dd \u05e7\u05d9\u05d9\u05de\u05d9\u05dd \u05d1\u05e4\u05dc\u05d3\u05d4 \u05d5\u05d1\u05e8\u05d6\u05dc"
+      "title": "חיזוק מבנים",
+      "description": "חיזוק וייצוב מבנים קיימים בפלדה וברזל"
     },
     "gates": {
-      "title": "\u05e9\u05e2\u05e8\u05d9\u05dd",
-      "description": "\u05e9\u05e2\u05e8\u05d9\u05dd \u05d7\u05e9\u05de\u05dc\u05d9\u05d9\u05dd \u05d5\u05e0\u05d2\u05e8\u05e8\u05d9\u05dd, \u05d0\u05d5\u05d8\u05d5\u05de\u05d8\u05d9\u05d9\u05dd \u05d5\u05d9\u05d3\u05e0\u05d9\u05d9\u05dd"
+      "title": "שערים",
+      "description": "שערים חשמליים ונגררים, אוטומטיים וידניים"
     },
     "fences": {
-      "title": "\u05d2\u05d3\u05e8\u05d5\u05ea",
-      "description": "\u05d2\u05d3\u05e8\u05d5\u05ea \u05de\u05ea\u05db\u05ea \u05d1\u05e2\u05d9\u05e6\u05d5\u05d1 \u05de\u05d5\u05ea\u05d0\u05dd \u05d0\u05d9\u05e9\u05d9\u05ea \u05dc\u05d1\u05ea\u05d9\u05dd, \u05de\u05e4\u05e2\u05dc\u05d9\u05dd \u05d5\u05de\u05d2\u05e8\u05e9\u05d9\u05dd"
+      "title": "גדרות",
+      "description": "גדרות מתכת בעיצוב מותאם אישית לבתים, מפעלים ומגרשים"
     },
     "customStaircases": {
-      "title": "\u05de\u05d3\u05e8\u05d2\u05d5\u05ea",
-      "description": "\u05de\u05d3\u05e8\u05d2\u05d5\u05ea \u05de\u05ea\u05db\u05ea \u05d1\u05e2\u05d9\u05e6\u05d5\u05d1 \u05d9\u05d9\u05d7\u05d5\u05d3\u05d9 \u2014 \u05dc\u05d5\u05dc\u05d9\u05d9\u05e0\u05d9\u05d5\u05ea, \u05d9\u05e9\u05e8\u05d5\u05ea \u05d5\u05d7\u05d9\u05e6\u05d5\u05e0\u05d9\u05d5\u05ea"
+      "title": "מדרגות",
+      "description": "מדרגות מתכת בעיצוב ייחודי — לולייניות, ישרות וחיצוניות"
     },
     "architecturalFabrication": {
-      "title": "\u05e2\u05d9\u05e6\u05d5\u05d1 \u05d0\u05d3\u05e8\u05d9\u05db\u05dc\u05d9",
-      "description": "\u05e4\u05ea\u05e8\u05d5\u05e0\u05d5\u05ea \u05de\u05ea\u05db\u05ea \u05d3\u05e7\u05d5\u05e8\u05d8\u05d9\u05d1\u05d9\u05d9\u05dd \u05d5\u05d0\u05d3\u05e8\u05d9\u05db\u05dc\u05d9\u05d9\u05dd \u05d1\u05d4\u05ea\u05d0\u05de\u05d4 \u05d0\u05d9\u05e9\u05d9\u05ea"
+      "title": "עיצוב אדריכלי",
+      "description": "פתרונות מתכת דקורטיביים ואדריכליים בהתאמה אישית"
     },
     "emergencyWorks": {
-      "title": "\u05e2\u05d1\u05d5\u05d3\u05d5\u05ea \u05d7\u05d9\u05e8\u05d5\u05dd",
-      "description": "\u05ea\u05d9\u05e7\u05d5\u05e0\u05d9\u05dd \u05d3\u05d7\u05d5\u05e4\u05d9\u05dd \u05d5\u05e2\u05d1\u05d5\u05d3\u05d5\u05ea \u05d7\u05d9\u05e8\u05d5\u05dd \u05d1\u05de\u05ea\u05db\u05ea \u2014 \u05d6\u05de\u05d9\u05e0\u05d5\u05ea \u05de\u05d4\u05d9\u05e8\u05d4"
+      "title": "עבודות חירום",
+      "description": "תיקונים דחופים ועבודות חירום במתכת — זמינות מהירה"
     },
     "customEngineering": {
-      "title": "\u05d4\u05e0\u05d3\u05e1\u05d4 \u05de\u05d5\u05ea\u05d0\u05de\u05ea \u05d0\u05d9\u05e9\u05d9\u05ea",
-      "description": "\u05e4\u05ea\u05e8\u05d5\u05e0\u05d5\u05ea \u05d4\u05e0\u05d3\u05e1\u05d9\u05d9\u05dd \u05d9\u05d9\u05d7\u05d5\u05d3\u05d9\u05d9\u05dd \u05dc\u05e4\u05d9 \u05d3\u05e8\u05d9\u05e9\u05ea \u05d4\u05dc\u05e7\u05d5\u05d7"
-    }
+      "title": "הנדסה מותאמת אישית",
+      "description": "פתרונות הנדסיים ייחודיים לפי דרישת הלקוח"
+    },
+    "disciplines_label": "8 תחומי שירות"
   },
   "projects": {
-    "title": "\u05e4\u05e8\u05d5\u05d9\u05e7\u05d8\u05d9\u05dd \u05e0\u05d1\u05d7\u05e8\u05d9\u05dd",
-    "subtitle": "\u05de\u05d1\u05d7\u05e8 \u05d4\u05e2\u05d1\u05d5\u05d3\u05d5\u05ea \u05d4\u05d0\u05d7\u05e8\u05d5\u05e0\u05d5\u05ea \u05e9\u05dc\u05e0\u05d5",
-    "viewAll": "\u05e6\u05e4\u05d4 \u05d1\u05db\u05dc \u05d4\u05e4\u05e8\u05d5\u05d9\u05e7\u05d8\u05d9\u05dd",
-    "structure_title": "\u05e7\u05d5\u05e0\u05e1\u05d8\u05e8\u05d5\u05e7\u05e6\u05d9\u05d5\u05ea \u05de\u05ea\u05db\u05ea",
-    "gate_title": "\u05e9\u05e2\u05e8\u05d9\u05dd \u05de\u05e2\u05d5\u05e6\u05d1\u05d9\u05dd",
-    "staircase_title": "\u05de\u05d3\u05e8\u05d2\u05d5\u05ea \u05dc\u05d5\u05dc\u05d9\u05d9\u05e0\u05d9\u05d5\u05ea",
-    "fence_title": "\u05d2\u05d3\u05e8\u05d5\u05ea \u05d5\u05de\u05e2\u05e7\u05d5\u05ea",
-    "railing_title": "\u05de\u05e2\u05e7\u05d5\u05ea \u05de\u05e2\u05d5\u05e6\u05d1\u05d5\u05ea"
+    "title": "פרויקטים נבחרים",
+    "subtitle": "מבחר העבודות האחרונות שלנו",
+    "viewAll": "צפה בכל הפרויקטים",
+    "structure_title": "קונסטרוקציות מתכת",
+    "gate_title": "שערים מעוצבים",
+    "staircase_title": "מדרגות לולייניות",
+    "fence_title": "גדרות ומעקות",
+    "railing_title": "מעקות מעוצבות"
   },
   "workshop": {
-    "title": "\u05d4\u05e1\u05d3\u05e0\u05d4",
-    "subtitle": "\u05e6\u05d9\u05d5\u05d3 \u05de\u05e7\u05e6\u05d5\u05e2\u05d9",
-    "description": "\u05d4\u05e1\u05d3\u05e0\u05d4 \u05e9\u05dc\u05e0\u05d5 \u05de\u05e6\u05d5\u05d9\u05d3\u05ea \u05d1\u05e6\u05d9\u05d5\u05d3 \u05de\u05ea\u05e7\u05d3\u05dd, \u05db\u05dc\u05d9 \u05e8\u05d9\u05ea\u05d5\u05da \u05de\u05e7\u05e6\u05d5\u05e2\u05d9\u05d9\u05dd, \u05de\u05db\u05d5\u05e0\u05d5\u05ea \u05d7\u05d9\u05ea\u05d5\u05da \u05d5\u05db\u05dc\u05d9\u05dd \u05dc\u05e2\u05d9\u05d1\u05d5\u05d3 \u05de\u05d3\u05d5\u05d9\u05e7.",
+    "title": "הסדנה",
+    "subtitle": "ציוד מקצועי",
+    "description": "הסדנה שלנו מצוידת בציוד מתקדם, כלי ריתוך מקצועיים, מכונות חיתוך וכלים לעיבוד מדויק.",
     "step1": {
-      "title": "\u05d9\u05d9\u05e2\u05d5\u05e5 \u05d5\u05ea\u05db\u05e0\u05d5\u05df",
-      "description": "\u05e4\u05d2\u05d9\u05e9\u05d4 \u05e8\u05d0\u05e9\u05d5\u05e0\u05d9\u05ea, \u05d4\u05d1\u05e0\u05ea \u05d4\u05e6\u05e8\u05db\u05d9\u05dd \u05d5\u05ea\u05db\u05e0\u05d5\u05df \u05de\u05d3\u05d5\u05d9\u05e7 \u05e9\u05dc \u05d4\u05e4\u05e8\u05d5\u05d9\u05e7\u05d8"
+      "title": "ייעוץ ותכנון",
+      "description": "פגישה ראשונית, הבנת הצרכים ותכנון מדויק של הפרויקט"
     },
     "step2": {
-      "title": "\u05d4\u05e0\u05d3\u05e1\u05d4 \u05d5\u05e2\u05d9\u05e6\u05d5\u05d1",
-      "description": "\u05ea\u05db\u05e0\u05d5\u05df \u05d4\u05e0\u05d3\u05e1\u05d9, \u05e9\u05e8\u05d8\u05d5\u05d8\u05d9\u05dd \u05d5\u05d7\u05d9\u05e9\u05d5\u05d1\u05d9 \u05d7\u05d5\u05d6\u05e7"
+      "title": "הנדסה ועיצוב",
+      "description": "תכנון הנדסי, שרטוטים וחישובי חוזק"
     },
     "step3": {
-      "title": "\u05d9\u05d9\u05e6\u05d5\u05e8",
-      "description": "\u05e8\u05d9\u05ea\u05d5\u05da, \u05d7\u05d9\u05ea\u05d5\u05da, \u05d4\u05e8\u05db\u05d1\u05d4 \u05d5\u05d1\u05d9\u05e7\u05d5\u05e8\u05ea \u05d0\u05d9\u05db\u05d5\u05ea \u05d1\u05e1\u05d3\u05e0\u05d4"
+      "title": "ייצור",
+      "description": "ריתוך, חיתוך, הרכבה וביקורת איכות בסדנה"
     },
     "step4": {
-      "title": "\u05d4\u05ea\u05e7\u05e0\u05d4",
-      "description": "\u05d4\u05ea\u05e7\u05e0\u05d4 \u05de\u05e7\u05e6\u05d5\u05e2\u05d9\u05ea \u05d1\u05d0\u05ea\u05e8, \u05d1\u05d3\u05d9\u05e7\u05d4 \u05e1\u05d5\u05e4\u05d9\u05ea \u05d5\u05de\u05e1\u05d9\u05e8\u05d4 \u05dc\u05dc\u05e7\u05d5\u05d7"
-    }
+      "title": "התקנה",
+      "description": "התקנה מקצועית באתר, בדיקה סופית ומסירה ללקוח"
+    },
+    "fabrication_label": "ייצור בתהליך"
   },
   "precision": {
-    "title": "\u05d3\u05d9\u05d5\u05e7 \u05d4\u05e0\u05d3\u05e1\u05d9",
-    "subtitle": "\u05db\u05dc \u05de\u05d9\u05dc\u05d9\u05de\u05d8\u05e8 \u05e0\u05d7\u05e9\u05d1",
-    "description": "\u05d0\u05e0\u05d7\u05e0\u05d5 \u05e2\u05d5\u05d1\u05d3\u05d9\u05dd \u05e2\u05dd \u05e1\u05d8\u05e0\u05d3\u05e8\u05d8\u05d9\u05dd \u05de\u05d7\u05de\u05d9\u05e8\u05d9\u05dd \u05e9\u05dc \u05d3\u05d9\u05d5\u05e7, \u05d1\u05d8\u05d9\u05d7\u05d5\u05ea \u05d5\u05d0\u05d9\u05db\u05d5\u05ea. \u05db\u05dc \u05e4\u05e8\u05d5\u05d9\u05e7\u05d8 \u05e0\u05d1\u05d3\u05e7 \u05dc\u05e4\u05e0\u05d9 \u05de\u05e1\u05d9\u05e8\u05d4.",
-    "tolerance": "\u05e1\u05d8\u05d9\u05d9\u05ea \u05d3\u05d9\u05d5\u05e7 \u00b11\u05de\"\u05de",
-    "certified": "\u05ea\u05e7\u05df \u05d9\u05e9\u05e8\u05d0\u05dc\u05d9",
-    "metric_years": "\u05e9\u05e0\u05d5\u05ea \u05e0\u05d9\u05e1\u05d9\u05d5\u05df",
-    "metric_projects": "\u05e4\u05e8\u05d5\u05d9\u05e7\u05d8\u05d9\u05dd",
-    "metric_clients": "\u05dc\u05e7\u05d5\u05d7\u05d5\u05ea \u05de\u05e8\u05d5\u05e6\u05d9\u05dd",
-    "metric_tolerance": "\u05d3\u05d9\u05d5\u05e7 \u05de\u05e7\u05e1\u05d9\u05de\u05dc\u05d9"
+    "title": "דיוק הנדסי",
+    "subtitle": "כל מילימטר נחשב",
+    "description": "אנחנו עובדים עם סטנדרטים מחמירים של דיוק, בטיחות ואיכות. כל פרויקט נבדק לפני מסירה.",
+    "tolerance": "סטיית דיוק ±1מ\"מ",
+    "certified": "תקן ישראלי",
+    "metric_years": "שנות ניסיון",
+    "metric_projects": "פרויקטים",
+    "metric_clients": "לקוחות מרוצים",
+    "metric_tolerance": "דיוק מקסימלי",
+    "verified_label": "דיוק מאומת | איכות מובטחת | תקן ישראלי"
   },
   "trust": {
-    "title": "\u05dc\u05de\u05d4 \u05dc\u05e7\u05d5\u05d7\u05d5\u05ea \u05e1\u05d5\u05de\u05db\u05d9\u05dd \u05e2\u05dc\u05d9\u05e0\u05d5",
-    "subtitle": "\u05d0\u05de\u05d9\u05e0\u05d5\u05ea, \u05d0\u05d9\u05db\u05d5\u05ea, \u05de\u05e7\u05e6\u05d5\u05e2\u05d9\u05d5\u05ea",
-    "item1": "\u05d0\u05d7\u05e8\u05d9\u05d5\u05ea \u05de\u05dc\u05d0\u05d4 \u2014 \u05de\u05d4\u05e6\u05e2\u05ea \u05de\u05d7\u05d9\u05e8 \u05d5\u05e2\u05d3 \u05de\u05e1\u05d9\u05e8\u05d4",
-    "item2": "\u05dc\u05d5\u05d7 \u05d6\u05de\u05e0\u05d9\u05dd \u05de\u05d3\u05d5\u05d9\u05e7 \u2014 \u05dc\u05dc\u05d0 \u05d4\u05e4\u05ea\u05e2\u05d5\u05ea",
-    "item3": "\u05e2\u05d1\u05d5\u05d3\u05d4 \u05e0\u05e7\u05d9\u05d9\u05d4 \u2014 \u05d0\u05ea\u05e8 \u05d4\u05e2\u05d1\u05d5\u05d3\u05d4 \u05e0\u05d2\u05de\u05e8"
+    "title": "למה לקוחות סומכים עלינו",
+    "subtitle": "אמינות, איכות, מקצועיות",
+    "item1": "אחריות מלאה — מהצעת מחיר ועד מסירה",
+    "item2": "לוח זמנים מדויק — ללא הפתעות",
+    "item3": "עבודה נקייה — אתר העבודה נגמר"
   },
   "contact": {
-    "title": "\u05e6\u05d5\u05e8 \u05e7\u05e9\u05e8",
-    "subtitle": "\u05e0\u05e9\u05de\u05d7 \u05dc\u05e9\u05de\u05d5\u05e2 \u05e2\u05dc \u05d4\u05e4\u05e8\u05d5\u05d9\u05e7\u05d8 \u05e9\u05dc\u05db\u05dd",
-    "name": "\u05e9\u05dd",
-    "phone": "\u05d8\u05dc\u05e4\u05d5\u05df",
-    "email": "\u05d0\u05d9\u05de\u05d9\u05d9\u05dc",
-    "message": "\u05d4\u05d5\u05d3\u05e2\u05d4",
-    "send": "\u05e9\u05dc\u05d7",
-    "success": "\u05d4\u05d4\u05d5\u05d3\u05e2\u05d4 \u05e0\u05e9\u05dc\u05d7\u05d4 \u05d1\u05d4\u05e6\u05dc\u05d7\u05d4!",
-    "error": "\u05d0\u05d9\u05e8\u05e2\u05d4 \u05e9\u05d2\u05d9\u05d0\u05d4. \u05e0\u05e1\u05d5 \u05e9\u05d5\u05d1."
+    "title": "צור קשר",
+    "subtitle": "נשמח לשמוע על הפרויקט שלכם",
+    "name": "שם",
+    "phone": "טלפון",
+    "email": "אימייל",
+    "message": "הודעה",
+    "send": "שלח",
+    "success": "ההודעה נשלחה בהצלחה!",
+    "error": "אירעה שגיאה. נסו שוב.",
+    "form_label": "טופס פנייה"
   },
   "footer": {
-    "rights": "\u05db\u05dc \u05d4\u05d6\u05db\u05d5\u05d9\u05d5\u05ea \u05e9\u05de\u05d5\u05e8\u05d5\u05ea",
-    "tagline": "\u05d9\u05d9\u05e6\u05d5\u05e8 \u05de\u05ea\u05db\u05ea \u05de\u05e7\u05e6\u05d5\u05e2\u05d9 | \u05d0\u05d6\u05d5\u05e8 \u05e0\u05ea\u05e0\u05d9\u05d4"
+    "rights": "כל הזכויות שמורות",
+    "tagline": "ייצור מתכת מקצועי | אזור נתניה"
   },
   "trustStrip": {
-    "years": "20+ \u05e9\u05e0\u05d5\u05ea \u05e0\u05d9\u05e1\u05d9\u05d5\u05df",
-    "projects": "500+ \u05e4\u05e8\u05d5\u05d9\u05e7\u05d8\u05d9\u05dd",
-    "area": "\u05e2\u05d5\u05d1\u05d3\u05d9\u05dd \u05d1\u05db\u05dc \u05d9\u05e9\u05e8\u05d0\u05dc",
-    "response": "\u05de\u05e2\u05e0\u05d4 \u05ea\u05d5\u05da \u05e9\u05e2\u05d4"
+    "years": "20+ שנות ניסיון",
+    "projects": "500+ פרויקטים",
+    "area": "עובדים בכל ישראל",
+    "response": "מענה תוך שעה"
   },
   "labels": {
-    "fabrication": "\u05d9\u05d9\u05e6\u05d5\u05e8 \u05d1\u05ea\u05d4\u05dc\u05d9\u05da",
-    "founder": "\u05d0\u05e0\u05d3\u05e8\u05d9\u05d9 | \u05de\u05d9\u05d9\u05e1\u05d3",
-    "disciplines": "8 \u05ea\u05d7\u05d5\u05de\u05d9 \u05e9\u05d9\u05e8\u05d5\u05ea",
-    "contactForm": "\u05d8\u05d5\u05e4\u05e1 \u05e4\u05e0\u05d9\u05d9\u05d4",
-    "years": "20+ \u05e9\u05e0\u05d9\u05dd",
-    "projects": "500+ \u05e4\u05e8\u05d5\u05d9\u05e7\u05d8\u05d9\u05dd",
-    "location": "\u05e0\u05ea\u05e0\u05d9\u05d4",
-    "verified": "\u05d3\u05d9\u05d5\u05e7 \u05de\u05d0\u05d5\u05de\u05ea | \u05d0\u05d9\u05db\u05d5\u05ea \u05de\u05d5\u05d1\u05d8\u05d7\u05ea | \u05ea\u05e7\u05df \u05d9\u05e9\u05e8\u05d0\u05dc\u05d9"
+    "fabrication": "ייצור בתהליך",
+    "founder": "אנדריי | מייסד",
+    "disciplines": "8 תחומי שירות",
+    "contactForm": "טופס פנייה",
+    "years": "20+ שנים",
+    "projects": "500+ פרויקטים",
+    "location": "נתניה",
+    "verified": "דיוק מאומת | איכות מובטחת | תקן ישראלי"
   },
   "common": {
-    "learnMore": "\u05dc\u05de\u05d3 \u05e2\u05d5\u05d3",
-    "backToTop": "\u05d7\u05d6\u05e8\u05d4 \u05dc\u05de\u05e2\u05dc\u05d4"
+    "learnMore": "למד עוד",
+    "backToTop": "חזרה למעלה"
   }
 }

@@ -91,7 +91,7 @@ export function ContactSection() {
             >
               {/* Header */}
               <div className="flex items-center justify-between mb-2">
-                <span className="eng-label">{t("labels.contactForm" as "title")}</span>
+                <span className="eng-label">{t("form_label")}</span>
                 <span className="eng-label">REQ-001</span>
               </div>
 
