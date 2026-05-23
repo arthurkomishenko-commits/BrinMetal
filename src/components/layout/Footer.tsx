@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import { Phone, Mail, MapPin, ChevronUp } from "lucide-react";
 import { siteConfig } from "@/config/site";
-import { useLenis } from "@/hooks/useLenis";
 import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
 import type { Locale } from "@/types";
 
@@ -18,14 +17,13 @@ const NAV_ITEMS = [
 export function Footer() {
   const t = useTranslations();
   const locale = useLocale() as Locale;
-  const { scrollTo } = useLenis();
   const year = new Date().getFullYear();
 
   function handleNavClick(href: string) {
     if (href.startsWith("#")) {
       const el = document.querySelector(href);
       if (el) {
-        scrollTo(el as HTMLElement, { offset: -70, duration: 1.2 });
+        const top = el.getBoundingClientRect().top + window.scrollY - 80; window.scrollTo({ top, behavior: "smooth" });
       }
     }
   }

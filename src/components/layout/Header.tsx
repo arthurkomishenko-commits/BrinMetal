@@ -4,7 +4,6 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import { cn } from "@/lib/utils";
-import { useLenis } from "@/hooks/useLenis";
 import type { Locale } from "@/types";
 
 const NAV_ITEMS = [
@@ -17,7 +16,6 @@ const NAV_ITEMS = [
 export function Header() {
   const t = useTranslations("nav");
   const locale = useLocale() as Locale;
-  const { scrollTo } = useLenis();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
@@ -75,11 +73,14 @@ export function Header() {
       if (href.startsWith("#")) {
         setTimeout(() => {
           const el = document.querySelector(href);
-          if (el) scrollTo(el as HTMLElement, { offset: -70, duration: 1.2 });
+          if (el) {
+            const top = el.getBoundingClientRect().top + window.scrollY - 80;
+            window.scrollTo({ top, behavior: "smooth" });
+          }
         }, 100);
       }
     },
-    [scrollTo]
+    []
   );
 
   const closeMobile = useCallback(() => {

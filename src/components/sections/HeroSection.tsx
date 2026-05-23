@@ -3,7 +3,6 @@
 import { useRef, useEffect } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useLenis } from "@/hooks/useLenis";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { MagneticElement } from "@/components/motion/MagneticElement";
 import { siteConfig } from "@/config/site";
@@ -11,7 +10,6 @@ import { siteConfig } from "@/config/site";
 export function HeroSection() {
   const t = useTranslations("hero");
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollTo } = useLenis();
   const isDesktop = useMediaQuery("lg");
 
   useEffect(() => {
@@ -41,7 +39,7 @@ export function HeroSection() {
 
   function handleCTAClick() {
     const el = document.querySelector("#contact");
-    if (el) scrollTo(el as HTMLElement, { offset: -70, duration: 1.2 });
+    if (el) { const top = el.getBoundingClientRect().top + window.scrollY - 80; window.scrollTo({ top, behavior: "smooth" }); }
   }
 
   return (
