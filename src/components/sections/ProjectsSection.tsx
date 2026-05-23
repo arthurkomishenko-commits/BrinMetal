@@ -20,7 +20,7 @@ export function ProjectsSection() {
   const t = useTranslations("projects");
 
   return (
-    <AssembleSection id="projects" className="section-padding steel-module overhead-light panel-thickness">
+    <AssembleSection id="projects" className="section-standard steel-module overhead-light panel-thickness">
       <div className="container-wide relative z-10">
         <div className="mb-10 sm:mb-14 md:mb-20">
           <span data-assemble="up" data-assemble-delay="0" className="inline-block serial-mark text-[var(--copper)]">{t("subtitle")}</span>

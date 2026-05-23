@@ -11,6 +11,7 @@ import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { CustomCursor } from "@/components/motion/CustomCursor";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { MobileCTA } from "@/components/mobile/MobileCTA";
 import "@/styles/globals.css";
 
 const inter = Inter({
@@ -71,6 +72,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <Footer />
           </SmoothScroll>
           <WhatsAppButton />
+          <MobileCTA />
         </NextIntlClientProvider>
         <script src="/scroll-reveal.js" defer />
         <script dangerouslySetInnerHTML={{ __html: `window.history.scrollRestoration="manual";window.scrollTo(0,0);` }} />

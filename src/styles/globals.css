@@ -153,19 +153,33 @@
   }
 }
 
-@utility section-padding {
-  min-height: 100vh;
-  min-height: 100svh;
+/* 3 section rhythm types */
+@utility section-massive {
+  min-height: 140svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-block: 5rem;
-  @media (min-width: 768px) {
-    padding-block: 6rem;
-  }
-  @media (min-width: 1024px) {
-    padding-block: 7rem;
-  }
+  padding-block: 6rem;
+  @media (min-width: 768px) { padding-block: 8rem; }
+  @media (min-width: 1024px) { padding-block: 12rem; }
+}
+
+@utility section-standard {
+  padding-block: clamp(4rem, 10vw, 8rem);
+}
+
+@utility section-compressed {
+  min-height: 60svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: 3rem;
+  @media (min-width: 768px) { padding-block: 4rem; }
+}
+
+/* Legacy -- keep for compatibility */
+@utility section-padding {
+  padding-block: clamp(4rem, 10vw, 8rem);
 }
 
 @utility text-gradient-copper {

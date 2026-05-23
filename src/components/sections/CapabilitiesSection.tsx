@@ -15,7 +15,7 @@ export function CapabilitiesSection() {
   const tSection = useTranslations("services");
 
   return (
-    <AssembleSection id="services" className="section-padding relative base-layer edge-glint panel-thickness">
+    <AssembleSection id="services" className="section-standard relative base-layer edge-glint panel-thickness">
       <div className="container-wide relative z-10">
         {/* Header with engineering spec */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-10 sm:mb-14 md:mb-20">

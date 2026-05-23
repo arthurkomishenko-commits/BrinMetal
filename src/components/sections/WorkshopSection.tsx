@@ -15,7 +15,7 @@ export function WorkshopSection() {
   const t = useTranslations("workshop");
 
   return (
-    <AssembleSection id="workshop" className="section-padding relative oxidized-surface panel-thickness">
+    <AssembleSection id="workshop" className="section-standard relative oxidized-surface panel-thickness">
       <div className="container-wide relative z-10">
         {/* Top: Header + Photo */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mb-10 sm:mb-14 md:mb-20">

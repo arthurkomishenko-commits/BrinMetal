@@ -14,7 +14,7 @@ export function PrecisionSection() {
   const t = useTranslations("precision");
 
   return (
-    <AssembleSection id="precision" className="section-padding steel-gradient edge-glint panel-thickness">
+    <AssembleSection id="precision" className="section-compressed steel-gradient edge-glint panel-thickness">
       <div className="container-wide relative z-10">
         {/* Centered header */}
         <div className="text-center mb-10 sm:mb-14 md:mb-20">

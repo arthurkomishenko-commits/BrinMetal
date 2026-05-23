@@ -34,7 +34,7 @@ export function ContactSection() {
   const inputClass = "w-full px-3 sm:px-4 py-3 bg-[var(--graphite)] border border-white/[0.06] text-[var(--off-white)] text-base focus:outline-none focus:border-[var(--copper)]/30 transition-colors min-h-[44px]";
 
   return (
-    <AssembleSection id="contact" className="section-padding steel-module overhead-light panel-thickness">
+    <AssembleSection id="contact" className="section-standard steel-module overhead-light panel-thickness">
       <div className="container-wide relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20">
           {/* Left -- Info */}
