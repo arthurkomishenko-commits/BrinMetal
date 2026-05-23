@@ -22,7 +22,8 @@ export function AboutSection() {
             <div data-assemble="line" data-assemble-delay="2" className="mt-5 sm:mt-6 w-12 sm:w-16 h-[2px] bg-[var(--copper)] origin-start accent-line-shimmer" />
             <p data-assemble="up" data-assemble-delay="3" className="mt-6 sm:mt-8 text-sm sm:text-base md:text-lg text-[var(--titanium)] leading-[1.7] max-w-xl">{t("description")}</p>
           </div>
-          <div className="lg:col-span-5 flex flex-col justify-center">
+          <div className="lg:col-span-5 flex flex-col justify-center gap-6 lg:gap-8">
+            {/* Stats */}
             <div className="grid grid-cols-1 gap-4 sm:gap-5 lg:gap-6">
               {STATS.map((stat, i) => (
                 <div key={stat.key} data-assemble="right" data-assemble-delay={`${i + 2}`} className="flex items-center gap-4 sm:gap-6 p-4 sm:p-5 lg:p-6 pressure-hover" style={{
@@ -35,6 +36,22 @@ export function AboutSection() {
                   <span className="text-xs sm:text-sm text-[var(--titanium)] uppercase tracking-[0.05em]">{t(stat.key)}</span>
                 </div>
               ))}
+            </div>
+
+            {/* Workshop photo placeholder */}
+            <div data-assemble="right" data-assemble-delay="6" className="relative w-full aspect-[4/3] flex items-center justify-center" style={{
+              background: "rgba(255,255,255,0.015)",
+              border: "1px solid rgba(255,255,255,0.06)",
+              boxShadow: "inset 0 2px 8px rgba(0,0,0,0.4)",
+            }}>
+              <div className="absolute inset-2" style={{ border: "1px solid rgba(196,149,106,0.12)" }} />
+              <span className="eng-label text-[var(--warm-steel)] tracking-[0.2em] opacity-40">PHOTO</span>
+            </div>
+
+            {/* Engineering detail */}
+            <div data-assemble="up" data-assemble-delay="7" className="flex items-center gap-3 opacity-30">
+              <div className="w-6 h-[1px] bg-[var(--copper)]" />
+              <span className="eng-label text-[var(--warm-steel)] tracking-[0.12em]">ISO 9001 | IL-STD-2004</span>
             </div>
           </div>
         </div>

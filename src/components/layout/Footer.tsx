@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, ChevronUp } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { useLenis } from "@/hooks/useLenis";
 import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
@@ -30,10 +30,30 @@ export function Footer() {
     }
   }
 
+  function handleBackToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   return (
     <footer className="relative bg-[var(--graphite)] footer-shimmer">
 
-      <div className="container-wide pt-12 pb-6 sm:pt-16 sm:pb-8 md:pt-20 md:pb-10">
+      {/* Engineering tagline bar */}
+      <div className="border-b border-white/[0.04]">
+        <div className="container-wide py-4 sm:py-5 flex items-center justify-between">
+          <span className="eng-label text-[var(--warm-steel)] tracking-[0.15em] opacity-40 text-[9px] sm:text-[10px]">
+            STRUCTURAL ENGINEERING | METAL FABRICATION | EST. 2004
+          </span>
+          <button
+            onClick={handleBackToTop}
+            aria-label="Back to top"
+            className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 border border-white/[0.06] text-[var(--titanium)] active:text-[var(--copper)] md:hover:text-[var(--copper)] md:hover:border-[var(--copper)]/30 transition-colors duration-300"
+          >
+            <ChevronUp size={16} />
+          </button>
+        </div>
+      </div>
+
+      <div className="container-wide pt-10 pb-6 sm:pt-14 sm:pb-8 md:pt-16 md:pb-10">
         <RevealOnScroll>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8 sm:gap-10 md:gap-8">
             {/* Brand */}
@@ -49,6 +69,7 @@ export function Footer() {
               <p className="text-xs sm:text-sm text-[var(--titanium)] leading-relaxed max-w-xs">
                 {t("footer.tagline")}
               </p>
+              <div className="mt-4 w-10 h-[1px] bg-[var(--copper)]/20" />
             </div>
 
             {/* Navigation */}
@@ -99,44 +120,49 @@ export function Footer() {
         </RevealOnScroll>
 
         {/* Bottom */}
-        <div className="mt-10 sm:mt-14 pt-5 sm:pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
-          <p className="text-[10px] sm:text-xs text-[var(--titanium)]/60">
-            &copy; {year} {siteConfig.name}. {t("footer.rights")}
-          </p>
-          <div className="flex items-center gap-4 sm:gap-5">
-            {siteConfig.social.whatsapp && (
-              <a
-                href={siteConfig.social.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[10px] sm:text-xs text-[var(--titanium)]/60 active:text-[var(--copper)] md:hover:text-[var(--copper)] transition-colors duration-300 min-h-[36px] sm:min-h-0 flex items-center"
-              >
-                WhatsApp
-              </a>
-            )}
-            {siteConfig.social.facebook && (
-              <a
-                href={siteConfig.social.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[10px] sm:text-xs text-[var(--titanium)]/60 active:text-[var(--copper)] md:hover:text-[var(--copper)] transition-colors duration-300 min-h-[36px] sm:min-h-0 flex items-center"
-              >
-                Facebook
-              </a>
-            )}
-            {siteConfig.social.instagram && (
-              <a
-                href={siteConfig.social.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[10px] sm:text-xs text-[var(--titanium)]/60 active:text-[var(--copper)] md:hover:text-[var(--copper)] transition-colors duration-300 min-h-[36px] sm:min-h-0 flex items-center"
-              >
-                Instagram
-              </a>
-            )}
+        <div className="mt-10 sm:mt-14 pt-5 sm:pt-6 border-t border-white/[0.06]">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
+            <p className="text-[10px] sm:text-xs text-[var(--titanium)]/60">
+              &copy; {year} {siteConfig.name}. {t("footer.rights")}
+            </p>
+            <div className="flex items-center gap-4 sm:gap-5">
+              {siteConfig.social.whatsapp && (
+                <a
+                  href={siteConfig.social.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[10px] sm:text-xs text-[var(--titanium)]/60 active:text-[var(--copper)] md:hover:text-[var(--copper)] transition-colors duration-300 min-h-[36px] sm:min-h-0 flex items-center"
+                >
+                  WhatsApp
+                </a>
+              )}
+              {siteConfig.social.facebook && (
+                <a
+                  href={siteConfig.social.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[10px] sm:text-xs text-[var(--titanium)]/60 active:text-[var(--copper)] md:hover:text-[var(--copper)] transition-colors duration-300 min-h-[36px] sm:min-h-0 flex items-center"
+                >
+                  Facebook
+                </a>
+              )}
+              {siteConfig.social.instagram && (
+                <a
+                  href={siteConfig.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[10px] sm:text-xs text-[var(--titanium)]/60 active:text-[var(--copper)] md:hover:text-[var(--copper)] transition-colors duration-300 min-h-[36px] sm:min-h-0 flex items-center"
+                >
+                  Instagram
+                </a>
+              )}
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Heavy bottom edge */}
+      <div className="h-[3px] bg-gradient-to-r from-transparent via-[var(--copper)]/20 to-transparent" />
     </footer>
   );
 }

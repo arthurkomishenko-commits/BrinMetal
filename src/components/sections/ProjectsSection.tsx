@@ -6,10 +6,10 @@ import { AssembleSection } from "@/components/motion/AssembleSection";
 import { cn } from "@/lib/utils";
 
 const PROJECTS = [
-  { id: 1, category: "structures", aspect: "sm:col-span-2 sm:row-span-2", image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&h=700&fit=crop&q=80", alt: "Heavy metal structure" },
-  { id: 2, category: "gates", aspect: "", image: "https://images.unsplash.com/photo-1530639834082-05bafb67fbbe?w=600&h=400&fit=crop&q=80", alt: "Custom metal gate" },
-  { id: 3, category: "staircases", aspect: "", image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&h=400&fit=crop&q=80", alt: "Metal staircase" },
-  { id: 4, category: "fences", aspect: "sm:col-span-2", image: "https://images.unsplash.com/photo-1597423244036-ef5020e83f3c?w=900&h=400&fit=crop&q=80", alt: "Architectural metal" },
+  { id: 1, category: "structures", titleKey: "structure_title", aspect: "sm:col-span-2 sm:row-span-2", image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&h=700&fit=crop&q=80", alt: "Heavy metal structure" },
+  { id: 2, category: "gates", titleKey: "gate_title", aspect: "", image: "https://images.unsplash.com/photo-1530639834082-05bafb67fbbe?w=600&h=400&fit=crop&q=80", alt: "Custom metal gate" },
+  { id: 3, category: "staircases", titleKey: "staircase_title", aspect: "", image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&h=400&fit=crop&q=80", alt: "Metal staircase" },
+  { id: 4, category: "fences", titleKey: "fence_title", aspect: "sm:col-span-2", image: "https://images.unsplash.com/photo-1597423244036-ef5020e83f3c?w=900&h=400&fit=crop&q=80", alt: "Architectural metal" },
 ] as const;
 
 export function ProjectsSection() {
@@ -24,18 +24,34 @@ export function ProjectsSection() {
           <div data-assemble="line" data-assemble-delay="2" className="mt-5 sm:mt-6 w-12 sm:w-16 h-[2px] bg-[var(--copper)] origin-start accent-line-shimmer" />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-5 auto-rows-[220px] sm:auto-rows-[240px] md:auto-rows-[280px]">
-          {PROJECTS.map((project, i) => (
-            <div key={project.id} data-assemble="scale" data-assemble-delay={`${3 + i}`} className={cn(project.aspect, "group relative overflow-hidden pressure-hover")} style={{
-              border: "1px solid rgba(255,255,255,0.04)",
-              boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
-            }}>
-              <Image src={project.image} alt={project.alt} fill className="object-cover transition-transform duration-700 md:group-hover:scale-105 brightness-[0.45] md:group-hover:brightness-[0.6]" sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw" unoptimized />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-              <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5">
-                <span className="serial-mark text-[var(--copper)] text-[11px]">{project.category}</span>
+          {PROJECTS.map((project, i) => {
+            const isLarge = project.aspect.includes("col-span-2") && project.aspect.includes("row-span-2");
+            return (
+              <div key={project.id} data-assemble="scale" data-assemble-delay={`${3 + i}`} className={cn(project.aspect, "group relative overflow-hidden pressure-hover cursor-pointer")} style={{
+                border: "1px solid rgba(255,255,255,0.04)",
+                boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
+              }}>
+                <Image src={project.image} alt={project.alt} fill className="object-cover transition-all duration-700 brightness-[0.35] md:group-hover:brightness-[0.65] md:group-hover:scale-105" sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw" unoptimized />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5">
+                  <span className="serial-mark text-[var(--copper)] text-[11px]">{project.category}</span>
+                  {isLarge && (
+                    <h3 className="mt-2 text-lg sm:text-xl md:text-2xl font-bold text-[var(--off-white)] text-stamped tracking-[-0.01em]">
+                      {t(project.titleKey)}
+                    </h3>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
+        </div>
+
+        {/* View All Projects link */}
+        <div data-assemble="up" data-assemble-delay="8" className="mt-10 sm:mt-14 flex justify-center">
+          <a href="#contact" className="group inline-flex items-center gap-3 text-[var(--copper)] text-xs sm:text-sm uppercase tracking-[0.12em] font-semibold transition-colors duration-300 active:opacity-70 md:hover:text-[var(--off-white)]">
+            <span>{t("viewAll")}</span>
+            <div className="w-8 h-[1px] bg-current transition-all duration-300 md:group-hover:w-12" />
+          </a>
         </div>
       </div>
     </AssembleSection>
