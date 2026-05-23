@@ -36,34 +36,40 @@ export function ContactSection() {
             <div data-assemble="line" data-assemble-delay="2" className="mt-5 sm:mt-6 w-12 sm:w-16 h-[2px] bg-[var(--copper)] origin-start accent-line-shimmer" />
             <div data-assemble="up" data-assemble-delay="3" className="mt-8 sm:mt-10 flex flex-col gap-4 sm:gap-5">
               <a href={`tel:${siteConfig.contact.phone}`} className="group flex items-center gap-3 sm:gap-4 text-[var(--titanium)] active:text-[var(--off-white)] md:hover:text-[var(--off-white)] transition-colors min-h-[44px]">
-                <div className="w-10 h-10 flex items-center justify-center inset-chamber shrink-0"><Phone size={16} className="text-[var(--copper)]" /></div>
+                <div className="w-10 h-10 flex items-center justify-center shrink-0 border border-[var(--copper)]/20 bg-[var(--graphite)]"><Phone size={16} className="text-[var(--copper)]" /></div>
                 <span dir="ltr" className="text-sm sm:text-base">{siteConfig.contact.phone}</span>
               </a>
               <a href={`mailto:${siteConfig.contact.email}`} className="group flex items-center gap-3 sm:gap-4 text-[var(--titanium)] active:text-[var(--off-white)] md:hover:text-[var(--off-white)] transition-colors min-h-[44px]">
-                <div className="w-10 h-10 flex items-center justify-center inset-chamber shrink-0"><Mail size={16} className="text-[var(--copper)]" /></div>
+                <div className="w-10 h-10 flex items-center justify-center shrink-0 border border-[var(--copper)]/20 bg-[var(--graphite)]"><Mail size={16} className="text-[var(--copper)]" /></div>
                 <span className="text-sm sm:text-base break-all">{siteConfig.contact.email}</span>
               </a>
               <div className="flex items-center gap-3 sm:gap-4 text-[var(--titanium)] min-h-[44px]">
-                <div className="w-10 h-10 flex items-center justify-center inset-chamber shrink-0"><MapPin size={16} className="text-[var(--copper)]" /></div>
+                <div className="w-10 h-10 flex items-center justify-center shrink-0 border border-[var(--copper)]/20 bg-[var(--graphite)]"><MapPin size={16} className="text-[var(--copper)]" /></div>
                 <span className="text-sm sm:text-base">{siteConfig.contact.address[locale]}</span>
               </div>
             </div>
           </div>
           <div className="lg:col-span-7" data-assemble="right" data-assemble-delay="4">
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 p-5 sm:p-6 md:p-8 inset-chamber grinding-marks machined-corners">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 p-5 sm:p-6 md:p-8" style={{
+              background: "linear-gradient(180deg, rgba(0,0,0,0.12) 0%, transparent 20%, transparent 80%, rgba(255,255,255,0.015) 100%), rgba(26,26,26,0.7)",
+              border: "1px solid rgba(255,255,255,0.06)",
+              borderTopColor: "rgba(0,0,0,0.4)",
+              borderBottomColor: "rgba(255,255,255,0.04)",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.4) inset, 0 1px 0 rgba(255,255,255,0.02), 0 8px 24px rgba(0,0,0,0.3)",
+            }}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <div>
                   <label htmlFor="name" className="block serial-mark text-[var(--titanium)] mb-1.5 sm:mb-2">{t("name")} *</label>
-                  <input id="name" name="name" type="text" required className="w-full px-3 sm:px-4 py-3 inset-chamber text-[var(--off-white)] text-sm focus:outline-none focus:ring-1 focus:ring-[var(--copper)]/30 min-h-[44px]" />
+                  <input id="name" name="name" type="text" required className="w-full px-3 sm:px-4 py-3 bg-[var(--graphite)] border border-white/[0.08] text-[var(--off-white)] text-sm focus:outline-none focus:ring-1 focus:ring-[var(--copper)]/30 min-h-[44px]" />
                 </div>
                 <div>
                   <label htmlFor="phone" className="block serial-mark text-[var(--titanium)] mb-1.5 sm:mb-2">{t("phone")} *</label>
-                  <input id="phone" name="phone" type="tel" required dir="ltr" className="w-full px-3 sm:px-4 py-3 inset-chamber text-[var(--off-white)] text-sm focus:outline-none focus:ring-1 focus:ring-[var(--copper)]/30 min-h-[44px]" />
+                  <input id="phone" name="phone" type="tel" required dir="ltr" className="w-full px-3 sm:px-4 py-3 bg-[var(--graphite)] border border-white/[0.08] text-[var(--off-white)] text-sm focus:outline-none focus:ring-1 focus:ring-[var(--copper)]/30 min-h-[44px]" />
                 </div>
               </div>
               <div>
                 <label htmlFor="email" className="block serial-mark text-[var(--titanium)] mb-1.5 sm:mb-2">{t("email")}</label>
-                <input id="email" name="email" type="email" dir="ltr" className="w-full px-3 sm:px-4 py-3 inset-chamber text-[var(--off-white)] text-sm focus:outline-none focus:ring-1 focus:ring-[var(--copper)]/30 min-h-[44px]" />
+                <input id="email" name="email" type="email" dir="ltr" className="w-full px-3 sm:px-4 py-3 bg-[var(--graphite)] border border-white/[0.08] text-[var(--off-white)] text-sm focus:outline-none focus:ring-1 focus:ring-[var(--copper)]/30 min-h-[44px]" />
               </div>
               <div>
                 <label htmlFor="message" className="block serial-mark text-[var(--titanium)] mb-1.5 sm:mb-2">{t("message")} *</label>

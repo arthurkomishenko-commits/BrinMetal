@@ -25,7 +25,12 @@ export function ProjectsSection() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-5 auto-rows-[220px] sm:auto-rows-[240px] md:auto-rows-[280px]">
           {PROJECTS.map((project, i) => (
-            <div key={project.id} data-assemble="scale" data-assemble-delay={`${3 + i}`} className={cn(project.aspect, "group relative overflow-hidden inset-chamber pressure-hover machined-corners")}>
+            <div key={project.id} data-assemble="scale" data-assemble-delay={`${3 + i}`} className={cn(project.aspect, "group relative overflow-hidden pressure-hover")} style={{
+              border: "1px solid rgba(255,255,255,0.06)",
+              borderTopColor: "rgba(255,255,255,0.08)",
+              borderBottomColor: "rgba(0,0,0,0.3)",
+              boxShadow: "0 4px 16px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.03)",
+            }}>
               <Image src={project.image} alt={project.alt} fill className="object-cover transition-transform duration-700 md:group-hover:scale-105 brightness-[0.45] md:group-hover:brightness-[0.6]" sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw" unoptimized />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
               <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5">

@@ -24,7 +24,13 @@ export function PrecisionSection() {
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5">
           {METRICS.map((metric, i) => (
-            <div key={metric.key} data-assemble="scale" data-assemble-delay={`${4 + i}`} className="text-center p-5 sm:p-6 md:p-8 lg:p-10 inset-chamber lathe-marks relative machined-corners corner-sparks">
+            <div key={metric.key} data-assemble="scale" data-assemble-delay={`${4 + i}`} className="text-center p-5 sm:p-6 md:p-8 lg:p-10 relative" style={{
+              background: "linear-gradient(180deg, rgba(0,0,0,0.15) 0%, transparent 25%, transparent 75%, rgba(255,255,255,0.015) 100%), rgba(26,26,26,0.7)",
+              border: "1px solid rgba(255,255,255,0.05)",
+              borderTopColor: "rgba(0,0,0,0.4)",
+              borderBottomColor: "rgba(255,255,255,0.03)",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.4) inset, 0 1px 0 rgba(255,255,255,0.02), 0 4px 12px rgba(0,0,0,0.3)",
+            }}>
               <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--copper)] tracking-tight stamp-indent">{metric.value}</span>
               <span className="block mt-2 sm:mt-3 serial-mark text-[var(--titanium)]">{t(`metric_${metric.key}` as "metric_years")}</span>
             </div>

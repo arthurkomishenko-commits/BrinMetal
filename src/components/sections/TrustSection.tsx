@@ -26,9 +26,15 @@ export function TrustSection() {
           {TRUST_ITEMS.map((item, i) => {
             const Icon = item.icon;
             return (
-              <div key={item.key} data-assemble="up" data-assemble-delay={`${3 + i}`} className={cn("group text-center p-6 sm:p-8 md:p-10", "steel-module pressure-hover machined-corners oxide-patina")}>
+              <div key={item.key} data-assemble="up" data-assemble-delay={`${3 + i}`} className={cn("group text-center p-6 sm:p-8 md:p-10", "pressure-hover")} style={{
+                background: "linear-gradient(180deg, #3a3f46 0%, #2d3138 18%, #262a31 50%, #1f2329 100%)",
+                border: "1px solid rgba(255,255,255,0.06)",
+                borderTopColor: "rgba(255,255,255,0.09)",
+                borderBottomColor: "rgba(0,0,0,0.25)",
+                boxShadow: "0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.04), inset 0 -1px 0 rgba(0,0,0,0.3)",
+              }}>
                 <div className="relative z-10">
-                  <div className="inline-flex items-center justify-center w-14 h-14 inset-chamber mb-5">
+                  <div className="inline-flex items-center justify-center w-14 h-14 mb-5 border border-[var(--copper)]/20 bg-[var(--graphite)]">
                     <Icon size={22} className="text-[var(--copper)]" />
                   </div>
                   <p className="text-sm sm:text-base text-[var(--titanium)] leading-relaxed">{t(item.key)}</p>

@@ -12,7 +12,7 @@ const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: 
   Building2, Shield, DoorOpen, Fence, ArrowUpDown, Palette, Zap, Wrench,
 };
 
-function TiltCard({ children, className }: { children: React.ReactNode; className?: string }) {
+function TiltCard({ children, className, style }: { children: React.ReactNode; className?: string; style?: React.CSSProperties }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const isDesktop = useMediaQuery("lg");
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
@@ -26,7 +26,7 @@ function TiltCard({ children, className }: { children: React.ReactNode; classNam
     if (!isDesktop || !cardRef.current) return;
     import("gsap").then(({ default: gsap }) => { gsap.to(cardRef.current, { rotateX: 0, rotateY: 0, duration: 0.6, ease: "power3.out" }); });
   }, [isDesktop]);
-  return <div ref={cardRef} className={className} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} style={{ transformStyle: "preserve-3d" }}>{children}</div>;
+  return <div ref={cardRef} className={className} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} style={{ transformStyle: "preserve-3d", ...style }}>{children}</div>;
 }
 
 export function CapabilitiesSection() {
@@ -45,9 +45,15 @@ export function CapabilitiesSection() {
           {services.map((service, i) => {
             const IconComponent = ICON_MAP[service.icon];
             return (
-              <TiltCard key={service.id} className={cn("group relative p-6 md:p-7", "steel-module pressure-hover machined-corners heat-tint")}>
+              <TiltCard key={service.id} className={cn("group relative p-6 md:p-7", "pressure-hover")} style={{
+                background: "linear-gradient(180deg, #3a3f46 0%, #2d3138 18%, #262a31 50%, #1f2329 100%)",
+                border: "1px solid rgba(255,255,255,0.06)",
+                borderTopColor: "rgba(255,255,255,0.09)",
+                borderBottomColor: "rgba(0,0,0,0.25)",
+                boxShadow: "0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.04), inset 0 -1px 0 rgba(0,0,0,0.3)",
+              }}>
                 <div data-assemble="scale" data-assemble-delay={`${3 + i}`} className="relative z-10">
-                  <div className="w-12 h-12 flex items-center justify-center inset-chamber mb-5">
+                  <div className="w-12 h-12 flex items-center justify-center mb-5 border border-[var(--copper)]/15 bg-[var(--graphite)]">
                     {IconComponent && <IconComponent size={22} className="text-[var(--copper)]" />}
                   </div>
                   <h3 className="text-base font-semibold text-[var(--off-white)] mb-2 tracking-tight">{t(service.titleKey)}</h3>

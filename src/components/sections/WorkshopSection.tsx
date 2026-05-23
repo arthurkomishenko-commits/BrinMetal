@@ -31,10 +31,20 @@ export function WorkshopSection() {
           <div className="flex flex-col gap-6 sm:gap-8 md:gap-10">
             {STEPS.map((step, i) => (
               <div key={step.num} data-assemble="left" data-assemble-delay={`${4 + i}`} className="group flex items-start gap-4 sm:gap-6 md:gap-8">
-                <div className="relative shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 flex items-center justify-center inset-chamber z-10 corner-sparks lathe-marks">
+                <div className="relative shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 flex items-center justify-center z-10" style={{
+                  background: "linear-gradient(180deg, rgba(0,0,0,0.15) 0%, transparent 30%, transparent 70%, rgba(255,255,255,0.02) 100%), rgba(26,26,26,0.8)",
+                  border: "1px solid rgba(196,149,106,0.2)",
+                  boxShadow: "0 2px 6px rgba(0,0,0,0.4) inset, 0 1px 0 rgba(255,255,255,0.02)",
+                }}>
                   <span className="text-xs sm:text-sm md:text-base font-bold text-[var(--copper)] stamp-indent">{step.num}</span>
                 </div>
-                <div className="flex-1 pt-0 sm:pt-1 steel-module p-4 sm:p-5 md:p-6 pressure-hover">
+                <div className="flex-1 pt-0 sm:pt-1 p-4 sm:p-5 md:p-6 pressure-hover" style={{
+                  background: "linear-gradient(180deg, #3a3f46 0%, #2d3138 18%, #262a31 50%, #1f2329 100%)",
+                  border: "1px solid rgba(255,255,255,0.06)",
+                  borderTopColor: "rgba(255,255,255,0.09)",
+                  borderBottomColor: "rgba(0,0,0,0.25)",
+                  boxShadow: "0 2px 4px rgba(0,0,0,0.35), 0 8px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.04), inset 0 -1px 0 rgba(0,0,0,0.3)",
+                }}>
                   <h3 className="text-base sm:text-lg md:text-xl font-semibold text-[var(--off-white)] mb-1">{t(`${step.key}.title` as "step1.title")}</h3>
                   <p className="text-xs sm:text-sm text-[var(--titanium)] leading-relaxed max-w-md">{t(`${step.key}.description` as "step1.description")}</p>
                 </div>
