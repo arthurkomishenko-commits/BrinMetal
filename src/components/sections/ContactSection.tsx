@@ -25,9 +25,34 @@ export function ContactSection() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setFormState("sending");
-    await new Promise((r) => setTimeout(r, 1000));
-    setFormState("success");
-    setTimeout(() => setFormState("idle"), 3000);
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name"),
+      phone: formData.get("phone"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        setFormState("success");
+        e.currentTarget.reset();
+        setTimeout(() => setFormState("idle"), 4000);
+      } else {
+        setFormState("error");
+        setTimeout(() => setFormState("idle"), 3000);
+      }
+    } catch {
+      setFormState("error");
+      setTimeout(() => setFormState("idle"), 3000);
+    }
   }
 
   const SubmitWrapper = isDesktop ? MagneticElement : "div";
@@ -92,7 +117,7 @@ export function ContactSection() {
               {/* Header */}
               <div className="flex items-center justify-between mb-2">
                 <span className="eng-label">{t("form_label")}</span>
-                <span className="eng-label">REQ-001</span>
+                
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
