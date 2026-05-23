@@ -8,10 +8,12 @@ import { cn } from "@/lib/utils";
 const PROJECTS = [
   { id: 1, category: "gates", titleKey: "gate_title", aspect: "sm:col-span-2 sm:row-span-2", image: "/images/projects/gate-wood-metal.jpg", alt: "Architectural gate with wood and metal" },
   { id: 2, category: "railings", titleKey: "railing_title", aspect: "", image: "/images/projects/railing-installed.jpg", alt: "Ornamental wrought iron balcony railing" },
-  { id: 3, category: "staircases", titleKey: "staircase_title", aspect: "", image: "/images/projects/metal-staircase.jpg", alt: "Metal staircase with safety mesh" },
-  { id: 4, category: "railings", titleKey: "railing_title", aspect: "", image: "/images/projects/railing-workshop.jpg", alt: "Decorative railing in workshop" },
-  { id: 5, category: "gates", titleKey: "gate_title", aspect: "", image: "/images/projects/gate-black.jpg", alt: "Black steel entrance gate" },
-  { id: 6, category: "art", titleKey: "structure_title", aspect: "sm:col-span-2", image: "/images/projects/forged-rose.jpg", alt: "Forged iron rose -- artistic metalwork" },
+  { id: 3, category: "staircases", titleKey: "staircase_title", aspect: "", image: "/images/projects/staircase-stringers.jpg", alt: "Structural staircase frame" },
+  { id: 4, category: "staircases", titleKey: "staircase_title", aspect: "sm:col-span-2", image: "/images/projects/staircase-grating.jpg", alt: "Industrial staircase with metal grating" },
+  { id: 5, category: "railings", titleKey: "railing_title", aspect: "", image: "/images/projects/railing-balcony.jpg", alt: "Balcony railing with glass and ornaments" },
+  { id: 6, category: "gates", titleKey: "gate_title", aspect: "", image: "/images/projects/gate-black.jpg", alt: "Black steel entrance gate" },
+  { id: 7, category: "structures", titleKey: "structure_title", aspect: "", image: "/images/projects/building-full.jpg", alt: "Full building with metal railings and stairs" },
+  { id: 8, category: "art", titleKey: "structure_title", aspect: "sm:col-span-2 sm:row-span-2", image: "/images/projects/forged-rose.jpg", alt: "Forged iron rose -- artistic metalwork" },
 ] as const;
 
 export function ProjectsSection() {
