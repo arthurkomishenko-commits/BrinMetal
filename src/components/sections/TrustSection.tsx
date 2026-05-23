@@ -15,10 +15,10 @@ export function TrustSection() {
   const t = useTranslations("trust");
 
   return (
-    <AssembleSection id="trust" className="section-padding relative base-layer mill-scale stressed-metal section-edges">
-      <div className="container-wide">
+    <AssembleSection id="trust" className="section-padding relative base-layer rust-aged oil-film panel-thickness">
+      <div className="container-wide relative z-10">
         <div className="text-center mb-10 sm:mb-14 md:mb-20">
-          <span data-assemble="up" data-assemble-delay="0" className="inline-block eng-label text-[var(--copper)]">{t("subtitle")}</span>
+          <span data-assemble="up" data-assemble-delay="0" className="inline-block serial-mark text-[var(--copper)]">{t("subtitle")}</span>
           <h2 data-assemble="up" data-assemble-delay="1" className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] text-[var(--off-white)] text-stamped">{t("title")}</h2>
           <div data-assemble="line" data-assemble-delay="2" className="mt-5 sm:mt-6 mx-auto w-12 sm:w-16 h-[2px] bg-[var(--copper)] accent-line-shimmer" />
         </div>
@@ -26,11 +26,13 @@ export function TrustSection() {
           {TRUST_ITEMS.map((item, i) => {
             const Icon = item.icon;
             return (
-              <div key={item.key} data-assemble="up" data-assemble-delay={`${3 + i}`} className={cn("group text-center p-6 sm:p-8 md:p-10", "steel-panel grinding-marks pressure-hover machined-corners bevel-cut oxide-patina")}>
-                <div className="inline-flex items-center justify-center w-14 h-14 inset-chamber mb-5">
-                  <Icon size={22} className="text-[var(--copper)]" />
+              <div key={item.key} data-assemble="up" data-assemble-delay={`${3 + i}`} className={cn("group text-center p-6 sm:p-8 md:p-10", "steel-module pressure-hover machined-corners oxide-patina")}>
+                <div className="relative z-10">
+                  <div className="inline-flex items-center justify-center w-14 h-14 inset-chamber mb-5">
+                    <Icon size={22} className="text-[var(--copper)]" />
+                  </div>
+                  <p className="text-sm sm:text-base text-[var(--titanium)] leading-relaxed">{t(item.key)}</p>
                 </div>
-                <p className="text-sm sm:text-base text-[var(--titanium)] leading-relaxed">{t(item.key)}</p>
               </div>
             );
           })}

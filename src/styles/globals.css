@@ -14,6 +14,28 @@
   --color-accent: var(--copper);
   --color-muted: var(--titanium);
   --color-surface: var(--gunmetal);
+
+  /* Steel material system */
+  --steel-dark: #1a1a1a;
+  --steel-base: #2a2d35;
+  --steel-mid: #3a3f46;
+  --steel-light: #565c66;
+  --cold-highlight: rgba(210,220,255,0.08);
+  --warm-oxidation: rgba(196,149,106,0.06);
+
+  --shadow-depth:
+    0 2px 4px rgba(0,0,0,0.35),
+    0 12px 32px rgba(0,0,0,0.42),
+    inset 0 1px 0 rgba(255,255,255,0.03),
+    inset 0 -1px 0 rgba(0,0,0,0.5);
+
+  --panel-depth:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    inset 0 -2px 4px rgba(0,0,0,0.6),
+    0 20px 40px rgba(0,0,0,0.45);
+
+  --steel-module-gradient:
+    linear-gradient(180deg, #3a3f46 0%, #2d3138 18%, #262a31 50%, #1f2329 100%);
 }
 
 @layer base {
