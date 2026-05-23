@@ -80,23 +80,8 @@ window.addEventListener("load", function () {
               var show = d === "line" ? "scaleX(1)" : "none";
               target.style.webkitTransform = show;
               target.style.transform = show;
-            } else {
-              if (d === "line") {
-                target.style.webkitTransform = "scaleX(0)";
-                target.style.transform = "scaleX(0)";
-              } else {
-                target.style.opacity = "0";
-                var hide;
-                switch (d) {
-                  case "up":    hide = "translateY(50px)"; break;
-                  case "left":  hide = "translateX(-50px)"; break;
-                  case "right": hide = "translateX(50px)"; break;
-                  case "scale": hide = "scale(0.88)"; break;
-                  default:      hide = "translateY(50px)";
-                }
-                target.style.webkitTransform = hide;
-                target.style.transform = hide;
-              }
+              // Once revealed, stop observing (no reverse)
+              observer.unobserve(target);
             }
           }
         },

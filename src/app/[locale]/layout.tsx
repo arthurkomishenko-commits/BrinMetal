@@ -73,6 +73,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <WhatsAppButton />
         </NextIntlClientProvider>
         <script src="/scroll-reveal.js" defer />
+        <script dangerouslySetInnerHTML={{ __html: `window.history.scrollRestoration="manual";window.scrollTo(0,0);` }} />
       </body>
     </html>
   );

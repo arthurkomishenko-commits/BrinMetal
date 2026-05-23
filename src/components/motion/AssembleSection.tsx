@@ -67,7 +67,8 @@ export function AssembleSection({
             scrollTrigger: {
               trigger: el,
               start: "top 90%",
-              toggleActions: "play none none reverse",
+              toggleActions: "play none none none",
+              once: true,
             },
           });
         });
