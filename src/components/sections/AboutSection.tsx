@@ -34,11 +34,6 @@ export function AboutSection() {
               ))}
             </div>
 
-            {/* Certification */}
-            <div data-assemble="up" data-assemble-delay="5" className="mt-6 flex items-center gap-3">
-              <div className="w-6 h-[1px] bg-[var(--copper)]" />
-              <span className="eng-label tracking-[0.12em]">ISO 9001 | IL-STD-2004</span>
-            </div>
           </div>
 
           {/* Right -- Photo frame */}
