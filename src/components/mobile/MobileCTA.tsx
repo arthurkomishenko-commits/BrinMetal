@@ -26,9 +26,10 @@ export function MobileCTA() {
       className={`fixed bottom-0 inset-x-0 z-40 transition-transform duration-500 ${visible ? "translate-y-0" : "translate-y-full"}`}
       style={{
         background: "linear-gradient(180deg, rgba(17,17,19,0.95) 0%, rgba(17,17,19,0.99) 100%)",
+        WebkitBackdropFilter: "blur(12px)",
         backdropFilter: "blur(12px)",
         borderTop: "1px solid rgba(255,255,255,0.06)",
-        paddingBottom: "env(safe-area-inset-bottom)",
+        paddingBottom: "max(env(safe-area-inset-bottom), 0px)",
       }}
     >
       <div className="flex items-center gap-3 px-4 py-3">

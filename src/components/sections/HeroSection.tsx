@@ -43,7 +43,7 @@ export function HeroSection() {
   }
 
   return (
-    <section ref={containerRef} id="hero" className="relative min-h-[100svh] flex items-center overflow-hidden">
+    <section ref={containerRef} id="hero" className="relative min-h-screen min-h-[100svh] flex items-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, #0c0c0e 0%, #111113 25%, #161618 50%, #1a1a1c 75%, #1e1e22 100%)" }} />
       <div className="absolute inset-0 hidden lg:block pointer-events-none opacity-[0.02]" style={{
@@ -64,7 +64,7 @@ export function HeroSection() {
                 width={400}
                 height={220}
                 className="w-[200px] sm:w-[260px] md:w-[320px] h-auto object-contain"
-                style={{ filter: "drop-shadow(0 0 30px rgba(196,149,106,0.12))" }}
+                style={{ WebkitFilter: "drop-shadow(0 0 30px rgba(196,149,106,0.12))", filter: "drop-shadow(0 0 30px rgba(196,149,106,0.12))" }}
                 priority
               />
             </div>

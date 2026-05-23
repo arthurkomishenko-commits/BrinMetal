@@ -45,7 +45,6 @@ export function CapabilitiesSection() {
                   boxShadow: "0 1px 0 rgba(255,255,255,0.03), 0 2px 4px rgba(0,0,0,0.22), 0 10px 20px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.03), inset 0 -2px 4px rgba(0,0,0,0.5)",
                 }}
               >
-                <div className="absolute top-4 end-4">
                 <div className="w-11 h-11 flex items-center justify-center mb-5 border border-white/[0.04] bg-white/[0.015]">
                   {IconComponent && <IconComponent size={20} className="text-[var(--copper)]" />}
                 </div>

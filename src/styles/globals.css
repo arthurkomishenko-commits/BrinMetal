@@ -50,6 +50,9 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
     overflow-x: hidden;
   }
 
@@ -135,6 +138,7 @@
 
 /* 3 section rhythm types */
 @utility section-massive {
+  min-height: 140vh;
   min-height: 140svh;
   display: flex;
   flex-direction: column;
@@ -149,6 +153,7 @@
 }
 
 @utility section-compressed {
+  min-height: 60vh;
   min-height: 60svh;
   display: flex;
   flex-direction: column;
@@ -207,6 +212,20 @@
     background:
       linear-gradient(100deg, transparent 20%, rgba(110,72,48,0.03) 40%, transparent 60%),
       linear-gradient(180deg, #2a2622 0%, #252320 30%, #222020 60%, #1f1e1d 100%);
+  }
+}
+
+/* Safari backdrop-filter support */
+@supports (-webkit-backdrop-filter: blur(1px)) {
+  .backdrop-blur-xl {
+    -webkit-backdrop-filter: blur(24px);
+  }
+}
+
+/* Fallback for browsers without backdrop-filter */
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  .backdrop-blur-xl {
+    background-color: rgba(17,17,19,0.98) !important;
   }
 }
 
