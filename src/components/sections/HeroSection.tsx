@@ -64,6 +64,12 @@ export function HeroSection() {
         background: "linear-gradient(180deg, #111113 0%, #151517 30%, #1a1a1c 60%, #1e1e22 100%)"
       }} />
 
+      {/* Engineering grid overlay - desktop only */}
+      <div className="absolute inset-0 hidden lg:block pointer-events-none opacity-[0.025]" style={{
+        backgroundImage: "linear-gradient(rgba(196,149,106,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(196,149,106,0.4) 1px, transparent 1px)",
+        backgroundSize: "80px 80px",
+      }} />
+
       {/* Subtle warm glow from below */}
       <div className="absolute bottom-0 inset-x-0 h-1/3" style={{
         background: "radial-gradient(ellipse 70% 50% at 50% 100%, rgba(196,149,106,0.04) 0%, transparent 70%)"
