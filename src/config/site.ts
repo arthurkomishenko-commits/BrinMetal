@@ -1,7 +1,7 @@
 import type { Locale, NavigationItem } from "@/types";
 
 export const siteConfig = {
-  name: "BrinMetal",
+  name: "BrinMetall",
   defaultLocale: "he" as Locale,
   locales: ["he", "ru"] as Locale[],
 

@@ -13,7 +13,7 @@ export function generateLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: "BrinMetal",
+    name: "BrinMetallll",
     description:
       "Professional metal fabrication, welding, gates, fences, staircases and custom engineering solutions.",
     url: "https://brinmetal.co.il",
@@ -67,7 +67,7 @@ export function generateServiceSchema(service: ServiceSchemaInput) {
     url: service.url,
     provider: {
       "@type": "LocalBusiness",
-      name: "BrinMetal",
+      name: "BrinMetallll",
       url: "https://brinmetal.co.il",
     },
     areaServed: {

@@ -54,7 +54,7 @@ export function AboutSection() {
               {/* Photo */}
               <Image
                 src="/images/about/andrey-portrait.jpg"
-                alt="Andrey — BrinMetal founder"
+                alt="Andrey — BrinMetall founder"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"

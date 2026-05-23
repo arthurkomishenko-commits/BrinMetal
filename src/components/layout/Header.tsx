@@ -110,7 +110,7 @@ export function Header() {
           {/* Logo */}
           <Link href={`/${locale}`} className="relative z-50 group" onClick={() => mobileOpen && closeMobile()}>
             <span className="text-lg sm:text-xl md:text-2xl font-bold tracking-[-0.02em] text-[var(--off-white)] transition-colors duration-300 group-hover:text-[var(--copper)]">BRIN</span>
-            <span className="text-lg sm:text-xl md:text-2xl font-bold tracking-[-0.02em] text-[var(--copper)] transition-colors duration-300 group-hover:text-[var(--off-white)]">METAL</span>
+            <span className="text-lg sm:text-xl md:text-2xl font-bold tracking-[-0.02em] text-[var(--copper)] transition-colors duration-300 group-hover:text-[var(--off-white)]">METALL</span>
           </Link>
 
           {/* Desktop Navigation */}

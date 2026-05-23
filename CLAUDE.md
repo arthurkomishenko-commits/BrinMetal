@@ -1,7 +1,7 @@
-# BrinMetal - Development Instructions
+# BrinMetall - Development Instructions
 
 ## Project Overview
-Premium industrial website for BrinMetal metal fabrication company. Next.js App Router + TypeScript + Tailwind + GSAP + next-intl.
+Premium industrial website for BrinMetall metal fabrication company. Next.js App Router + TypeScript + Tailwind + GSAP + next-intl.
 
 ## Critical Rules
 

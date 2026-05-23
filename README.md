@@ -1,10 +1,10 @@
-# BrinMetal
+# BrinMetall
 
 Premium industrial engineering website for a metal fabrication company based in Israel (Netanya area).
 
 ## About
 
-BrinMetal specializes in heavy metal structures, structural reinforcement, gates, fences, custom staircases, architectural metal fabrication, emergency metal works, and custom engineering solutions. 20+ years of professional experience.
+BrinMetall specializes in heavy metal structures, structural reinforcement, gates, fences, custom staircases, architectural metal fabrication, emergency metal works, and custom engineering solutions. 20+ years of professional experience.
 
 ## Tech Stack
 
