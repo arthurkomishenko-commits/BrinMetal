@@ -78,7 +78,7 @@ export function HeroSection() {
       {/* Content */}
       <div className="container-wide relative z-10 pt-20 sm:pt-24 md:pt-32 pb-20 sm:pb-24">
         {/* Engineering coordinates */}
-        <div className="hidden lg:flex items-center gap-3 mb-6 opacity-20">
+        <div className="hidden lg:flex items-center gap-3 mb-6 opacity-45">
           <span className="eng-label">REF: 32.32°N 34.85°E</span>
           <div className="w-8 h-[1px] bg-[var(--copper)]/30" />
           <span className="eng-label">EST. 2004</span>

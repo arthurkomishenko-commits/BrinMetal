@@ -34,7 +34,7 @@ export function AboutSection() {
             </div>
 
             {/* Certification */}
-            <div data-assemble="up" data-assemble-delay="5" className="mt-6 flex items-center gap-3 opacity-25">
+            <div data-assemble="up" data-assemble-delay="5" className="mt-6 flex items-center gap-3 opacity-40">
               <div className="w-6 h-[1px] bg-[var(--copper)]" />
               <span className="eng-label tracking-[0.12em]">ISO 9001 | IL-STD-2004</span>
             </div>
@@ -58,14 +58,14 @@ export function AboutSection() {
               <div className="absolute bottom-3 end-3 sm:bottom-4 sm:end-4 w-4 h-4 border-b border-e border-[var(--copper)]/20" />
 
               <div className="text-center">
-                <span className="eng-label tracking-[0.3em] opacity-30">WORKSHOP</span>
+                <span className="eng-label tracking-[0.3em] opacity-50">WORKSHOP</span>
                 <div className="mt-2 w-8 h-[1px] bg-[var(--copper)]/20 mx-auto" />
-                <span className="block mt-2 eng-label tracking-[0.15em] opacity-15">IMG_PLACEHOLDER</span>
+                <span className="block mt-2 eng-label tracking-[0.15em] opacity-40">IMG_PLACEHOLDER</span>
               </div>
 
               {/* Engineering label */}
               <div className="absolute bottom-3 start-3 sm:bottom-4 sm:start-4">
-                <span className="eng-label opacity-15">REF: BM-WS-001</span>
+                <span className="eng-label opacity-40">REF: BM-WS-001</span>
               </div>
             </div>
           </div>

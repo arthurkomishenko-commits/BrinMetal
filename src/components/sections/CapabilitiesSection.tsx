@@ -25,7 +25,7 @@ export function CapabilitiesSection() {
             <div data-assemble="line" data-assemble-delay="2" className="mt-5 sm:mt-6 w-12 sm:w-16 h-[2px] bg-[var(--copper)] origin-start accent-line-shimmer" />
           </div>
           <div data-assemble="right" data-assemble-delay="2" className="hidden lg:block">
-            <span className="eng-label opacity-20">8 DISCIPLINES | FULL SPECTRUM</span>
+            <span className="eng-label opacity-45">8 DISCIPLINES | FULL SPECTRUM</span>
           </div>
         </div>
 
@@ -47,7 +47,7 @@ export function CapabilitiesSection() {
               >
                 {/* Service number */}
                 <div className="absolute top-4 end-4">
-                  <span className="eng-label opacity-15">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="eng-label opacity-40">{String(i + 1).padStart(2, "0")}</span>
                 </div>
 
                 <div className="w-11 h-11 flex items-center justify-center mb-5 border border-white/[0.04] bg-white/[0.015]">

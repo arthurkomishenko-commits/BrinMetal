@@ -133,10 +133,10 @@
   /* === SERIAL MARK — engineering label === */
   .serial-mark {
     font-family: var(--font-inter), monospace;
-    letter-spacing: 0.2em;
-    font-size: 10px;
+    letter-spacing: 0.15em;
+    font-size: 11px;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.18);
+    color: rgba(255,255,255,0.45);
     user-select: none;
   }
 
@@ -148,13 +148,13 @@
       0 -1px 0 rgba(255,255,255,0.03);
   }
 
-  /* === ENG LABEL — tiny engineering text === */
+  /* === ENG LABEL — engineering text === */
   .eng-label {
     font-family: var(--font-inter), monospace;
-    font-size: 9px;
-    letter-spacing: 0.12em;
+    font-size: 11px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba(138, 141, 147, 0.3);
+    color: rgba(138, 141, 147, 0.5);
     user-select: none;
   }
 

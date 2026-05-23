@@ -42,7 +42,7 @@ export function PrecisionSection() {
               <span className="block mt-3 serial-mark text-[var(--titanium)]">{t(`metric_${metric.key}` as "metric_years")}</span>
               {/* Engineering corner mark */}
               <div className="absolute top-3 end-3 hidden sm:block">
-                <span className="eng-label opacity-20">M-{String(i + 1).padStart(2, "0")}</span>
+                <span className="eng-label opacity-45">M-{String(i + 1).padStart(2, "0")}</span>
               </div>
             </div>
           ))}
@@ -50,7 +50,7 @@ export function PrecisionSection() {
 
         {/* Bottom engineering note */}
         <div data-assemble="up" data-assemble-delay="8" className="mt-8 text-center">
-          <span className="eng-label opacity-20">TOLERANCE VERIFIED | QUALITY ASSURED | ISRAELI STANDARD</span>
+          <span className="eng-label opacity-45">TOLERANCE VERIFIED | QUALITY ASSURED | ISRAELI STANDARD</span>
         </div>
       </div>
     </AssembleSection>
