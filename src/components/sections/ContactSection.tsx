@@ -68,7 +68,28 @@ export function ContactSection() {
             <h2 data-assemble="up" data-assemble-delay="1" className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em] text-[var(--off-white)] text-stamped">{t("title")}</h2>
             <div data-assemble="line" data-assemble-delay="2" className="mt-5 sm:mt-6 w-12 sm:w-16 h-[2px] bg-[var(--copper)] origin-start accent-line-shimmer" />
 
-            <div data-assemble="up" data-assemble-delay="3" className="mt-8 sm:mt-10 flex flex-col gap-4">
+            {/* WhatsApp primary CTA -- mobile prominent */}
+            <div data-assemble="up" data-assemble-delay="3" className="mt-8 lg:hidden">
+              <a
+                href={siteConfig.social.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-3 w-full py-4 bg-[#25D366] text-white text-lg font-semibold active:bg-[#20BD5A] min-h-[56px]"
+              >
+                <MessageCircle size={22} />
+                WhatsApp
+              </a>
+              <a
+                href={`tel:${siteConfig.contact.phone}`}
+                className="flex items-center justify-center gap-3 w-full py-3.5 mt-3 border border-[var(--copper)] text-[var(--copper)] text-base font-semibold active:bg-[var(--copper)]/10 min-h-[52px]"
+                dir="ltr"
+              >
+                <Phone size={18} />
+                {siteConfig.contact.phone}
+              </a>
+            </div>
+
+            <div data-assemble="up" data-assemble-delay="4" className="mt-6 sm:mt-8 flex flex-col gap-4">
               {CONTACT_ITEMS.map((item, i) => {
                 const Icon = item.icon;
                 const value = item.getValue?.(locale) ?? "";

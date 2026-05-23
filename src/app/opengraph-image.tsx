@@ -58,7 +58,7 @@ export default async function Image() {
               letterSpacing: "0.08em",
             }}
           >
-            METAL
+            METALL
           </span>
         </div>
 

@@ -17,7 +17,7 @@ export function generateLocalBusinessSchema() {
     description:
       "Professional metal fabrication, welding, gates, fences, staircases and custom engineering solutions.",
     url: "https://brinmetall.vercel.app",
-    telephone: "+972-00-000-0000",
+    telephone: "+972-55-972-2255",
     email: "info@brinmetal.co.il",
     address: {
       "@type": "PostalAddress",

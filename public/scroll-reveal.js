@@ -1,4 +1,4 @@
-// BrinMetal scroll reveal -- heavy industrial animations
+// BrinMetall scroll reveal -- heavy industrial animations
 // Vanilla JS, zero dependencies, works on all devices
 
 // Wait for React hydration to complete before modifying DOM

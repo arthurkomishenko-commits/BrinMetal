@@ -53,7 +53,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="container-wide pt-10 pb-6 sm:pt-14 sm:pb-8 md:pt-16 md:pb-10">
+      <div className="container-wide pt-10 pb-24 sm:pt-14 sm:pb-8 md:pt-16 md:pb-10 lg:pb-10">
         <RevealOnScroll>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8 sm:gap-10 md:gap-8">
             {/* Brand */}
