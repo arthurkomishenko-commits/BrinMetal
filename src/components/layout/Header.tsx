@@ -122,7 +122,7 @@ export function Header() {
                   key={item.key}
                   onClick={() => handleNavClick(item.href)}
                   className={cn(
-                    "relative px-4 py-2 text-[13px] uppercase tracking-[0.08em] font-medium transition-colors duration-300",
+                    "relative px-4 py-2 text-sm uppercase tracking-[0.08em] font-medium transition-colors duration-300",
                     isActive ? "text-[var(--off-white)]" : "text-[var(--titanium)] hover:text-[var(--off-white)]"
                   )}
                 >
@@ -137,14 +137,14 @@ export function Header() {
 
             <div className="w-[1px] h-5 bg-white/10 mx-3" />
 
-            <Link href={`/${alternateLocale}`} className="px-3 py-1.5 text-[12px] uppercase tracking-[0.1em] font-medium text-[var(--titanium)] border border-white/10 hover:border-[var(--copper)] hover:text-[var(--copper)] transition-all duration-300">
+            <Link href={`/${alternateLocale}`} className="px-3 py-1.5 text-sm uppercase tracking-[0.1em] font-medium text-[var(--titanium)] border border-white/10 hover:border-[var(--copper)] hover:text-[var(--copper)] transition-all duration-300">
               {alternateLabel}
             </Link>
 
             <Link
               href={`/${locale}#contact`}
               onClick={(e) => { e.preventDefault(); handleNavClick("#contact"); }}
-              className="ms-4 px-6 py-2.5 text-[12px] uppercase tracking-[0.1em] font-semibold bg-[var(--copper)] text-[var(--graphite)] hover:bg-[var(--copper)]/90 transition-all duration-300"
+              className="ms-4 px-6 py-2.5 text-sm uppercase tracking-[0.1em] font-semibold bg-[var(--copper)] text-[var(--graphite)] hover:bg-[var(--copper)]/90 transition-all duration-300"
             >
               {t("contact")}
             </Link>

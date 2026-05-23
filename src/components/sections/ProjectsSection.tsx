@@ -34,7 +34,7 @@ export function ProjectsSection() {
                 <Image src={project.image} alt={project.alt} fill className="object-cover transition-all duration-700 brightness-[0.35] md:group-hover:brightness-[0.65] md:group-hover:scale-105" sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw" unoptimized />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                 <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5">
-                  <span className="serial-mark text-[var(--copper)] text-[11px]">{project.category}</span>
+                  <span className="serial-mark text-[var(--copper)] text-sm">{project.category}</span>
                   {isLarge && (
                     <h3 className="mt-2 text-lg sm:text-xl md:text-2xl font-bold text-[var(--off-white)] text-stamped tracking-[-0.01em]">
                       {t(project.titleKey)}
@@ -48,7 +48,7 @@ export function ProjectsSection() {
 
         {/* View All Projects link */}
         <div data-assemble="up" data-assemble-delay="8" className="mt-10 sm:mt-14 flex justify-center">
-          <a href="#contact" className="group inline-flex items-center gap-3 text-[var(--copper)] text-xs sm:text-sm uppercase tracking-[0.12em] font-semibold transition-colors duration-300 active:opacity-70 md:hover:text-[var(--off-white)]">
+          <a href="#contact" className="group inline-flex items-center gap-3 text-[var(--copper)] text-sm uppercase tracking-[0.12em] font-semibold transition-colors duration-300 active:opacity-70 md:hover:text-[var(--off-white)]">
             <span>{t("viewAll")}</span>
             <div className="w-8 h-[1px] bg-current transition-all duration-300 md:group-hover:w-12" />
           </a>

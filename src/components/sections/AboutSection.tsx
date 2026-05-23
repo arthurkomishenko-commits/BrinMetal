@@ -29,7 +29,7 @@ export function AboutSection() {
               {STATS.map((stat) => (
                 <div key={stat.key} className="text-center sm:text-start">
                   <span className="block text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--copper)] tracking-tight text-stamped">{stat.value}</span>
-                  <span className="block mt-1 text-xs text-[var(--titanium)] uppercase tracking-[0.1em]">{t(stat.key)}</span>
+                  <span className="block mt-1 text-sm text-[var(--titanium)] uppercase tracking-[0.1em]">{t(stat.key)}</span>
                 </div>
               ))}
             </div>

@@ -50,7 +50,7 @@ export function WorkshopSection() {
               {/* Thin copper line */}
               <div className="w-8 h-[1px] bg-[var(--copper)]/30 mb-4" />
               <h3 className="text-base sm:text-lg font-semibold text-[var(--off-white)] mb-1.5">{t(`${step.key}.title` as "step1.title")}</h3>
-              <p className="text-xs sm:text-sm text-[var(--titanium)] leading-relaxed">{t(`${step.key}.description` as "step1.description")}</p>
+              <p className="text-sm text-[var(--titanium)] leading-relaxed">{t(`${step.key}.description` as "step1.description")}</p>
             </div>
           ))}
         </div>

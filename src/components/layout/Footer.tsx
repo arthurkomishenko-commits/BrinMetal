@@ -40,7 +40,7 @@ export function Footer() {
       {/* Engineering tagline bar */}
       <div className="border-b border-white/[0.04]">
         <div className="container-wide py-4 sm:py-5 flex items-center justify-between">
-          <span className="eng-label text-[var(--warm-steel)] tracking-[0.15em] opacity-40 text-[9px] sm:text-[10px]">
+          <span className="eng-label text-[var(--warm-steel)] tracking-[0.15em] opacity-40 text-sm">
             STRUCTURAL ENGINEERING | METAL FABRICATION | EST. 2004
           </span>
           <button
@@ -66,7 +66,7 @@ export function Footer() {
                   METAL
                 </span>
               </div>
-              <p className="text-xs sm:text-sm text-[var(--titanium)] leading-relaxed max-w-xs">
+              <p className="text-sm text-[var(--titanium)] leading-relaxed max-w-xs">
                 {t("footer.tagline")}
               </p>
               <div className="mt-4 w-10 h-[1px] bg-[var(--copper)]/20" />
@@ -74,7 +74,7 @@ export function Footer() {
 
             {/* Navigation */}
             <div className="md:col-span-3">
-              <h4 className="text-[10px] sm:text-[11px] uppercase tracking-[0.15em] font-semibold text-[var(--warm-steel)] mb-3 sm:mb-5">
+              <h4 className="text-sm sm:text-sm uppercase tracking-[0.15em] font-semibold text-[var(--warm-steel)] mb-3 sm:mb-5">
                 {t("nav.home")}
               </h4>
               <nav className="flex flex-col gap-2 sm:gap-2.5">
@@ -82,7 +82,7 @@ export function Footer() {
                   <button
                     key={item.key}
                     onClick={() => handleNavClick(item.href)}
-                    className="text-xs sm:text-sm text-[var(--titanium)] active:text-[var(--off-white)] md:hover:text-[var(--off-white)] transition-colors duration-200 text-start min-h-[36px] sm:min-h-0 flex items-center"
+                    className="text-sm text-[var(--titanium)] active:text-[var(--off-white)] md:hover:text-[var(--off-white)] transition-colors duration-200 text-start min-h-[36px] sm:min-h-0 flex items-center"
                   >
                     {t(item.key)}
                   </button>
@@ -92,25 +92,25 @@ export function Footer() {
 
             {/* Contact */}
             <div className="md:col-span-5">
-              <h4 className="text-[10px] sm:text-[11px] uppercase tracking-[0.15em] font-semibold text-[var(--warm-steel)] mb-3 sm:mb-5">
+              <h4 className="text-sm sm:text-sm uppercase tracking-[0.15em] font-semibold text-[var(--warm-steel)] mb-3 sm:mb-5">
                 {t("contact.title")}
               </h4>
               <div className="flex flex-col gap-2.5 sm:gap-3">
                 <a
                   href={`tel:${siteConfig.contact.phone}`}
-                  className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm text-[var(--titanium)] active:text-[var(--off-white)] md:hover:text-[var(--off-white)] transition-colors min-h-[36px] sm:min-h-0"
+                  className="flex items-center gap-2.5 sm:gap-3 text-sm text-[var(--titanium)] active:text-[var(--off-white)] md:hover:text-[var(--off-white)] transition-colors min-h-[36px] sm:min-h-0"
                 >
                   <Phone size={13} className="text-[var(--copper)] shrink-0" />
                   <span dir="ltr">{siteConfig.contact.phone}</span>
                 </a>
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
-                  className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm text-[var(--titanium)] active:text-[var(--off-white)] md:hover:text-[var(--off-white)] transition-colors min-h-[36px] sm:min-h-0"
+                  className="flex items-center gap-2.5 sm:gap-3 text-sm text-[var(--titanium)] active:text-[var(--off-white)] md:hover:text-[var(--off-white)] transition-colors min-h-[36px] sm:min-h-0"
                 >
                   <Mail size={13} className="text-[var(--copper)] shrink-0" />
                   {siteConfig.contact.email}
                 </a>
-                <div className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm text-[var(--titanium)]">
+                <div className="flex items-center gap-2.5 sm:gap-3 text-sm text-[var(--titanium)]">
                   <MapPin size={13} className="text-[var(--copper)] shrink-0" />
                   {siteConfig.contact.address[locale]}
                 </div>
@@ -122,7 +122,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="mt-10 sm:mt-14 pt-5 sm:pt-6 border-t border-white/[0.06]">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
-            <p className="text-[10px] sm:text-xs text-[var(--titanium)]/60">
+            <p className="text-sm sm:text-sm text-[var(--titanium)]/60">
               &copy; {year} {siteConfig.name}. {t("footer.rights")}
             </p>
             <div className="flex items-center gap-4 sm:gap-5">
@@ -131,7 +131,7 @@ export function Footer() {
                   href={siteConfig.social.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[10px] sm:text-xs text-[var(--titanium)]/60 active:text-[var(--copper)] md:hover:text-[var(--copper)] transition-colors duration-300 min-h-[36px] sm:min-h-0 flex items-center"
+                  className="text-sm sm:text-sm text-[var(--titanium)]/60 active:text-[var(--copper)] md:hover:text-[var(--copper)] transition-colors duration-300 min-h-[36px] sm:min-h-0 flex items-center"
                 >
                   WhatsApp
                 </a>
@@ -141,7 +141,7 @@ export function Footer() {
                   href={siteConfig.social.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[10px] sm:text-xs text-[var(--titanium)]/60 active:text-[var(--copper)] md:hover:text-[var(--copper)] transition-colors duration-300 min-h-[36px] sm:min-h-0 flex items-center"
+                  className="text-sm sm:text-sm text-[var(--titanium)]/60 active:text-[var(--copper)] md:hover:text-[var(--copper)] transition-colors duration-300 min-h-[36px] sm:min-h-0 flex items-center"
                 >
                   Facebook
                 </a>
@@ -151,7 +151,7 @@ export function Footer() {
                   href={siteConfig.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[10px] sm:text-xs text-[var(--titanium)]/60 active:text-[var(--copper)] md:hover:text-[var(--copper)] transition-colors duration-300 min-h-[36px] sm:min-h-0 flex items-center"
+                  className="text-sm sm:text-sm text-[var(--titanium)]/60 active:text-[var(--copper)] md:hover:text-[var(--copper)] transition-colors duration-300 min-h-[36px] sm:min-h-0 flex items-center"
                 >
                   Instagram
                 </a>

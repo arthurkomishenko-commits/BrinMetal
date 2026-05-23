@@ -120,7 +120,7 @@ export function ContactSection() {
                   data-cursor-accent
                   disabled={formState === "sending" || formState === "success"}
                   className={cn(
-                    "w-full py-3.5 text-[12px] sm:text-[13px] uppercase tracking-[0.1em] font-semibold transition-all duration-300 min-h-[48px]",
+                    "w-full py-3.5 text-sm sm:text-sm uppercase tracking-[0.1em] font-semibold transition-all duration-300 min-h-[48px]",
                     formState === "success" ? "bg-green-700/80 text-white" : "bg-[var(--copper)] text-[var(--graphite)] active:bg-[var(--copper)]/80 md:hover:bg-[var(--copper)]/90",
                     "disabled:opacity-70"
                   )}
