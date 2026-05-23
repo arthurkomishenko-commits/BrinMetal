@@ -29,7 +29,7 @@ export function ProjectsSection() {
             return (
               <div key={project.id} data-assemble="scale" data-assemble-delay={`${3 + i}`} className={cn(project.aspect, "group relative overflow-hidden pressure-hover cursor-pointer")} style={{
                 border: "1px solid rgba(255,255,255,0.04)",
-                boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
+                boxShadow: "0 4px 24px rgba(0,0,0,0.4)",
               }}>
                 <Image src={project.image} alt={project.alt} fill className="object-cover transition-all duration-700 brightness-[0.35] md:group-hover:brightness-[0.65] md:group-hover:scale-105" sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw" unoptimized />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />

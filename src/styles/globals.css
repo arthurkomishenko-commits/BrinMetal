@@ -74,13 +74,14 @@
     pointer-events: none;
     z-index: 9999;
     background-image:
-      repeating-linear-gradient(90deg, transparent 0px, rgba(255,255,255,0.03) 1px, transparent 2px, transparent 4px),
-      repeating-linear-gradient(87deg, transparent 0px, rgba(255,255,255,0.02) 1px, transparent 2px, transparent 7px),
-      repeating-linear-gradient(93deg, transparent 0px, rgba(255,255,255,0.015) 1px, transparent 2px, transparent 11px),
-      linear-gradient(125deg, transparent 42%, rgba(255,255,255,0.02) 42.3%, transparent 42.6%),
-      linear-gradient(118deg, transparent 58%, rgba(255,255,255,0.015) 58.2%, transparent 58.4%),
-      linear-gradient(135deg, transparent 25%, rgba(255,255,255,0.01) 25.15%, transparent 25.3%),
-      linear-gradient(122deg, transparent 70%, rgba(255,255,255,0.02) 70.3%, transparent 70.6%);
+      repeating-linear-gradient(90deg, transparent 0px, rgba(255,255,255,0.05) 1px, transparent 2px, transparent 4px),
+      repeating-linear-gradient(87deg, transparent 0px, rgba(255,255,255,0.035) 1px, transparent 2px, transparent 6px),
+      repeating-linear-gradient(93deg, transparent 0px, rgba(255,255,255,0.025) 1px, transparent 2px, transparent 9px),
+      linear-gradient(125deg, transparent 42%, rgba(255,255,255,0.04) 42.3%, transparent 42.6%),
+      linear-gradient(118deg, transparent 58%, rgba(255,255,255,0.03) 58.2%, transparent 58.4%),
+      linear-gradient(135deg, transparent 25%, rgba(255,255,255,0.025) 25.15%, transparent 25.3%),
+      linear-gradient(122deg, transparent 70%, rgba(255,255,255,0.035) 70.3%, transparent 70.6%),
+      linear-gradient(110deg, transparent 35%, rgba(255,255,255,0.02) 35.2%, transparent 35.4%);
   }
 
   /* Selection styling */

@@ -47,7 +47,7 @@ export function AboutSection() {
               className="relative w-full aspect-[4/3] lg:aspect-[3/4] flex items-center justify-center"
               style={{
                 background: "linear-gradient(180deg, rgba(255,255,255,0.01) 0%, rgba(0,0,0,0.05) 100%)",
-                border: "1px solid rgba(255,255,255,0.06)",
+                border: "1px solid rgba(255,255,255,0.08)",
                 boxShadow: "0 8px 30px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.02)",
               }}
             >

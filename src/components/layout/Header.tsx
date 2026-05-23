@@ -150,16 +150,24 @@ export function Header() {
             </Link>
           </nav>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile: language + hamburger */}
+          <div className="flex lg:hidden items-center gap-2">
+            <Link
+              href={`/${alternateLocale}`}
+              className="relative z-50 px-3 py-1.5 text-base uppercase tracking-[0.08em] font-medium text-[var(--titanium)] border border-white/10 active:border-[var(--copper)] active:text-[var(--copper)] min-h-[40px] flex items-center"
+            >
+              {alternateLabel}
+            </Link>
           <button
             onClick={() => (mobileOpen ? closeMobile() : setMobileOpen(true))}
-            className="relative z-50 lg:hidden flex flex-col justify-center items-center w-11 h-11 -me-1"
+            className="relative z-50 flex flex-col justify-center items-center w-11 h-11"
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
           >
             <span className={cn("block w-5 sm:w-6 h-[1.5px] bg-[var(--off-white)] transition-all duration-300 ease-[cubic-bezier(0.77,0,0.18,1)]", mobileOpen ? "rotate-45 translate-y-[3px]" : "translate-y-[-3px]")} />
             <span className={cn("block w-5 sm:w-6 h-[1.5px] bg-[var(--off-white)] transition-all duration-300 ease-[cubic-bezier(0.77,0,0.18,1)]", mobileOpen ? "-rotate-45 -translate-y-[0px]" : "translate-y-[3px]")} />
           </button>
+          </div>
         </div>
       </header>
 
