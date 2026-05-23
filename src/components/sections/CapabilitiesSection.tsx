@@ -25,7 +25,7 @@ export function CapabilitiesSection() {
             <div data-assemble="line" data-assemble-delay="2" className="mt-5 sm:mt-6 w-12 sm:w-16 h-[2px] bg-[var(--copper)] origin-start accent-line-shimmer" />
           </div>
           <div data-assemble="right" data-assemble-delay="2" className="hidden lg:block">
-            <span className="eng-label">8 DISCIPLINES | FULL SPECTRUM</span>
+            <span className="eng-label">{t("labels.disciplines" as "title")}</span>
           </div>
         </div>
 

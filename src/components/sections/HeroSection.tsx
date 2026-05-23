@@ -56,8 +56,8 @@ export function HeroSection() {
       {/* Content -- split layout on desktop, stacked on mobile */}
       <div className="container-wide relative z-10 py-20 sm:py-24 lg:py-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Left -- text + CTA */}
-          <div className="order-2 lg:order-1">
+          {/* Text + CTA */}
+          <div>
             {/* Logo compact */}
             <div data-hero-logo className="mb-6 sm:mb-8">
               <Image
@@ -103,16 +103,16 @@ export function HeroSection() {
 
             {/* Micro trust */}
             <div data-hero-trust className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-[var(--titanium)]">
-              <span className="eng-label">20+ YEARS</span>
+              <span className="eng-label">{t("labels.years" as "title")}</span>
               <span className="text-[var(--copper)]">/</span>
-              <span className="eng-label">500+ PROJECTS</span>
+              <span className="eng-label">{t("labels.projects" as "title")}</span>
               <span className="text-[var(--copper)]">/</span>
-              <span className="eng-label">NETANYA</span>
+              <span className="eng-label">{t("labels.location" as "title")}</span>
             </div>
           </div>
 
-          {/* Right -- visual */}
-          <div className="order-1 lg:order-2 relative">
+          {/* Visual */}
+          <div className="relative">
             <div className="relative aspect-[4/3] lg:aspect-[3/4] overflow-hidden" style={{
               border: "1px solid rgba(255,255,255,0.04)",
               boxShadow: "0 8px 40px rgba(0,0,0,0.5)",

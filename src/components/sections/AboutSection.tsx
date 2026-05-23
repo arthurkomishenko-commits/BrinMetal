@@ -63,7 +63,7 @@ export function AboutSection() {
 
               {/* Label */}
               <div className="absolute bottom-3 start-3 sm:bottom-4 sm:start-4">
-                <span className="eng-label text-white/60">ANDREY | FOUNDER</span>
+                <span className="eng-label text-white/60">{t("labels.founder" as "title")}</span>
               </div>
             </div>
           </div>

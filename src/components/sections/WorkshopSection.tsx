@@ -41,7 +41,7 @@ export function WorkshopSection() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
             <div className="absolute bottom-4 start-4">
-              <span className="eng-label text-white/70">FABRICATION IN PROGRESS</span>
+              <span className="eng-label text-white/70">{t("labels.fabrication" as "title")}</span>
             </div>
           </div>
         </div>
