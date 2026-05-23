@@ -58,7 +58,6 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html lang={locale} dir={dir} className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: `if(history.scrollRestoration)history.scrollRestoration="manual";` }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
@@ -75,7 +74,6 @@ export default async function LocaleLayout({ children, params }: Props) {
           <WhatsAppButton />
           <MobileCTA />
         </NextIntlClientProvider>
-        <script src="/scroll-reveal.js" defer />
       </body>
     </html>
   );
