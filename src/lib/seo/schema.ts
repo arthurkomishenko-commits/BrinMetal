@@ -1,14 +1,3 @@
-interface BreadcrumbItem {
-  name: string;
-  url: string;
-}
-
-interface ServiceSchemaInput {
-  name: string;
-  description: string;
-  url: string;
-}
-
 export function generateLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
@@ -45,7 +34,7 @@ export function generateLocalBusinessSchema() {
       },
     ],
     priceRange: "$$",
-    image: "https://brinmetall.vercel.app/images/og-image.jpg",
+    image: "https://brinmetall.vercel.app/opengraph-image",
     areaServed: {
       "@type": "GeoCircle",
       geoMidpoint: {
@@ -58,34 +47,3 @@ export function generateLocalBusinessSchema() {
   };
 }
 
-export function generateServiceSchema(service: ServiceSchemaInput) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: service.name,
-    description: service.description,
-    url: service.url,
-    provider: {
-      "@type": "LocalBusiness",
-      name: "BrinMetall",
-      url: "https://brinmetall.vercel.app",
-    },
-    areaServed: {
-      "@type": "Country",
-      name: "Israel",
-    },
-  };
-}
-
-export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: items.map((item, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: item.name,
-      item: item.url,
-    })),
-  };
-}

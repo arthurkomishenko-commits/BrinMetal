@@ -39,6 +39,14 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Invalid phone" }, { status: 400 });
     }
 
+    if (typeof message !== "string" || message.length > 5000) {
+      return NextResponse.json({ error: "Invalid message" }, { status: 400 });
+    }
+
+    if (email && (typeof email !== "string" || email.length > 200)) {
+      return NextResponse.json({ error: "Invalid email" }, { status: 400 });
+    }
+
     // For now: log to console (replace with Resend/email service later)
     console.log("=== NEW CONTACT FORM SUBMISSION ===");
     console.log(`Name: ${name}`);

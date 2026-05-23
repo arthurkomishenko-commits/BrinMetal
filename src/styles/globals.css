@@ -9,33 +9,6 @@
   --copper: #c4956a;
   --off-white: #f5f5f0;
 
-  --color-background: var(--graphite);
-  --color-foreground: var(--off-white);
-  --color-accent: var(--copper);
-  --color-muted: var(--titanium);
-  --color-surface: var(--gunmetal);
-
-  /* Steel material system */
-  --steel-dark: #1a1a1a;
-  --steel-base: #2a2d35;
-  --steel-mid: #3a3f46;
-  --steel-light: #565c66;
-  --cold-highlight: rgba(210,220,255,0.08);
-  --warm-oxidation: rgba(196,149,106,0.06);
-
-  --shadow-depth:
-    0 2px 4px rgba(0,0,0,0.35),
-    0 12px 32px rgba(0,0,0,0.42),
-    inset 0 1px 0 rgba(255,255,255,0.03),
-    inset 0 -1px 0 rgba(0,0,0,0.5);
-
-  --panel-depth:
-    inset 0 1px 0 rgba(255,255,255,0.05),
-    inset 0 -2px 4px rgba(0,0,0,0.6),
-    0 20px 40px rgba(0,0,0,0.45);
-
-  --steel-module-gradient:
-    linear-gradient(180deg, #3a3f46 0%, #2d3138 18%, #262a31 50%, #1f2329 100%);
 }
 
 @layer base {
@@ -118,8 +91,6 @@
   }
 }
 
-/* Scroll reveal: handled by public/scroll-reveal.js */
-
 /* Animated borders moved to metal-textures.css */
 
 @utility container-wide {
@@ -137,17 +108,6 @@
 }
 
 /* 3 section rhythm types */
-@utility section-massive {
-  min-height: 140vh;
-  min-height: 140svh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-block: 6rem;
-  @media (min-width: 768px) { padding-block: 8rem; }
-  @media (min-width: 1024px) { padding-block: 12rem; }
-}
-
 @utility section-standard {
   padding-block: clamp(4rem, 10vw, 8rem);
 }
@@ -162,35 +122,7 @@
   @media (min-width: 768px) { padding-block: 4rem; }
 }
 
-/* Legacy -- keep for compatibility */
-@utility section-padding {
-  padding-block: clamp(4rem, 10vw, 8rem);
-}
-
-@utility text-gradient-copper {
-  background-image: linear-gradient(to right, var(--copper), var(--warm-steel));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* Ambient glow keyframe (used by sections) */
-@keyframes glow-breathe {
-  0%, 100% { opacity: 0.03; }
-  50% { opacity: 0.07; }
-}
-
-@layer components {
-  /* Footer shimmer */
-  .footer-shimmer {
-    position: relative;
-    border-top: 1px solid rgba(255,255,255,0.04);
-  }
-}
-
-/* Heavy metal textures moved to metal-textures.css (lightweight) */
-
-/* Structural system in metal-textures.css */
+/* Footer shimmer defined in metal-textures.css */
 
 @layer components {
   /* Steel plate -- anisotropic light behavior */
@@ -248,17 +180,8 @@
     animation: none !important;
   }
 
-  .divider-shimmer::after,
   .accent-line-shimmer::after,
-  .footer-shimmer::after,
-  .border-glow::after {
+  .footer-shimmer::after {
     animation: none !important;
-  }
-
-  .text-gleam {
-    animation: none !important;
-    color: var(--off-white) !important;
-    background: none !important;
-    -webkit-text-fill-color: var(--off-white) !important;
   }
 }

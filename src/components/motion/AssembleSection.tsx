@@ -30,7 +30,7 @@ export function AssembleSection({
     const elements = section.querySelectorAll("[data-assemble]");
     if (!elements.length) return;
 
-    // Mobile: public/scroll-reveal.js handles animations
+    // Mobile: CSS transitions handle animations (no GSAP)
     if (isTouch) return;
 
     // Desktop: GSAP toggleActions (play once, reverse on leave -- NOT scrub)
