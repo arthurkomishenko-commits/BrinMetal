@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 const PROJECTS = [
   { id: 1, category: "structures", titleKey: "structure_title", aspect: "sm:col-span-2 sm:row-span-2", image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&h=700&fit=crop&q=80", alt: "Heavy metal structure" },
   { id: 2, category: "gates", titleKey: "gate_title", aspect: "", image: "https://images.unsplash.com/photo-1530639834082-05bafb67fbbe?w=600&h=400&fit=crop&q=80", alt: "Custom metal gate" },
-  { id: 3, category: "staircases", titleKey: "staircase_title", aspect: "", image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&h=400&fit=crop&q=80", alt: "Metal staircase" },
+  { id: 3, category: "staircases", titleKey: "staircase_title", aspect: "", image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop&q=80", alt: "Spiral metal staircase" },
   { id: 4, category: "fences", titleKey: "fence_title", aspect: "sm:col-span-2", image: "https://images.unsplash.com/photo-1597423244036-ef5020e83f3c?w=900&h=400&fit=crop&q=80", alt: "Architectural metal" },
 ] as const;
 
