@@ -134,9 +134,9 @@
   .serial-mark {
     font-family: var(--font-inter), monospace;
     letter-spacing: 0.15em;
-    font-size: 11px;
+    font-size: 12px;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.45);
+    color: var(--titanium);
     user-select: none;
   }
 
@@ -151,10 +151,10 @@
   /* === ENG LABEL — engineering text === */
   .eng-label {
     font-family: var(--font-inter), monospace;
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba(138, 141, 147, 0.5);
+    color: var(--titanium);
     user-select: none;
   }
 
